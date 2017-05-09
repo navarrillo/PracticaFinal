@@ -10,5 +10,9 @@
             <actionMapping>http://www.example.org/GestionUsuarios/crearUsuario</actionMapping>
             <outputActionMapping>http://www.example.org/GestionUsuarios/GestionUsuarios/crearUsuarioResponse</outputActionMapping>
         </operation>
+        <operation name="login" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionUsuarios/">
+            <actionMapping>http://www.example.org/GestionUsuarios/login</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionUsuarios/GestionUsuarios/loginResponse</outputActionMapping>
+        </operation>
     </service>
 </serviceGroup>

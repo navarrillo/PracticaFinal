@@ -20,7 +20,7 @@
         /* This type was generated from the piece of schema that had
                 name = Usuario
                 Namespace URI = http://www.example.org/GestionUsuarios/
-                Namespace Prefix = ns2
+                Namespace Prefix = ns1
                 */
             
 
@@ -169,6 +169,36 @@
                                public void setDireccion(java.lang.String param){
                             
                                             this.localDireccion=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Password
+                        */
+
+                        
+                                    protected java.lang.String localPassword ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getPassword(){
+                               return localPassword;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Password
+                               */
+                               public void setPassword(java.lang.String param){
+                            
+                                            this.localPassword=param;
                                        
 
                                }
@@ -323,6 +353,24 @@
                                     
                                    xmlWriter.writeEndElement();
                              
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "password", xmlWriter);
+                             
+
+                                          if (localPassword==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("password cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localPassword);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -330,7 +378,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/GestionUsuarios/")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -553,6 +601,15 @@
                                            throw new org.apache.axis2.databinding.ADBException("direccion cannot be null!!");
                                         }
                                     
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "password"));
+                                 
+                                        if (localPassword != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPassword));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("password cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -742,6 +799,31 @@
                                     java.lang.String content = reader.getElementText();
                                     
                                               object.setDireccion(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","password").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"password" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setPassword(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();

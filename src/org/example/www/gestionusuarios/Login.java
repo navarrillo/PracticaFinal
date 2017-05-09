@@ -1,6 +1,6 @@
 
 /**
- * CrearUsuarioResponse.java
+ * Login.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:18:31 BST)
@@ -11,45 +11,75 @@
             
 
             /**
-            *  CrearUsuarioResponse bean class
+            *  Login bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class CrearUsuarioResponse
+        public  class Login
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/GestionUsuarios/",
-                "crearUsuarioResponse",
+                "login",
                 "ns1");
 
             
 
                         /**
-                        * field for Salida
+                        * field for Email
                         */
 
                         
-                                    protected java.lang.String localSalida ;
+                                    protected java.lang.String localEmail ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getSalida(){
-                               return localSalida;
+                           public  java.lang.String getEmail(){
+                               return localEmail;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Salida
+                               * @param param Email
                                */
-                               public void setSalida(java.lang.String param){
+                               public void setEmail(java.lang.String param){
                             
-                                            this.localSalida=param;
+                                            this.localEmail=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Password
+                        */
+
+                        
+                                    protected java.lang.String localPassword ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getPassword(){
+                               return localPassword;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Password
+                               */
+                               public void setPassword(java.lang.String param){
+                            
+                                            this.localPassword=param;
                                        
 
                                }
@@ -103,11 +133,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.example.org/GestionUsuarios/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":crearUsuarioResponse",
+                           namespacePrefix+":login",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "crearUsuarioResponse",
+                           "login",
                            xmlWriter);
                    }
 
@@ -115,18 +145,36 @@
                    }
                
                                     namespace = "";
-                                    writeStartElement(null, namespace, "salida", xmlWriter);
+                                    writeStartElement(null, namespace, "email", xmlWriter);
                              
 
-                                          if (localSalida==null){
+                                          if (localEmail==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("salida cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("email cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localSalida);
+                                                   xmlWriter.writeCharacters(localEmail);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "password", xmlWriter);
+                             
+
+                                          if (localPassword==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("password cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localPassword);
                                             
                                           }
                                     
@@ -318,12 +366,21 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "salida"));
+                                                                      "email"));
                                  
-                                        if (localSalida != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localSalida));
+                                        if (localEmail != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEmail));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("salida cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("email cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "password"));
+                                 
+                                        if (localPassword != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPassword));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("password cannot be null!!");
                                         }
                                     
 
@@ -350,9 +407,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static CrearUsuarioResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            CrearUsuarioResponse object =
-                new CrearUsuarioResponse();
+        public static Login parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Login object =
+                new Login();
 
             int event;
             java.lang.String nillableValue = null;
@@ -376,10 +433,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"crearUsuarioResponse".equals(type)){
+                            if (!"login".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (CrearUsuarioResponse)org.example.www.gestionusuarios.ExtensionMapper.getTypeObject(
+                                return (Login)org.example.www.gestionusuarios.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -404,17 +461,42 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","salida").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","email").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"salida" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"email" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setSalida(
+                                              object.setEmail(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","password").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"password" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setPassword(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();

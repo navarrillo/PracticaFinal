@@ -39,21 +39,40 @@
 
             if("crearUsuario".equals(methodName)){
                 
-                org.example.www.gestionusuarios.CrearUsuarioResponse crearUsuarioResponse5 = null;
+                org.example.www.gestionusuarios.CrearUsuarioResponse crearUsuarioResponse9 = null;
 	                        org.example.www.gestionusuarios.CrearUsuario wrappedParam =
                                                              (org.example.www.gestionusuarios.CrearUsuario)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionusuarios.CrearUsuario.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               crearUsuarioResponse5 =
+                                               crearUsuarioResponse9 =
                                                    
                                                    
                                                          skel.crearUsuario(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), crearUsuarioResponse5, false, new javax.xml.namespace.QName("http://www.example.org/GestionUsuarios/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), crearUsuarioResponse9, false, new javax.xml.namespace.QName("http://www.example.org/GestionUsuarios/",
                                                     "crearUsuario"));
+                                    } else 
+
+            if("login".equals(methodName)){
+                
+                org.example.www.gestionusuarios.LoginResponse loginResponse11 = null;
+	                        org.example.www.gestionusuarios.Login wrappedParam =
+                                                             (org.example.www.gestionusuarios.Login)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.gestionusuarios.Login.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               loginResponse11 =
+                                                   
+                                                   
+                                                         skel.login(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), loginResponse11, false, new javax.xml.namespace.QName("http://www.example.org/GestionUsuarios/",
+                                                    "login"));
                                     
             } else {
               throw new java.lang.RuntimeException("method not found");
@@ -97,6 +116,34 @@
 
             }
         
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.gestionusuarios.Login param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.gestionusuarios.Login.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.gestionusuarios.LoginResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.gestionusuarios.LoginResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.gestionusuarios.CrearUsuarioResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -113,6 +160,25 @@
                     
                          private org.example.www.gestionusuarios.CrearUsuarioResponse wrapcrearUsuario(){
                                 org.example.www.gestionusuarios.CrearUsuarioResponse wrappedElement = new org.example.www.gestionusuarios.CrearUsuarioResponse();
+                                return wrappedElement;
+                         }
+                    
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.gestionusuarios.LoginResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.gestionusuarios.LoginResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.gestionusuarios.LoginResponse wraplogin(){
+                                org.example.www.gestionusuarios.LoginResponse wrappedElement = new org.example.www.gestionusuarios.LoginResponse();
                                 return wrappedElement;
                          }
                     
@@ -143,6 +209,20 @@
                 if (org.example.www.gestionusuarios.CrearUsuarioResponse.class.equals(type)){
                 
                         return org.example.www.gestionusuarios.CrearUsuarioResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.gestionusuarios.Login.class.equals(type)){
+                
+                        return org.example.www.gestionusuarios.Login.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.gestionusuarios.LoginResponse.class.equals(type)){
+                
+                        return org.example.www.gestionusuarios.LoginResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

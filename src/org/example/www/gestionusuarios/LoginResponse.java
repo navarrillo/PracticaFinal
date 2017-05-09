@@ -1,6 +1,6 @@
 
 /**
- * CrearUsuarioResponse.java
+ * LoginResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:18:31 BST)
@@ -11,45 +11,45 @@
             
 
             /**
-            *  CrearUsuarioResponse bean class
+            *  LoginResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class CrearUsuarioResponse
+        public  class LoginResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/GestionUsuarios/",
-                "crearUsuarioResponse",
+                "loginResponse",
                 "ns1");
 
             
 
                         /**
-                        * field for Salida
+                        * field for Result
                         */
 
                         
-                                    protected java.lang.String localSalida ;
+                                    protected boolean localResult ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String
+                           * @return boolean
                            */
-                           public  java.lang.String getSalida(){
-                               return localSalida;
+                           public  boolean getResult(){
+                               return localResult;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Salida
+                               * @param param Result
                                */
-                               public void setSalida(java.lang.String param){
+                               public void setResult(boolean param){
                             
-                                            this.localSalida=param;
+                                            this.localResult=param;
                                        
 
                                }
@@ -103,11 +103,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.example.org/GestionUsuarios/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":crearUsuarioResponse",
+                           namespacePrefix+":loginResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "crearUsuarioResponse",
+                           "loginResponse",
                            xmlWriter);
                    }
 
@@ -115,20 +115,15 @@
                    }
                
                                     namespace = "";
-                                    writeStartElement(null, namespace, "salida", xmlWriter);
+                                    writeStartElement(null, namespace, "result", xmlWriter);
                              
-
-                                          if (localSalida==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("salida cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localSalida);
-                                            
-                                          }
+                                               if (false) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("result cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResult));
+                                               }
                                     
                                    xmlWriter.writeEndElement();
                              
@@ -318,14 +313,11 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "salida"));
+                                                                      "result"));
                                  
-                                        if (localSalida != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localSalida));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("salida cannot be null!!");
-                                        }
-                                    
+                                elementList.add(
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResult));
+                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -350,9 +342,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static CrearUsuarioResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            CrearUsuarioResponse object =
-                new CrearUsuarioResponse();
+        public static LoginResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            LoginResponse object =
+                new LoginResponse();
 
             int event;
             java.lang.String nillableValue = null;
@@ -376,10 +368,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"crearUsuarioResponse".equals(type)){
+                            if (!"loginResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (CrearUsuarioResponse)org.example.www.gestionusuarios.ExtensionMapper.getTypeObject(
+                                return (LoginResponse)org.example.www.gestionusuarios.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -404,18 +396,18 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","salida").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","result").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"salida" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"result" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setSalida(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              object.setResult(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
                                               
                                         reader.next();
                                     
