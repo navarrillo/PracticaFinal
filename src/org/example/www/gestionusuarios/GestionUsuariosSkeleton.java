@@ -32,52 +32,56 @@ import com.mysql.jdbc.Statement;
                   org.example.www.gestionusuarios.CrearUsuario crearUsuario
                   )
             {
-                //Creacion de variable respuesta
-                CrearUsuarioResponse respuesta = new CrearUsuarioResponse();
-                
-                //Recogida de datos
-                Usuario user = crearUsuario.getCrearUsuario();
-                String dni = user.getDni();
-                String nombre = user.getNombre();
-                String telefono = user.getTelefono();
-                String email = user.getEmail();
-                String password = user.getPassword();
-                String direccion = user.getDireccion();
-                
-                //salida default
-                respuesta.setSalida("No se han recogido datos");
-                
-                //conexion a bbdd y negocio
-                try
-                {
-                   Class.forName("com.mysql.jdbc.Driver");
-                } catch (Exception e)
-                {
-                   e.printStackTrace();
-                } 
-                try{
-					Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost:3311/proyectoskibd","root", "root");
-					
-					// Preparamos la consulta
-	                Statement s = (Statement) conexion.createStatement();
-	                String consulta = "INSERT INTO usuarios(`dni`, `nombre`, `telefono`, `email`, `password`, `direccion`) VALUES ("+
-	                		"\""+dni+"\","+
-	                		"\""+nombre+"\","+
-	                		"\""+telefono+"\","+
-	                		"\""+email+"\","+
-	                		"\""+password+"\","+
-	                		"\""+direccion+"\")";
+                	//Creacion de variable respuesta
+                     CrearUsuarioResponse respuesta = new CrearUsuarioResponse();
+                     
+                     //Recogida de datos
+                     Usuario user = crearUsuario.getCrearUsuario();
+                     String dni = user.getDni();
+                     String nombre = user.getNombre();
+                     String telefono = user.getTelefono();
+                     String email = user.getEmail();
+                     String password = user.getPassword();
+                     String direccion = user.getDireccion();
+                     
+                     //salida default
+                     respuesta.setResultado(false);
+                     respuesta.setSalida("No se han recogido datos");
+                     
+                     //conexion a bbdd y negocio
+                     try
+                     {
+                        Class.forName("com.mysql.jdbc.Driver");
+                     } catch (Exception e)
+                     {
+                        e.printStackTrace();
+                     } 
+                     try{
+     					Connection conexion = (Connection) DriverManager.getConnection ("jdbc:mysql://localhost:3311/proyectoskibd","root", "root");
+     					
+     					// Preparamos la consulta
+     	                Statement s = (Statement) conexion.createStatement();
+     	                String consulta = "INSERT INTO usuarios(`dni`, `nombre`, `telefono`, `email`, `password`, `direccion`) VALUES ("+
+     	                		"\""+dni+"\","+
+     	                		"\""+nombre+"\","+
+     	                		"\""+telefono+"\","+
+     	                		"\""+email+"\","+
+     	                		"\""+password+"\","+
+     	                		"\""+direccion+"\")";
 
-	                Integer x = s.executeUpdate(consulta);
-	                respuesta.setSalida("Se ha registrado con éxito");
-	               
-                } catch(SQLException e){
-					// TODO Auto-generated catch block
-                	respuesta.setSalida("Error al registrar");
-					e.printStackTrace();
-				}
-                
-                return respuesta;
+     	                Integer x = s.executeUpdate(consulta);
+     	                respuesta.setResultado(true);
+     	                respuesta.setSalida("Se ha registrado con éxito");
+     	               
+                     } catch(SQLException e){
+     					// TODO Auto-generated catch block
+                    	 respuesta.setResultado(false);
+                     	respuesta.setSalida(e.toString());
+     					e.printStackTrace();
+     				}
+                     
+                     return respuesta;
+
         }
      
          
@@ -101,7 +105,8 @@ import com.mysql.jdbc.Statement;
                      String password = login.getPassword();
                      
                      //salida default
-                     respuesta.setResult(false);
+                     respuesta.setResultado(false);
+                     respuesta.setSalida("No se ha realizado el login todavía.");
                      
                    //conexion a bbdd y negocio
                      try
@@ -120,17 +125,20 @@ import com.mysql.jdbc.Statement;
      	                
      	               ResultSet rs = s.executeQuery (consulta);
     	                
-    	                if(rs.next())
-    	                	respuesta.setResult(true);
+    	                if(rs.next()){
+    	                	respuesta.setResultado(true);
+    	                	respuesta.setSalida("Usuario autenticado.");
+    	                }
      	               
                      } catch(SQLException e){
      					// TODO Auto-generated catch block
-                     	respuesta.setResult(false);
+                     	respuesta.setResultado(false);
+                     	respuesta.setSalida(e.toString());
      					e.printStackTrace();
      				}
                      
                      return respuesta;
-        }
+            }
      
     }
     

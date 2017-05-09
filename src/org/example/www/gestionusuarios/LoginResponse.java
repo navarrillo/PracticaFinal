@@ -26,30 +26,60 @@
             
 
                         /**
-                        * field for Result
+                        * field for Resultado
                         */
 
                         
-                                    protected boolean localResult ;
+                                    protected boolean localResultado ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return boolean
                            */
-                           public  boolean getResult(){
-                               return localResult;
+                           public  boolean getResultado(){
+                               return localResultado;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Result
+                               * @param param Resultado
                                */
-                               public void setResult(boolean param){
+                               public void setResultado(boolean param){
                             
-                                            this.localResult=param;
+                                            this.localResultado=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Salida
+                        */
+
+                        
+                                    protected java.lang.String localSalida ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getSalida(){
+                               return localSalida;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Salida
+                               */
+                               public void setSalida(java.lang.String param){
+                            
+                                            this.localSalida=param;
                                        
 
                                }
@@ -115,15 +145,33 @@
                    }
                
                                     namespace = "";
-                                    writeStartElement(null, namespace, "result", xmlWriter);
+                                    writeStartElement(null, namespace, "resultado", xmlWriter);
                              
                                                if (false) {
                                            
-                                                         throw new org.apache.axis2.databinding.ADBException("result cannot be null!!");
+                                                         throw new org.apache.axis2.databinding.ADBException("resultado cannot be null!!");
                                                       
                                                } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResult));
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResultado));
                                                }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "salida", xmlWriter);
+                             
+
+                                          if (localSalida==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("salida cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localSalida);
+                                            
+                                          }
                                     
                                    xmlWriter.writeEndElement();
                              
@@ -313,11 +361,20 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "result"));
+                                                                      "resultado"));
                                  
                                 elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResult));
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResultado));
                             
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "salida"));
+                                 
+                                        if (localSalida != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localSalida));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("salida cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -396,18 +453,43 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","result").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","resultado").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"result" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"resultado" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setResult(
+                                              object.setResultado(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","salida").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"salida" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setSalida(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
                                     
