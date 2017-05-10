@@ -16,7 +16,7 @@
     
       <xsd:complexType name="Reserva">
       	<xsd:sequence>
-      		<xsd:element name="id" type="xsd:int"/>
+
       		<xsd:element name="fechaEntrada" type="xsd:date"/>
       		<xsd:element name="fechaSalida" type="xsd:date"/>
       		<xsd:element name="nombreCliente" type="xsd:string"/>

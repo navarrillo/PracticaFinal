@@ -20,39 +20,9 @@
         /* This type was generated from the piece of schema that had
                 name = Reserva
                 Namespace URI = http://www.example.org/GestionReserva/
-                Namespace Prefix = ns2
+                Namespace Prefix = ns1
                 */
             
-
-                        /**
-                        * field for Id
-                        */
-
-                        
-                                    protected int localId ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return int
-                           */
-                           public  int getId(){
-                               return localId;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Id
-                               */
-                               public void setId(int param){
-                            
-                                            this.localId=param;
-                                       
-
-                               }
-                            
 
                         /**
                         * field for FechaEntrada
@@ -384,19 +354,6 @@
                    }
                
                                     namespace = "";
-                                    writeStartElement(null, namespace, "id", xmlWriter);
-                             
-                                               if (localId==java.lang.Integer.MIN_VALUE) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("id cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localId));
-                                               }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "";
                                     writeStartElement(null, namespace, "fechaEntrada", xmlWriter);
                              
 
@@ -540,7 +497,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/GestionReserva/")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -719,12 +676,6 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "id"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localId));
-                            
-                                      elementList.add(new javax.xml.namespace.QName("",
                                                                       "fechaEntrada"));
                                  
                                         if (localFechaEntrada != null){
@@ -865,31 +816,6 @@
                     
                     reader.next();
                 
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","id").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"id" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setId(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
