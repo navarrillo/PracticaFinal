@@ -2,32 +2,33 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ServiciosExternos/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiciosExternos" targetNamespace="http://www.example.org/ServiciosExternos/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://www.example.org/ServiciosExternos/">
-      <xsd:element name="NewOperation">
+      <xsd:element name="validarCIF">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="in" type="xsd:string"/>
+            <xsd:element name="cif" type="xsd:string"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="NewOperationResponse">
+      <xsd:element name="validarCIFResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="out" type="xsd:string"/>
+          	<xsd:element name="validacion" type="xsd:boolean" />
+          	<xsd:element name="error" type="xsd:string"></xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="NewOperationRequest">
-    <wsdl:part element="tns:NewOperation" name="parameters"/>
+  <wsdl:message name="validarCIFRequest">
+    <wsdl:part element="tns:validarCIF" name="parameters"/>
   </wsdl:message>
-  <wsdl:message name="NewOperationResponse">
-    <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
+  <wsdl:message name="validarCIFResponse">
+    <wsdl:part element="tns:validarCIFResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="ServiciosExternos">
-    <wsdl:operation name="NewOperation">
-      <wsdl:input message="tns:NewOperationRequest"/>
-      <wsdl:output message="tns:NewOperationResponse"/>
+    <wsdl:operation name="validarCIF">
+      <wsdl:input message="tns:validarCIFRequest"/>
+      <wsdl:output message="tns:validarCIFResponse"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiciosExternosSOAP"
@@ -35,10 +36,10 @@
 
   	<soap:binding style="document"
   		transport="http://schemas.xmlsoap.org/soap/http" />
-  	<wsdl:operation name="NewOperation">
+  	<wsdl:operation name="validarCIF">
 
   		<soap:operation
-  			soapAction="http://www.example.org/ServiciosExternos/NewOperation" />
+  			soapAction="http://www.example.org/ServiciosExternos/validarCIF" />
   		<wsdl:input>
 
   			<soap:body use="literal" />
