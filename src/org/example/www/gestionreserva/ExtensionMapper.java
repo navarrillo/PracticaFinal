@@ -31,6 +31,16 @@
                   }
 
               
+                  if (
+                  "http://www.example.org/GestionReserva/".equals(namespaceURI) &&
+                  "ReservaEdicion".equals(typeName)){
+                   
+                            return  org.example.www.gestionreserva.ReservaEdicion.Factory.parse(reader);
+                        
+
+                  }
+
+              
              throw new org.apache.axis2.databinding.ADBException("Unsupported type " + namespaceURI + " " + typeName);
           }
 

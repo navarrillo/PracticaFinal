@@ -110,21 +110,7 @@ import java.sql.*;
         }
      
          
-        /**
-         * Auto generated method signature
-         * 
-                                     * @param almacenarReserva 
-             * @return almacenarReservaResponse 
-         */
         
-                 public org.example.www.gestionreserva.AlmacenarReservaResponse almacenarReserva
-                  (
-                  org.example.www.gestionreserva.AlmacenarReserva almacenarReserva
-                  )
-            {
-                //TODO : fill this with the necessary business logic
-                throw new  java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#almacenarReserva");
-        }
      
          
         /**
@@ -292,15 +278,81 @@ import java.sql.*;
                   org.example.www.gestionreserva.EditarReserva editarReserva
                   )
             {
+                	 System.out.println("ENTRO AL METODO");
+                	 //Variable respuesta y datos iniciales
                 	 EditarReservaResponse respuesta = new EditarReservaResponse();
-                	 
-                	 Reserva reserva = editarReserva.getEditarReserva();
-            
-            
-                	 
                 	 respuesta.setResultado(false);
-                	 respuesta.setSalida("Todavia vacio");
-                	 return respuesta;
+                	 respuesta.setSalida("No se ha llegado a modificar");
+                	                 	 
+                	 
+                	 //variable de entrada y recogida de datos en subvariables
+                	 ReservaEdicion reserva = editarReserva.getEditarReserva();
+                	 System.out.println("antes id");
+                	 int id = reserva.getId();
+                	 System.out.println("despues id");
+               
+                	 Date fechaEntrada = reserva.getFechaEntrada();
+                	 System.out.println("aqui1");
+                	 Date fechaSalida =  reserva.getFechaSalida();
+                	 System.out.println("aqui2");
+                	 String nombreCliente = reserva.getNombreCliente();
+                	 String emailCliente = reserva.getEmailCliente();
+                	 int precio = reserva.getPrecio();
+                	 boolean ski = reserva.getSki();
+                	 boolean material = reserva.getMaterial();
+                	 boolean profesor = reserva.getProfesor();
+                	 boolean alojamiento = reserva.getAlojamiento();
+                	 
+                	 DateFormat outputFormatter = new SimpleDateFormat("yyyy/MM/dd");
+             	    String fechaEntradaFormateada = outputFormatter.format(fechaEntrada);
+             	   System.out.println("aqui3");
+             	    String fechaSalidaFormateada = outputFormatter.format(fechaSalida);
+             	   System.out.println("aqui4");
+                	 
+                	 //conexion a la bbdd y negocio
+                	 try
+                     {
+                		 Class.forName("com.mysql.jdbc.Driver").newInstance();
+                     } catch (Exception e)
+                     {
+                    	 System.out.println("ERROR1");
+                        e.printStackTrace();
+                     } 
+                     try{
+     					Connection conexion; 
+     					conexion = DriverManager.getConnection(
+      	           	            "jdbc:mysql://localhost:3311/proyectoskibd?"
+      	           	            + "user=root&password=root");
+     					// Preparamos la consulta
+     	                Statement s =  conexion.createStatement();
+     	                String consulta = "UPDATE reservas SET"
+     	                		+"`fechaEntrada` = \""+fechaEntradaFormateada+"\","
+     	                		+"`fechaSalida` = \""+fechaSalidaFormateada+"\","
+     	                		+"`nombreCliente` = \""+nombreCliente+"\","
+     	                		+"`emailCliente` = \""+emailCliente+"\","
+     	                		+"`precio` = \""+precio+"\","
+     	                		+"`ski` = \""+ski+"\","
+     	                		+"`material` = \""+material+"\","
+     	                		+"`profesor` = \""+profesor+"\","
+     	                		+"`alojamiento` = \""+alojamiento+"\""
+     	                		+" WHERE `id`=\""+id+"\"";
+     	                		
+     	                		
+
+     	                Integer x = s.executeUpdate(consulta);
+     	                respuesta.setResultado(true);
+     	                respuesta.setSalida("Se ha actualizado la reserva con éxito");
+     	               
+                     } catch(SQLException e){
+     					// TODO Auto-generated catch block
+                    	 System.out.println("ERROR2");
+                    	 respuesta.setResultado(false);
+                     	respuesta.setSalida(e.toString());
+     					e.printStackTrace();
+     					System.out.println("ERROR");
+     				}
+                     
+                     return respuesta;
             }
      
     }

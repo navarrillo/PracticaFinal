@@ -30,14 +30,14 @@
                         */
 
                         
-                                    protected org.example.www.gestionreserva.Reserva localEditarReserva ;
+                                    protected org.example.www.gestionreserva.ReservaEdicion localEditarReserva ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return org.example.www.gestionreserva.Reserva
+                           * @return org.example.www.gestionreserva.ReservaEdicion
                            */
-                           public  org.example.www.gestionreserva.Reserva getEditarReserva(){
+                           public  org.example.www.gestionreserva.ReservaEdicion getEditarReserva(){
                                return localEditarReserva;
                            }
 
@@ -47,7 +47,7 @@
                                * Auto generated setter method
                                * @param param EditarReserva
                                */
-                               public void setEditarReserva(org.example.www.gestionreserva.Reserva param){
+                               public void setEditarReserva(org.example.www.gestionreserva.ReservaEdicion param){
                             
                                             this.localEditarReserva=param;
                                        
@@ -323,7 +323,7 @@
                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.example.org/GestionReserva/","EditarReserva").equals(reader.getName())){
                                 
-                                                object.setEditarReserva(org.example.www.gestionreserva.Reserva.Factory.parse(reader));
+                                                object.setEditarReserva(org.example.www.gestionreserva.ReservaEdicion.Factory.parse(reader));
                                             
                               }  // End of if for expected property start element
                                 

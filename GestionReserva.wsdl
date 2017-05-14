@@ -27,7 +27,7 @@
       		<xsd:element name="alojamiento" type="xsd:boolean"></xsd:element>
       	</xsd:sequence>
       </xsd:complexType>
-      <xsd:element name="EditarReserva" type="tns:Reserva">
+      <xsd:element name="EditarReserva" type="tns:ReservaEdicion">
 
       </xsd:element>
       <xsd:element name="EditarReservaResponse">
@@ -79,6 +79,21 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+    
+      <xsd:complexType name="ReservaEdicion">
+      	<xsd:sequence>
+      		<xsd:element name="id" type="xsd:int"></xsd:element>
+      		<xsd:element name="fechaEntrada" type="xsd:date"></xsd:element>
+      		<xsd:element name="fechaSalida" type="xsd:date"></xsd:element>
+      		<xsd:element name="nombreCliente" type="xsd:string"></xsd:element>
+      		<xsd:element name="emailCliente" type="xsd:string"></xsd:element>
+      		<xsd:element name="precio" type="xsd:int"></xsd:element>
+      		<xsd:element name="ski" type="xsd:boolean"></xsd:element>
+      		<xsd:element name="material" type="xsd:boolean"></xsd:element>
+      		<xsd:element name="profesor" type="xsd:boolean"></xsd:element>
+      		<xsd:element name="alojamiento" type="xsd:boolean"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="CrearReservaRequest">
@@ -127,11 +142,7 @@
     <wsdl:operation name="EliminarReserva">
     	<wsdl:input message="tns:EliminarReservaRequest"></wsdl:input>
     	<wsdl:output message="tns:EliminarReservaResponse"></wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AlmacenarReserva">
-    	<wsdl:input message="tns:AlmacenarReservaRequest"></wsdl:input>
-    	<wsdl:output message="tns:AlmacenarReservaResponse"></wsdl:output>
-    </wsdl:operation>
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="GestionReservaSOAP" type="tns:GestionReserva">
 
@@ -189,19 +200,7 @@
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>
-  	<wsdl:operation name="AlmacenarReserva">
 
-  		<soap:operation
-  			soapAction="http://www.example.org/GestionReserva/AlmacenarReserva" />
-  		<wsdl:input>
-
-  			<soap:body use="literal" />
-  		</wsdl:input>
-  		<wsdl:output>
-
-  			<soap:body use="literal" />
-  		</wsdl:output>
-  	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="GestionReserva">
     <wsdl:port binding="tns:GestionReservaSOAP" name="GestionReservaSOAP">

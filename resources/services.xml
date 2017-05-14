@@ -10,10 +10,6 @@
             <actionMapping>http://www.example.org/GestionReserva/CrearReserva</actionMapping>
             <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/CrearReservaResponse</outputActionMapping>
         </operation>
-        <operation name="AlmacenarReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
-            <actionMapping>http://www.example.org/GestionReserva/AlmacenarReserva</actionMapping>
-            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/AlmacenarReservaResponse</outputActionMapping>
-        </operation>
         <operation name="LeerReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
             <actionMapping>http://www.example.org/GestionReserva/LeerReserva</actionMapping>
             <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/LeerReservaResponse</outputActionMapping>
