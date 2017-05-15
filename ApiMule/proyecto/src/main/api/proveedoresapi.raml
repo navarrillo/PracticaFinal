@@ -1,0 +1,62 @@
+#%RAML 1.0
+title: CRUD PROVEEDORES API
+version: v1.0
+baseUri: http://proveedores/api
+mediaType: application/json
+documentation:
+  - title: Crud de proveedores
+    content: |
+      Esta API permite editar, eliminar, crear y consultar 1 o varios proveedores.
+/crear:
+  post:
+    body:
+      example: |
+        {
+          "cif" : "ZX4102",
+          "nombre" : "Prov1",
+          "direccion" : "Av/ Juan Carlos I",
+          "telefono" : "0",
+          "Provincia" : "Alicante" 
+        }
+  
+/{cif}:
+  get:
+    responses:
+      200:
+        body:
+          example: |
+            {
+             
+            }
+
+/todos:
+   get:
+    responses:
+      200:
+        body:
+          example: |
+              {
+               
+              }
+
+/eliminar:
+   get:
+    responses:
+      200:
+        body:
+          example: |
+              {
+               
+              }
+
+/editar:
+  post:
+    body:
+      example: |
+        {
+          "cif" : "ZX4102",
+          "nombre" : "Prov1",
+          "direccion" : "Av/ Juan Carlos I",
+          "telefono" : "0",
+          "Provincia" : "Alicante" 
+        }

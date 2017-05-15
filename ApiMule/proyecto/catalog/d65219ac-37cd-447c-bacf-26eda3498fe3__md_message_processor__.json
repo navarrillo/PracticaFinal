@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "JSONEliminar"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "mapa2"
+        }
+    },
+    "id": "d65219ac-37cd-447c-bacf-26eda3498fe3",
+    "version": "5.2.0.0"
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <http:listener-config name="proveedoresapi-httpListenerConfig" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
+    <apikit:config name="proveedoresapi-config" raml="proveedoresapi.raml" consoleEnabled="false" doc:name="Router"/>
+    <db:mysql-config name="MySQL_Configuration" host="localhost" port="3311" user="root" password="root" database="proyectoskibd" doc:name="MySQL Configuration"/>
+    <db:mysql-config name="MySQL_Configuration1" host="localhost" port="3311" user="root" password="root" database="proyectoskibd" doc:name="MySQL Configuration"/>
+    <db:mysql-config name="MySQL_Configuration2" host="localhost" port="3311" user="root" password="root" database="proyectoskibd" doc:name="MySQL Configuration"/>
+    <db:mysql-config name="MySQL_Configuration3" host="localhost" port="3311" user="root" password="root" database="proyectoskibd" doc:name="MySQL Configuration"/>
+    <db:mysql-config name="MySQL_Configuration4" host="localhost" port="3311" user="root" password="root" database="proyectoskibd" doc:name="MySQL Configuration"/>
+    <flow name="proveedoresapi-main">
+        <http:listener config-ref="proveedoresapi-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
+        <apikit:router config-ref="proveedoresapi-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="proveedoresapi-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="proveedoresapi-console">
+        <http:listener config-ref="proveedoresapi-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="proveedoresapi-config" doc:name="APIkit Console"/>
+    </flow>
+    <flow name="get:/eliminar:proveedoresapi-config">
+        <db:delete config-ref="MySQL_Configuration3" doc:name="Database">
+            <db:parameterized-query><![CDATA[delete from proveedores where cif = #[message.inboundProperties.'http.query.params'.cif]]]></db:parameterized-query>
+        </db:delete>
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="get:/todos:proveedoresapi-config">
+        <db:select config-ref="MySQL_Configuration1" doc:name="Database">
+            <db:parameterized-query><![CDATA[select * from proveedores]]></db:parameterized-query>
+        </db:select>
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="get:/{cif}:proveedoresapi-config">
+        <db:select config-ref="MySQL_Configuration2" doc:name="Database">
+            <db:parameterized-query><![CDATA[select * from proveedores where cif = #[message.inboundProperties.'http.uri.params'.cif]]]></db:parameterized-query>
+        </db:select>
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="post:/crear:proveedoresapi-config">
+        <dw:transform-message metadata:id="9cddecaa-1ea1-4b63-a2da-ee441fa06221" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	cif: payload.cif,
+	nombre: payload.nombre,
+	direccion: payload.direccion,
+	telefono: payload.telefono,
+	Provincia: payload.Provincia,
+	resultado: payload.cif
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <db:insert config-ref="MySQL_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[insert into proveedores values (#[payload.cif],#[payload.nombre],#[payload.direccion],#[payload.telefono],#[payload.Provincia]);]]></db:parameterized-query>
+        </db:insert>
+        <set-payload value="#[&quot;Insertado correctamente en la BBDD&quot;]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="post:/editar:proveedoresapi-config">
+        <dw:transform-message metadata:id="6fa992ad-ce96-4cce-848c-95d9170f4d51" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	cif: payload.cif,
+	nombre: payload.nombre,
+	direccion: payload.direccion,
+	telefono: payload.telefono,
+	Provincia: payload.Provincia
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <db:update config-ref="MySQL_Configuration4" doc:name="Database">
+            <db:parameterized-query><![CDATA[update proveedores set nombre = #[payload.nombre], direccion = #[payload.direccion], telefono = #[payload.telefono], Provincia = #[payload.Provincia] where cif = #[payload.cif];]]></db:parameterized-query>
+        </db:update>
+        <set-payload value="#[&quot;Proveedor actualizado correctamente&quot;]" doc:name="Set Payload"/>
+    </flow>
+    <apikit:mapping-exception-strategy name="proveedoresapi-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>
