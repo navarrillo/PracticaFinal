@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ServiciosExternos" targetNamespace="http://www.example.org/ServiciosExternos/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/ServiciosExternos/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/ServiciosExternos/">
+      <xsd:element name="validarCIF">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cif" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validarCIFResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="validacion" type="xsd:boolean"/>
+          	<xsd:element name="error" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validarCIFRequest">
+    <wsdl:part name="parameters" element="tns:validarCIF">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarCIFResponse">
+    <wsdl:part name="parameters" element="tns:validarCIFResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServiciosExternos">
+    <wsdl:operation name="validarCIF">
+      <wsdl:input message="tns:validarCIFRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:validarCIFResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiciosExternosSOAP" type="tns:ServiciosExternos">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validarCIF">
+      <soap:operation soapAction="http://www.example.org/ServiciosExternos/validarCIF"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiciosExternos">
+    <wsdl:port name="ServiciosExternosSOAP" binding="tns:ServiciosExternosSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

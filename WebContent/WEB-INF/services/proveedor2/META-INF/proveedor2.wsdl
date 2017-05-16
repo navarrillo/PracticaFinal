@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="proveedor2" targetNamespace="http://www.example.org/proveedor2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/proveedor2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/proveedor2/">
+      <xsd:element name="solicitarPresupuesto">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="unidades" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="solicitarPresupuestoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="salida" type="xsd:double"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="solicitarPresupuestoResponse">
+    <wsdl:part name="parameters" element="tns:solicitarPresupuestoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="solicitarPresupuestoRequest">
+    <wsdl:part name="parameters" element="tns:solicitarPresupuesto">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="proveedor2">
+    <wsdl:operation name="solicitarPresupuesto">
+      <wsdl:input message="tns:solicitarPresupuestoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:solicitarPresupuestoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="proveedor2SOAP" type="tns:proveedor2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="solicitarPresupuesto">
+      <soap:operation soapAction="http://www.example.org/proveedor2/solicitarPresupuesto"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="proveedor2">
+    <wsdl:port name="proveedor2SOAP" binding="tns:proveedor2SOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
