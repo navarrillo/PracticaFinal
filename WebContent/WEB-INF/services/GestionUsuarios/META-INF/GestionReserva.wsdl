@@ -8,14 +8,15 @@
       <xsd:element name="CrearReservaResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="salida" type="xsd:string"/>
+          	<xsd:element name="resultado" type="xsd:boolean"/>
+          	<xsd:element name="salida" type="xsd:string"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
     
       <xsd:complexType name="Reserva">
       	<xsd:sequence>
-      		<xsd:element name="id" type="xsd:int"/>
+
       		<xsd:element name="fechaEntrada" type="xsd:date"/>
       		<xsd:element name="fechaSalida" type="xsd:date"/>
       		<xsd:element name="nombreCliente" type="xsd:string"/>
@@ -27,13 +28,14 @@
       		<xsd:element name="alojamiento" type="xsd:boolean"/>
       	</xsd:sequence>
       </xsd:complexType>
-      <xsd:element name="EditarReserva" type="tns:Reserva">
+      <xsd:element name="EditarReserva" type="tns:ReservaEdicion">
 
       </xsd:element>
       <xsd:element name="EditarReservaResponse">
       	<xsd:complexType>
       		<xsd:sequence>
 
+      			<xsd:element name="resultado" type="xsd:boolean"/>
       			<xsd:element name="salida" type="xsd:string"/>
       		</xsd:sequence>
       	</xsd:complexType>
@@ -61,6 +63,7 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
+      			<xsd:element name="resultado" type="xsd:boolean"/>
       			<xsd:element name="salida" type="xsd:string"/>
       		</xsd:sequence>
       	</xsd:complexType>
@@ -72,10 +75,26 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="salida" type="xsd:boolean"/>
+      			<xsd:element name="resultado" type="xsd:boolean"/>
+      			<xsd:element name="salida" type="xsd:string"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+    
+      <xsd:complexType name="ReservaEdicion">
+      	<xsd:sequence>
+      		<xsd:element name="id" type="xsd:int"/>
+      		<xsd:element name="fechaEntrada" type="xsd:date"/>
+      		<xsd:element name="fechaSalida" type="xsd:date"/>
+      		<xsd:element name="nombreCliente" type="xsd:string"/>
+      		<xsd:element name="emailCliente" type="xsd:string"/>
+      		<xsd:element name="precio" type="xsd:int"/>
+      		<xsd:element name="ski" type="xsd:boolean"/>
+      		<xsd:element name="material" type="xsd:boolean"/>
+      		<xsd:element name="profesor" type="xsd:boolean"/>
+      		<xsd:element name="alojamiento" type="xsd:boolean"/>
+      	</xsd:sequence>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="EditarReservaRequest">
@@ -143,12 +162,6 @@
       <wsdl:output message="tns:EliminarReservaResponse">
     </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AlmacenarReserva">
-      <wsdl:input message="tns:AlmacenarReservaRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:AlmacenarReservaResponse">
-    </wsdl:output>
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="GestionReservaSOAP" type="tns:GestionReserva">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -181,15 +194,6 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarReserva">
       <soap:operation soapAction="http://www.example.org/GestionReserva/EliminarReserva"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AlmacenarReserva">
-      <soap:operation soapAction="http://www.example.org/GestionReserva/AlmacenarReserva"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
-    <service name="GestionProveedores">
+    <service name="GestionUsuarios">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.gestionproveedores.GestionProveedoresMessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.gestionusuarios.GestionUsuariosMessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">org.example.www.gestionproveedores.GestionProveedoresSkeleton</parameter>
+        <parameter name="ServiceClass">org.example.www.gestionusuarios.GestionUsuariosSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="GenerarOferta" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionProveedores/">
-            <actionMapping>http://www.example.org/GestionProveedores/GenerarOferta</actionMapping>
-            <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/GenerarOfertaResponse</outputActionMapping>
+        <operation name="crearUsuario" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionUsuarios/">
+            <actionMapping>http://www.example.org/GestionUsuarios/crearUsuario</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionUsuarios/GestionUsuarios/crearUsuarioResponse</outputActionMapping>
         </operation>
-        <operation name="LeerOfertas" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionProveedores/">
-            <actionMapping>http://www.example.org/GestionProveedores/LeerOfertas</actionMapping>
-            <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/LeerOfertasResponse</outputActionMapping>
+        <operation name="login" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionUsuarios/">
+            <actionMapping>http://www.example.org/GestionUsuarios/login</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionUsuarios/GestionUsuarios/loginResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>
