@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
+-- Host:                         localhost
 -- Versión del servidor:         5.0.67-community-nt - MySQL Community Edition (GPL)
 -- SO del servidor:              Win32
 -- HeidiSQL Versión:             9.4.0.5125
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `serviciosproveedor` (
 -- Volcando datos para la tabla proyectoskibd.serviciosproveedor: 1 rows
 /*!40000 ALTER TABLE `serviciosproveedor` DISABLE KEYS */;
 INSERT INTO `serviciosproveedor` (`CIF`, `ski`, `material`, `profesor`, `alojamiento`, `oferta`) VALUES
-	('15A', 10, 15, 5, 30, 1);
+	('15A', 10, 15, 5, 30, 0.95);
 /*!40000 ALTER TABLE `serviciosproveedor` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectoskibd.serviciosproveedor1
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `serviciosproveedor1` (
 -- Volcando datos para la tabla proyectoskibd.serviciosproveedor1: 1 rows
 /*!40000 ALTER TABLE `serviciosproveedor1` DISABLE KEYS */;
 INSERT INTO `serviciosproveedor1` (`CIF`, `ski`, `material`, `profesor`, `alojamiento`, `oferta`) VALUES
-	('15B', 12, 14, 30, 40, 1);
+	('15B', 12, 14, 30, 45, 0.77);
 /*!40000 ALTER TABLE `serviciosproveedor1` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectoskibd.serviciosproveedor2
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `serviciosproveedor2` (
 -- Volcando datos para la tabla proyectoskibd.serviciosproveedor2: 1 rows
 /*!40000 ALTER TABLE `serviciosproveedor2` DISABLE KEYS */;
 INSERT INTO `serviciosproveedor2` (`CIF`, `ski`, `material`, `profesor`, `alojamiento`, `oferta`) VALUES
-	('15C', 45, 23, 15, 60, 1);
+	('15C', 45, 23, 15, 31, 0.5);
 /*!40000 ALTER TABLE `serviciosproveedor2` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectoskibd.usuarios
@@ -110,14 +110,15 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `email` varchar(30) default NULL,
   `password` varchar(16) default NULL,
   `direccion` varchar(100) default NULL,
+  `suscripcion` varchar(3) default 'no',
   PRIMARY KEY  (`dni`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla proyectoskibd.usuarios: 2 rows
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` (`dni`, `nombre`, `telefono`, `email`, `password`, `direccion`) VALUES
-	('48669981A', 'Héctor Molina Beneyto', '666666666', 'a@a.a', 'hector', 'C/ Falsa nº1,2,3'),
-	('11111111H', 'Melli Melloso Mellaco', '632632632', 'melli@melli.melli', 'melli', 'C/ Acho 0');
+INSERT INTO `usuarios` (`dni`, `nombre`, `telefono`, `email`, `password`, `direccion`, `suscripcion`) VALUES
+	('48669981A', 'Héctor Molina Beneyto', '666666666', 'a@a.a', 'hector', 'C/ Falsa nº1,2,3', 'no'),
+	('11111111H', 'Melli Melloso Mellaco', '632632632', 'melli@melli.melli', 'melli', 'C/ Acho 0', 'no');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
