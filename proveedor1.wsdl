@@ -16,6 +16,26 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="solicitarPersonalizado">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="ski" type="xsd:boolean"></xsd:element>
+      			<xsd:element name="material" type="xsd:boolean"></xsd:element>
+      			<xsd:element name="profesor" type="xsd:boolean"></xsd:element>
+      			<xsd:element name="alojamiento" type="xsd:boolean"></xsd:element>
+      			<xsd:element name="unidades" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="solicitarPersonalizadoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="salida" type="xsd:double"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="solicitarPresupuestoRequest">
@@ -24,10 +44,20 @@
   <wsdl:message name="solicitarPresupuestoResponse">
     <wsdl:part element="tns:solicitarPresupuestoResponse" name="parameters"/>
   </wsdl:message>
+  <wsdl:message name="solicitarPersonalizadoRequest">
+  	<wsdl:part name="parameters" element="tns:solicitarPersonalizado"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="solicitarPersonalizadoResponse">
+  	<wsdl:part name="parameters" element="tns:solicitarPersonalizadoResponse"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="proveedor1">
     <wsdl:operation name="solicitarPresupuesto">
       <wsdl:input message="tns:solicitarPresupuestoRequest"/>
       <wsdl:output message="tns:solicitarPresupuestoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarPersonalizado">
+    	<wsdl:input message="tns:solicitarPersonalizadoRequest"></wsdl:input>
+    	<wsdl:output message="tns:solicitarPersonalizadoResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="proveedor1SOAP" type="tns:proveedor1">
@@ -38,6 +68,19 @@
 
   		<soap:operation
   			soapAction="http://www.example.org/proveedor1/solicitarPresupuesto" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="solicitarPersonalizado">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/proveedor1/solicitarPersonalizado" />
   		<wsdl:input>
 
   			<soap:body use="literal" />

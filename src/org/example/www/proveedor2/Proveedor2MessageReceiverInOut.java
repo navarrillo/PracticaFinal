@@ -37,22 +37,41 @@
 
         
 
+            if("solicitarPersonalizado".equals(methodName)){
+                
+                org.example.www.proveedor2.SolicitarPersonalizadoResponse solicitarPersonalizadoResponse9 = null;
+	                        org.example.www.proveedor2.SolicitarPersonalizado wrappedParam =
+                                                             (org.example.www.proveedor2.SolicitarPersonalizado)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.proveedor2.SolicitarPersonalizado.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               solicitarPersonalizadoResponse9 =
+                                                   
+                                                   
+                                                         skel.solicitarPersonalizado(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), solicitarPersonalizadoResponse9, false, new javax.xml.namespace.QName("http://www.example.org/proveedor2/",
+                                                    "solicitarPersonalizado"));
+                                    } else 
+
             if("solicitarPresupuesto".equals(methodName)){
                 
-                org.example.www.proveedor2.SolicitarPresupuestoResponse solicitarPresupuestoResponse5 = null;
+                org.example.www.proveedor2.SolicitarPresupuestoResponse solicitarPresupuestoResponse11 = null;
 	                        org.example.www.proveedor2.SolicitarPresupuesto wrappedParam =
                                                              (org.example.www.proveedor2.SolicitarPresupuesto)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.proveedor2.SolicitarPresupuesto.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               solicitarPresupuestoResponse5 =
+                                               solicitarPresupuestoResponse11 =
                                                    
                                                    
                                                          skel.solicitarPresupuesto(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), solicitarPresupuestoResponse5, false, new javax.xml.namespace.QName("http://www.example.org/proveedor2/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), solicitarPresupuestoResponse11, false, new javax.xml.namespace.QName("http://www.example.org/proveedor2/",
                                                     "solicitarPresupuesto"));
                                     
             } else {
@@ -69,6 +88,34 @@
         }
         
         //
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.proveedor2.SolicitarPersonalizado param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.proveedor2.SolicitarPersonalizado.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.proveedor2.SolicitarPersonalizadoResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.proveedor2.SolicitarPersonalizadoResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
             private  org.apache.axiom.om.OMElement  toOM(org.example.www.proveedor2.SolicitarPresupuesto param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -97,6 +144,25 @@
 
             }
         
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.proveedor2.SolicitarPersonalizadoResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.proveedor2.SolicitarPersonalizadoResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.proveedor2.SolicitarPersonalizadoResponse wrapsolicitarPersonalizado(){
+                                org.example.www.proveedor2.SolicitarPersonalizadoResponse wrappedElement = new org.example.www.proveedor2.SolicitarPersonalizadoResponse();
+                                return wrappedElement;
+                         }
+                    
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.proveedor2.SolicitarPresupuestoResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -133,6 +199,20 @@
 
         try {
         
+                if (org.example.www.proveedor2.SolicitarPersonalizado.class.equals(type)){
+                
+                        return org.example.www.proveedor2.SolicitarPersonalizado.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.proveedor2.SolicitarPersonalizadoResponse.class.equals(type)){
+                
+                        return org.example.www.proveedor2.SolicitarPersonalizadoResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
                 if (org.example.www.proveedor2.SolicitarPresupuesto.class.equals(type)){
                 
                         return org.example.www.proveedor2.SolicitarPresupuesto.Factory.parse(param.getXMLStreamReaderWithoutCaching());
