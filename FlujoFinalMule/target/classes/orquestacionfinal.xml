@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
+    <smtp:gmail-connector name="Gmail" validateConnections="true" doc:name="Gmail"/>
+    <ws:consumer-config name="Web_Service_Consumer" service="GestionProveedores" port="GestionProveedoresSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/GestionProveedores/" wsdlLocation="http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl" doc:name="Web Service Consumer"/>
+    <flow name="orquestacionfinalFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/*" doc:name="HTTP"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.request.path'=='/enviarpublicidad']">
+                <flow-ref name="EnviarPublicidad" doc:name="EnviarPublicidad"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[&quot;No se ha encontrado la ruta especificada&quot;]" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <sub-flow name="EnviarPublicidad">
+        <dw:transform-message doc:name="Transform Message" metadata:id="84b40b88-14fb-49c8-85a3-7b2c805057d8">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://www.example.org/GestionProveedores/
+---
+{
+	ns0#LeerOfertas: {
+		in: payload.in
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="Web_Service_Consumer" operation="LeerOfertas" doc:name="Web Service Consumer"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="85664f86-34cb-481a-9fe5-499382f1849d">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://www.example.org/GestionProveedores/
+---
+{
+	"1": payload.ns0#LeerOfertasResponse.mensaje,
+	"2": payload.ns0#LeerOfertasResponse.prov1,
+	"3": payload.ns0#LeerOfertasResponse.prov2,
+	"4": payload.ns0#LeerOfertasResponse.prov3
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <component class="orquestacionfinal.transformacionOfertas" doc:name="Java"/>
+        <set-payload value="#[&quot;Hola estimado cliente, estas son las ofertas semanales disponibles: \n&quot;+ message.payloadAs(java.lang.String)]
+" doc:name="Set Payload"/>
+        <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="sdsservidor@gmail.com" password="sds12345" connector-ref="Gmail" to="sdsservidor@gmail.com" from="sdsservidor@gmail.com" subject="Ofertas" responseTimeout="10000" doc:name="SMTP"/>
+    </sub-flow>
+</mule>

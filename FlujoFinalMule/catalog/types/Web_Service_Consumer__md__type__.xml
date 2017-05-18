@@ -1,0 +1,303 @@
+<metadata__catalog__entry>
+  <version>5.2.0.0</version>
+  <types class="tree-map">
+    <entry>
+      <org.mule.common.metadata.DefaultMetaDataKey>
+        <id>LeerOfertas</id>
+        <displayName>LeerOfertas</displayName>
+        <category>DEFAULT</category>
+        <metaDataKeyPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
+          </properties>
+        </metaDataKeyPropertiesManager>
+      </org.mule.common.metadata.DefaultMetaDataKey>
+      <org.mule.common.metadata.DefaultXmlMetaDataModel>
+        <dataType>XML</dataType>
+        <metaDataModelPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
+            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
+            <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
+              <derivedStructure>false</derivedStructure>
+              <generatedStructure>false</generatedStructure>
+            </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+          </properties>
+        </metaDataModelPropertiesManager>
+        <fields>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>in</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName>
+                      <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+                      <localPart>string</localPart>
+                      <prefix></prefix>
+                    </typeQName>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI></namespaceURI>
+                    <localPart>in</localPart>
+                    <prefix></prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+        </fields>
+        <rootElement>
+          <namespaceURI>http://www.example.org/GestionProveedores/</namespaceURI>
+          <localPart>LeerOfertas</localPart>
+          <prefix>ns0</prefix>
+        </rootElement>
+        <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
+          <schemas>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/GestionProveedores/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/GestionProveedores/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;LeerOfertas&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+            &lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;LeerOfertasResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prov1&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prov2&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prov3&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;GenerarOferta&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;cif&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;nuevaOfeta&quot; type=&quot;xsd:double&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;GenerarOfertaResponse&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;confirmacion&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+          </schemas>
+          <encoding>windows-1252</encoding>
+          <baseUri>http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl</baseUri>
+        </schemas>
+        <namespaceManager>
+          <namespacePrefix class="tree-map">
+            <entry>
+              <string>http://www.example.org/GestionProveedores/</string>
+              <string>ns0</string>
+            </entry>
+          </namespacePrefix>
+        </namespaceManager>
+      </org.mule.common.metadata.DefaultXmlMetaDataModel>
+    </entry>
+    <entry>
+      <org.mule.common.metadata.DefaultMetaDataKey>
+        <id>LeerOfertasResponse</id>
+        <displayName>LeerOfertasResponse</displayName>
+        <category>DEFAULT</category>
+        <metaDataKeyPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
+          </properties>
+        </metaDataKeyPropertiesManager>
+      </org.mule.common.metadata.DefaultMetaDataKey>
+      <org.mule.common.metadata.DefaultXmlMetaDataModel>
+        <dataType>XML</dataType>
+        <metaDataModelPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
+            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
+            <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
+              <derivedStructure>false</derivedStructure>
+              <generatedStructure>false</generatedStructure>
+            </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+          </properties>
+        </metaDataModelPropertiesManager>
+        <fields>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>mensaje</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI></namespaceURI>
+                    <localPart>mensaje</localPart>
+                    <prefix></prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>prov1</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI></namespaceURI>
+                    <localPart>prov1</localPart>
+                    <prefix></prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>prov2</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI></namespaceURI>
+                    <localPart>prov2</localPart>
+                    <prefix></prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>prov3</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI></namespaceURI>
+                    <localPart>prov3</localPart>
+                    <prefix></prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+        </fields>
+        <rootElement>
+          <namespaceURI>http://www.example.org/GestionProveedores/</namespaceURI>
+          <localPart>LeerOfertasResponse</localPart>
+          <prefix>ns0</prefix>
+        </rootElement>
+        <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
+          <schemas>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/GestionProveedores/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/GestionProveedores/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;LeerOfertas&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+            &lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;LeerOfertasResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prov1&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prov2&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prov3&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;GenerarOferta&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;cif&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;nuevaOfeta&quot; type=&quot;xsd:double&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;GenerarOfertaResponse&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;confirmacion&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+          </schemas>
+          <encoding reference="../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/schemas/encoding"/>
+          <baseUri>http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl</baseUri>
+        </schemas>
+        <namespaceManager>
+          <namespacePrefix class="tree-map">
+            <entry>
+              <string>http://www.example.org/GestionProveedores/</string>
+              <string>ns0</string>
+            </entry>
+          </namespacePrefix>
+        </namespaceManager>
+      </org.mule.common.metadata.DefaultXmlMetaDataModel>
+    </entry>
+  </types>
+  <connectorName>Web_Service_Consumer</connectorName>
+</metadata__catalog__entry>
