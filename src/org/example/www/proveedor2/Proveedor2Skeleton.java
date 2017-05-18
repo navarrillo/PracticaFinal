@@ -45,7 +45,7 @@ import com.mysql.jdbc.Statement;
                  	 readDataBase();
                  	 double precio = (double) 0;
                  	 try{
-                 		 resultSet = statement.executeQuery("SELECT (ski + profesor + material + alojamiento)* oferta as 'Total' FROM serviciosproveedor");
+                 		 resultSet = statement.executeQuery("SELECT (ski + profesor + material + alojamiento)* oferta as 'Total' FROM serviciosproveedor1");
                  		 while (resultSet.next()) {
                			 
                  				 precio = resultSet.getDouble("Total")*solicitarPresupuesto.getUnidades();

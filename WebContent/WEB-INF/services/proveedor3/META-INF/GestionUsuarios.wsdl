@@ -22,6 +22,7 @@
       		<xsd:element name="email" type="xsd:string"/>
       		<xsd:element name="direccion" type="xsd:string"/>
       		<xsd:element name="password" type="xsd:string"/>
+      		<xsd:element name="suscripcion" type="xsd:boolean"/>
       	</xsd:sequence>
       </xsd:complexType>
       <xsd:element name="login">
