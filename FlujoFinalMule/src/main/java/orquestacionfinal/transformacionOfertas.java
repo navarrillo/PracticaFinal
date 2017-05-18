@@ -17,11 +17,13 @@ public class transformacionOfertas implements org.mule.api.lifecycle.Callable{
 				  a += Double.parseDouble(aux1[1]);
 				  result += " Profesor -> "+ aux1[2] +"€\n";
 				  a += Double.parseDouble(aux1[2]);
-				  result += " Alojamiento -> "+ aux1[3] +"€\n";
+				  
 				  if(x != 4){
 					  a += Double.parseDouble(aux1[3]);
+					  result += " Alojamiento -> "+ aux1[3] +"€\n";
 				  }else{
 					  a += Double.parseDouble(aux1[3].substring(0, aux1[3].length()-1));
+					  result += " Alojamiento -> "+ aux1[3].substring(0, aux1[3].length()-1) +"€\n";
 				  }
 				  result += " TOTAL -> "+ String.valueOf(a) + "€\n\n";
 		  }
