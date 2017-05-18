@@ -7,10 +7,121 @@
  */
 package org.example.www.serviciosexternos;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 /**
  * ServiciosExternosSkeleton java skeleton for the axisService
  */
 public class ServiciosExternosSkeleton {
+
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param obtenerEmail
+	 * @return obtenerEmailResponse
+	 */
+
+	public org.example.www.serviciosexternos.ObtenerEmailResponse obtenerEmail(
+			org.example.www.serviciosexternos.ObtenerEmail obtenerEmail) {
+ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
+		
+		String dni = obtenerEmail.getDni();
+		String mail = "";
+		
+		//BÚSQUEDA DEL EMAIL EN LA TABLA USUARIOS 
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+		}
+
+		Connection con = null;
+		ResultSet rs = null;
+		Statement cmd = null;
+		try {
+
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3311/proyectoskibd?" + "user=root&password=root");
+			cmd = con.createStatement();
+			
+			String tabla = "SELECT email FROM usuarios WHERE dni like '"+ dni +"';";
+			rs = cmd.executeQuery(tabla);
+			
+			while (rs.next()) {
+				mail = rs.getString("email");
+			}			
+			cmd = con.createStatement();
+			
+			rs.close();
+
+		} catch (SQLException ex) {
+			System.out.println("ESTÁS EN LA B DEBIDO AL ERROR: SQLException: " + ex.getMessage());
+			respuesta.setEmail("");
+			respuesta.setMensaje("Ha ocurrido un problema con la consulta");
+			return respuesta;
+		}
+		if(mail.equals("")){
+			respuesta.setEmail("");
+			respuesta.setMensaje("No existe el DNI en la base de datos");
+			return respuesta;
+		}else{
+			respuesta.setEmail(mail);
+			respuesta.setMensaje("Búsqueda correcta");
+			return respuesta;
+		}
+	}
+
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param obtenerEmails
+	 * @return obtenerEmailsResponse
+	 */
+
+	public org.example.www.serviciosexternos.ObtenerEmailsResponse obtenerEmails(
+			org.example.www.serviciosexternos.ObtenerEmails obtenerEmails) {
+		ObtenerEmailsResponse respuesta = new ObtenerEmailsResponse();
+		String[] mails = new String[50];
+		System.out.println(mails);
+
+		//BÚSQUEDA DEL EMAIL EN LA TABLA USUARIOS 
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+		}
+
+		Connection con = null;
+		ResultSet rs = null;
+		Statement cmd = null;
+		try {
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3311/proyectoskibd?" + "user=root&password=root");
+			cmd = con.createStatement();
+			
+			String tabla = "SELECT email FROM usuarios;";
+			rs = cmd.executeQuery(tabla);
+			int i = 0;
+			while (rs.next()) {
+				mails[i] = rs.getString("email");
+				i++;
+			}
+			cmd = con.createStatement();
+			
+			rs.close();
+
+		} catch (SQLException ex) {
+			System.out.println("ESTÁS EN LA B DEBIDO AL ERROR: SQLException: " + ex.getMessage());
+		}
+
+			respuesta.setEmails(mails);
+			return respuesta;
+	}
 
 	/**
 	 * Auto generated method signature
@@ -21,7 +132,6 @@ public class ServiciosExternosSkeleton {
 
 	public org.example.www.serviciosexternos.ValidarCIFResponse validarCIF(
 			org.example.www.serviciosexternos.ValidarCIF validarCIF) {
-
 		try {
 			ValidarCIFResponse resp = new ValidarCIFResponse();
 			resp.setError("");
@@ -87,5 +197,4 @@ public class ServiciosExternosSkeleton {
 
 		}
 	}
-	
 }
