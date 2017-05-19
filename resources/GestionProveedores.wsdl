@@ -37,8 +37,31 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+      <xsd:element name="LeerOfertasSiHay">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerOfertasSiHayResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="mensaje" type="xsd:string"/>
+      			<xsd:element name="prov1" type="xsd:string"/>
+      			<xsd:element name="prov2" type="xsd:string"/>
+      			<xsd:element name="prov3" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="LeerOfertasSiHayRequest">
+    <wsdl:part name="parameters" element="tns:LeerOfertasSiHay">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="GenerarOfertaResponse">
     <wsdl:part name="parameters" element="tns:GenerarOfertaResponse">
     </wsdl:part>
@@ -55,6 +78,10 @@
     <wsdl:part name="parameters" element="tns:LeerOfertasResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="LeerOfertasSiHayResponse">
+    <wsdl:part name="parameters" element="tns:LeerOfertasSiHayResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="GestionProveedores">
     <wsdl:operation name="LeerOfertas">
       <wsdl:input message="tns:LeerOfertasRequest">
@@ -66,6 +93,12 @@
       <wsdl:input message="tns:GenerarOfertaRequest">
     </wsdl:input>
       <wsdl:output message="tns:GenerarOfertaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerOfertasSiHay">
+      <wsdl:input message="tns:LeerOfertasSiHayRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:LeerOfertasSiHayResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -82,6 +115,15 @@
     </wsdl:operation>
     <wsdl:operation name="GenerarOferta">
       <soap:operation soapAction="http://www.example.org/GestionProveedores/GenerarOferta"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerOfertasSiHay">
+      <soap:operation soapAction="http://www.example.org/GestionProveedores/LeerOfertasSiHay"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
-    <service name="proveedor3">
+    <service name="GestionProveedores">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.proveedor3.Proveedor3MessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.gestionproveedores.GestionProveedoresMessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">org.example.www.proveedor3.Proveedor3Skeleton</parameter>
+        <parameter name="ServiceClass">org.example.www.gestionproveedores.GestionProveedoresSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="solicitarPresupuesto" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/proveedor3/">
-            <actionMapping>http://www.example.org/proveedor3/solicitarPresupuesto</actionMapping>
-            <outputActionMapping>http://www.example.org/proveedor3/proveedor3/solicitarPresupuestoResponse</outputActionMapping>
+        <operation name="GenerarOferta" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionProveedores/">
+            <actionMapping>http://www.example.org/GestionProveedores/GenerarOferta</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/GenerarOfertaResponse</outputActionMapping>
         </operation>
-        <operation name="solicitarPersonalizado" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/proveedor3/">
-            <actionMapping>http://www.example.org/proveedor3/solicitarPersonalizado</actionMapping>
-            <outputActionMapping>http://www.example.org/proveedor3/proveedor3/solicitarPersonalizadoResponse</outputActionMapping>
+        <operation name="LeerOfertas" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionProveedores/">
+            <actionMapping>http://www.example.org/GestionProveedores/LeerOfertas</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/LeerOfertasResponse</outputActionMapping>
+        </operation>
+        <operation name="LeerOfertasSiHay" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionProveedores/">
+            <actionMapping>http://www.example.org/GestionProveedores/LeerOfertasSiHay</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/LeerOfertasSiHayResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>

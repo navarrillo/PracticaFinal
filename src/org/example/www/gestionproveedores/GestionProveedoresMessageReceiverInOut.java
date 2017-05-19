@@ -39,40 +39,59 @@
 
             if("generarOferta".equals(methodName)){
                 
-                org.example.www.gestionproveedores.GenerarOfertaResponse generarOfertaResponse9 = null;
+                org.example.www.gestionproveedores.GenerarOfertaResponse generarOfertaResponse13 = null;
 	                        org.example.www.gestionproveedores.GenerarOferta wrappedParam =
                                                              (org.example.www.gestionproveedores.GenerarOferta)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionproveedores.GenerarOferta.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               generarOfertaResponse9 =
+                                               generarOfertaResponse13 =
                                                    
                                                    
                                                          skel.generarOferta(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), generarOfertaResponse9, false, new javax.xml.namespace.QName("http://www.example.org/GestionProveedores/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), generarOfertaResponse13, false, new javax.xml.namespace.QName("http://www.example.org/GestionProveedores/",
                                                     "generarOferta"));
                                     } else 
 
             if("leerOfertas".equals(methodName)){
                 
-                org.example.www.gestionproveedores.LeerOfertasResponse leerOfertasResponse11 = null;
+                org.example.www.gestionproveedores.LeerOfertasResponse leerOfertasResponse15 = null;
 	                        org.example.www.gestionproveedores.LeerOfertas wrappedParam =
                                                              (org.example.www.gestionproveedores.LeerOfertas)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionproveedores.LeerOfertas.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               leerOfertasResponse11 =
+                                               leerOfertasResponse15 =
                                                    
                                                    
                                                          skel.leerOfertas(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), leerOfertasResponse11, false, new javax.xml.namespace.QName("http://www.example.org/GestionProveedores/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), leerOfertasResponse15, false, new javax.xml.namespace.QName("http://www.example.org/GestionProveedores/",
                                                     "leerOfertas"));
+                                    } else 
+
+            if("leerOfertasSiHay".equals(methodName)){
+                
+                org.example.www.gestionproveedores.LeerOfertasSiHayResponse leerOfertasSiHayResponse17 = null;
+	                        org.example.www.gestionproveedores.LeerOfertasSiHay wrappedParam =
+                                                             (org.example.www.gestionproveedores.LeerOfertasSiHay)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.gestionproveedores.LeerOfertasSiHay.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               leerOfertasSiHayResponse17 =
+                                                   
+                                                   
+                                                         skel.leerOfertasSiHay(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), leerOfertasSiHayResponse17, false, new javax.xml.namespace.QName("http://www.example.org/GestionProveedores/",
+                                                    "leerOfertasSiHay"));
                                     
             } else {
               throw new java.lang.RuntimeException("method not found");
@@ -144,6 +163,34 @@
 
             }
         
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.gestionproveedores.LeerOfertasSiHay param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.gestionproveedores.LeerOfertasSiHay.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.gestionproveedores.LeerOfertasSiHayResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.gestionproveedores.LeerOfertasSiHayResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.gestionproveedores.GenerarOfertaResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -179,6 +226,25 @@
                     
                          private org.example.www.gestionproveedores.LeerOfertasResponse wrapLeerOfertas(){
                                 org.example.www.gestionproveedores.LeerOfertasResponse wrappedElement = new org.example.www.gestionproveedores.LeerOfertasResponse();
+                                return wrappedElement;
+                         }
+                    
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.gestionproveedores.LeerOfertasSiHayResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.gestionproveedores.LeerOfertasSiHayResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.gestionproveedores.LeerOfertasSiHayResponse wrapLeerOfertasSiHay(){
+                                org.example.www.gestionproveedores.LeerOfertasSiHayResponse wrappedElement = new org.example.www.gestionproveedores.LeerOfertasSiHayResponse();
                                 return wrappedElement;
                          }
                     
@@ -223,6 +289,20 @@
                 if (org.example.www.gestionproveedores.LeerOfertasResponse.class.equals(type)){
                 
                         return org.example.www.gestionproveedores.LeerOfertasResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.gestionproveedores.LeerOfertasSiHay.class.equals(type)){
+                
+                        return org.example.www.gestionproveedores.LeerOfertasSiHay.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.gestionproveedores.LeerOfertasSiHayResponse.class.equals(type)){
+                
+                        return org.example.www.gestionproveedores.LeerOfertasSiHayResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
