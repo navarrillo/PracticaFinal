@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GestionProveedores" targetNamespace="http://www.example.org/GestionProveedores/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/GestionProveedores/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/GestionProveedores/">
+      <xsd:element name="LeerOfertas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerOfertasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="mensaje" type="xsd:string"/>
+          	<xsd:element name="prov1" type="xsd:string"/>
+          	<xsd:element name="prov2" type="xsd:string"/>
+          	<xsd:element name="prov3" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GenerarOferta">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="cif" type="xsd:string"/>
+      			<xsd:element name="nuevaOfeta" type="xsd:double"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GenerarOfertaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="confirmacion" type="xsd:boolean"/>
+      			<xsd:element name="mensaje" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerarOfertaResponse">
+    <wsdl:part name="parameters" element="tns:GenerarOfertaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerarOfertaRequest">
+    <wsdl:part name="parameters" element="tns:GenerarOferta">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LeerOfertasRequest">
+    <wsdl:part name="parameters" element="tns:LeerOfertas">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LeerOfertasResponse">
+    <wsdl:part name="parameters" element="tns:LeerOfertasResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GestionProveedores">
+    <wsdl:operation name="LeerOfertas">
+      <wsdl:input message="tns:LeerOfertasRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:LeerOfertasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarOferta">
+      <wsdl:input message="tns:GenerarOfertaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GenerarOfertaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionProveedoresSOAP" type="tns:GestionProveedores">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="LeerOfertas">
+      <soap:operation soapAction="http://www.example.org/GestionProveedores/LeerOfertas"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarOferta">
+      <soap:operation soapAction="http://www.example.org/GestionProveedores/GenerarOferta"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionProveedores">
+    <wsdl:port name="GestionProveedoresSOAP" binding="tns:GestionProveedoresSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

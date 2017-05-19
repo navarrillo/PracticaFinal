@@ -22,6 +22,7 @@
       		<xsd:element name="email" type="xsd:string"></xsd:element>
       		<xsd:element name="direccion" type="xsd:string"></xsd:element>
       		<xsd:element name="password" type="xsd:string"></xsd:element>
+      		<xsd:element name="suscripcion" type="xsd:boolean"></xsd:element>
       	</xsd:sequence>
       </xsd:complexType>
       <xsd:element name="login">
@@ -84,12 +85,15 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="login">
+
   		<soap:operation
   			soapAction="http://www.example.org/GestionUsuarios/login" />
   		<wsdl:input>
+
   			<soap:body use="literal" />
   		</wsdl:input>
   		<wsdl:output>
+
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>

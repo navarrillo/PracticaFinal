@@ -10,5 +10,9 @@
             <actionMapping>http://www.example.org/proveedor3/solicitarPresupuesto</actionMapping>
             <outputActionMapping>http://www.example.org/proveedor3/proveedor3/solicitarPresupuestoResponse</outputActionMapping>
         </operation>
+        <operation name="solicitarPersonalizado" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/proveedor3/">
+            <actionMapping>http://www.example.org/proveedor3/solicitarPersonalizado</actionMapping>
+            <outputActionMapping>http://www.example.org/proveedor3/proveedor3/solicitarPersonalizadoResponse</outputActionMapping>
+        </operation>
     </service>
 </serviceGroup>

@@ -39,6 +39,7 @@ public class GestionUsuariosSkeleton {
 		String email = user.getEmail();
 		String password = user.getPassword();
 		String direccion = user.getDireccion();
+		boolean suscripcion = user.getSuscripcion();
 
 		// salida default
 		respuesta.setResultado(false);
@@ -56,9 +57,16 @@ public class GestionUsuariosSkeleton {
 
 			// Preparamos la consulta
 			Statement s = (Statement) conexion.createStatement();
-			String consulta = "INSERT INTO usuarios(`dni`, `nombre`, `telefono`, `email`, `password`, `direccion`) VALUES ("
+			String consulta = "INSERT INTO usuarios(`dni`, `nombre`, `telefono`, `email`, `password`, `direccion`,`suscripcion`) VALUES ("
 					+ "\"" + dni + "\"," + "\"" + nombre + "\"," + "\"" + telefono + "\"," + "\"" + email + "\"," + "\""
-					+ password + "\"," + "\"" + direccion + "\")";
+					+ password + "\"," + "\"" + direccion + "\",\"";
+			
+			if(suscripcion == true)
+				consulta +="si";
+			else
+				consulta +="no";
+			
+			consulta += "\")";
 
 			Integer x = s.executeUpdate(consulta);
 			respuesta.setResultado(true);
