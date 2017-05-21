@@ -21,7 +21,7 @@
       		<xsd:element name="fechaSalida" type="xsd:date"/>
       		<xsd:element name="nombreCliente" type="xsd:string"/>
       		<xsd:element name="emailCliente" type="xsd:string"/>
-      		<xsd:element name="precio" type="xsd:int"/>
+      		<xsd:element name="precio" type="xsd:double"/>
       		<xsd:element name="ski" type="xsd:boolean"/>
       		<xsd:element name="material" type="xsd:boolean"/>
       		<xsd:element name="profesor" type="xsd:boolean"/>
@@ -88,7 +88,7 @@
       		<xsd:element name="fechaSalida" type="xsd:date"/>
       		<xsd:element name="nombreCliente" type="xsd:string"/>
       		<xsd:element name="emailCliente" type="xsd:string"/>
-      		<xsd:element name="precio" type="xsd:int"/>
+      		<xsd:element name="precio" type="xsd:double"/>
       		<xsd:element name="ski" type="xsd:boolean"/>
       		<xsd:element name="material" type="xsd:boolean"/>
       		<xsd:element name="profesor" type="xsd:boolean"/>

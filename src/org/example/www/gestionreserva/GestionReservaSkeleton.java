@@ -46,7 +46,7 @@ public class GestionReservaSkeleton {
 		System.out.println("aqui2");
 		String nombreCliente = reserva.getNombreCliente();
 		String emailCliente = reserva.getEmailCliente();
-		int precio = reserva.getPrecio();
+		double precio = reserva.getPrecio();
 		boolean ski = reserva.getSki();
 		boolean material = reserva.getMaterial();
 		boolean profesor = reserva.getProfesor();
@@ -139,7 +139,7 @@ public class GestionReservaSkeleton {
 				r.localMaterial = rs.getBoolean("material");
 				r.localProfesor = rs.getBoolean("profesor");
 				r.localSki = rs.getBoolean("ski");
-				r.localPrecio = rs.getInt("precio");
+				r.localPrecio = rs.getDouble("precio");
 				r.localNombreCliente = rs.getString("nombreCliente");
 
 			}
@@ -248,7 +248,7 @@ public class GestionReservaSkeleton {
 		System.out.println("aqui2");
 		String nombreCliente = reserva.getNombreCliente();
 		String emailCliente = reserva.getEmailCliente();
-		int precio = reserva.getPrecio();
+		double precio = reserva.getPrecio();
 		boolean ski = reserva.getSki();
 		boolean material = reserva.getMaterial();
 		boolean profesor = reserva.getProfesor();

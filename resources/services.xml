@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
-    <service name="ServiciosExternos">
+    <service name="GestionReserva">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.serviciosexternos.ServiciosExternosMessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.gestionreserva.GestionReservaMessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">org.example.www.serviciosexternos.ServiciosExternosSkeleton</parameter>
+        <parameter name="ServiceClass">org.example.www.gestionreserva.GestionReservaSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="obtenerEmailsSuscritos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/ServiciosExternos/">
-            <actionMapping>http://www.example.org/ServiciosExternos/obtenerEmailsSuscritos</actionMapping>
-            <outputActionMapping>http://www.example.org/ServiciosExternos/ServiciosExternos/obtenerEmailsSuscritosResponse</outputActionMapping>
+        <operation name="CrearReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/CrearReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/CrearReservaResponse</outputActionMapping>
         </operation>
-        <operation name="obtenerEmail" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/ServiciosExternos/">
-            <actionMapping>http://www.example.org/ServiciosExternos/obtenerEmail</actionMapping>
-            <outputActionMapping>http://www.example.org/ServiciosExternos/ServiciosExternos/obtenerEmailResponse</outputActionMapping>
+        <operation name="LeerReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/LeerReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/LeerReservaResponse</outputActionMapping>
         </operation>
-        <operation name="obtenerEmails" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/ServiciosExternos/">
-            <actionMapping>http://www.example.org/ServiciosExternos/obtenerEmails</actionMapping>
-            <outputActionMapping>http://www.example.org/ServiciosExternos/ServiciosExternos/obtenerEmailsResponse</outputActionMapping>
+        <operation name="EliminarReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/EliminarReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/EliminarReservaResponse</outputActionMapping>
         </operation>
-        <operation name="validarCIF" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/ServiciosExternos/">
-            <actionMapping>http://www.example.org/ServiciosExternos/validarCIF</actionMapping>
-            <outputActionMapping>http://www.example.org/ServiciosExternos/ServiciosExternos/validarCIFResponse</outputActionMapping>
+        <operation name="EditarReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/EditarReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/EditarReservaResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>

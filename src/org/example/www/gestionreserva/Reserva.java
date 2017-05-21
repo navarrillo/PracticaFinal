@@ -149,14 +149,14 @@
                         */
 
                         
-                                    protected int localPrecio ;
+                                    protected double localPrecio ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return int
+                           * @return double
                            */
-                           public  int getPrecio(){
+                           public  double getPrecio(){
                                return localPrecio;
                            }
 
@@ -166,7 +166,7 @@
                                * Auto generated setter method
                                * @param param Precio
                                */
-                               public void setPrecio(int param){
+                               public void setPrecio(double param){
                             
                                             this.localPrecio=param;
                                        
@@ -428,7 +428,7 @@
                                     namespace = "";
                                     writeStartElement(null, namespace, "precio", xmlWriter);
                              
-                                               if (localPrecio==java.lang.Integer.MIN_VALUE) {
+                                               if (java.lang.Double.isNaN(localPrecio)) {
                                            
                                                          throw new org.apache.axis2.databinding.ADBException("precio cannot be null!!");
                                                       
@@ -930,7 +930,7 @@
                                     java.lang.String content = reader.getElementText();
                                     
                                               object.setPrecio(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDouble(content));
                                               
                                         reader.next();
                                     
