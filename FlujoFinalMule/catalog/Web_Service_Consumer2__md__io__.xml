@@ -1,17 +1,17 @@
 <metadata__cache__entry>
   <version>5.2.0.0</version>
-  <connectorName>Web_Service_Consumer</connectorName>
+  <connectorName>Web_Service_Consumer2</connectorName>
   <metadataIo class="tree-map">
     <entry>
-      <string>obtenerEmails</string>
+      <string>obtenerEmailsSuscritos</string>
       <map>
         <entry>
           <string>__default__</string>
           <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
             <input class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>Web_Service_Consumer</connectorName>
-                <typeId>obtenerEmails</typeId>
+                <connectorName>Web_Service_Consumer2</connectorName>
+                <typeId>obtenerEmailsSuscritos</typeId>
                 <category>DEFAULT</category>
               </payload>
               <properties class="tree-map">
@@ -59,8 +59,8 @@
             </input>
             <output class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>Web_Service_Consumer</connectorName>
-                <typeId>obtenerEmailsResponse</typeId>
+                <connectorName>Web_Service_Consumer2</connectorName>
+                <typeId>obtenerEmailsSuscritosResponse</typeId>
                 <category>DEFAULT</category>
               </payload>
               <properties class="tree-map">

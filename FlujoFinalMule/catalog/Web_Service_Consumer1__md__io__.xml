@@ -1,6 +1,6 @@
 <metadata__cache__entry>
   <version>5.2.0.0</version>
-  <connectorName>gestionProveedores</connectorName>
+  <connectorName>Web_Service_Consumer1</connectorName>
   <metadataIo class="tree-map">
     <entry>
       <string>LeerOfertas</string>
@@ -10,7 +10,7 @@
           <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
             <input class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>gestionProveedores</connectorName>
+                <connectorName>Web_Service_Consumer1</connectorName>
                 <typeId>LeerOfertas</typeId>
                 <category>DEFAULT</category>
               </payload>
@@ -59,7 +59,7 @@
             </input>
             <output class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>gestionProveedores</connectorName>
+                <connectorName>Web_Service_Consumer1</connectorName>
                 <typeId>LeerOfertasResponse</typeId>
                 <category>DEFAULT</category>
               </payload>
@@ -118,7 +118,7 @@
           <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
             <input class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>gestionProveedores</connectorName>
+                <connectorName>Web_Service_Consumer1</connectorName>
                 <typeId>LeerOfertasSiHay</typeId>
                 <category>DEFAULT</category>
               </payload>
@@ -167,7 +167,7 @@
             </input>
             <output class="org.mule.common.metadata.DefaultMetaData">
               <payload class="org.mule.tooling.metadata.api.TypeRefMetaDataModel">
-                <connectorName>gestionProveedores</connectorName>
+                <connectorName>Web_Service_Consumer1</connectorName>
                 <typeId>LeerOfertasSiHayResponse</typeId>
                 <category>DEFAULT</category>
               </payload>

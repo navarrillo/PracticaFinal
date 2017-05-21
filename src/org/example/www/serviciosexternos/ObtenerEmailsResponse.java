@@ -26,84 +26,34 @@
             
 
                         /**
-                        * field for Emails
-                        * This was an Array!
+                        * field for ObtenerEmailsResponse
                         */
 
                         
-                                    protected java.lang.String[] localEmails ;
+                                    protected org.example.www.serviciosexternos.Salida localObtenerEmailsResponse ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localEmailsTracker = false ;
-
-                           public boolean isEmailsSpecified(){
-                               return localEmailsTracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String[]
+                           * @return org.example.www.serviciosexternos.Salida
                            */
-                           public  java.lang.String[] getEmails(){
-                               return localEmails;
+                           public  org.example.www.serviciosexternos.Salida getObtenerEmailsResponse(){
+                               return localObtenerEmailsResponse;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for Emails
+                            /**
+                               * Auto generated setter method
+                               * @param param ObtenerEmailsResponse
                                */
-                              protected void validateEmails(java.lang.String[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param Emails
-                              */
-                              public void setEmails(java.lang.String[] param){
-                              
-                                   validateEmails(param);
-
-                               localEmailsTracker = param != null;
-                                      
-                                      this.localEmails=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param java.lang.String
-                             */
-                             public void addEmails(java.lang.String param){
-                                   if (localEmails == null){
-                                   localEmails = new java.lang.String[]{};
-                                   }
-
+                               public void setObtenerEmailsResponse(org.example.www.serviciosexternos.Salida param){
                             
-                                 //update the setting tracker
-                                localEmailsTracker = true;
+                                            this.localObtenerEmailsResponse=param;
+                                       
+
+                               }
                             
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(localEmails);
-                               list.add(param);
-                               this.localEmails =
-                             (java.lang.String[])list.toArray(
-                            new java.lang.String[list.size()]);
-
-                             }
-                             
 
      
      
@@ -137,62 +87,13 @@
             throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
             
                 
-
-
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
+                //We can safely assume an element has only one type associated with it
                 
-
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
-
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.example.org/ServiciosExternos/");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerEmailsResponse",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerEmailsResponse",
-                           xmlWriter);
-                   }
-
-               
-                   }
-                if (localEmailsTracker){
-                             if (localEmails!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localEmails.length;i++){
-                                        
-                                            if (localEmails[i] != null){
-                                        
-                                                writeStartElement(null, namespace, "emails", xmlWriter);
-
-                                            
-                                                        xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEmails[i]));
-                                                    
-                                                xmlWriter.writeEndElement();
-                                              
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
-
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("emails cannot be null!!");
-                                    
-                             }
-
-                        }
-                    xmlWriter.writeEndElement();
-               
+                                 if (localObtenerEmailsResponse==null){
+                                   throw new org.apache.axis2.databinding.ADBException("obtenerEmailsResponse cannot be null!");
+                                 }
+                                 localObtenerEmailsResponse.serialize(MY_QNAME,xmlWriter);
+                            
 
         }
 
@@ -372,37 +273,9 @@
 
 
         
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
-
-                 if (localEmailsTracker){
-                            if (localEmails!=null){
-                                  for (int i = 0;i < localEmails.length;i++){
-                                      
-                                         if (localEmails[i] != null){
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                              "emails"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEmails[i]));
-                                          } else {
-                                             
-                                                    // have to do nothing
-                                                
-                                          }
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("emails cannot be null!!");
-                                
-                            }
-
-                        }
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
+                
+                //We can safely assume an element has only one type associated with it
+                return localObtenerEmailsResponse.getPullParser(MY_QNAME);
 
         }
 
@@ -437,32 +310,6 @@
                     reader.next();
 
                 
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"obtenerEmailsResponse".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerEmailsResponse)org.example.www.serviciosexternos.ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
 
                 
                 // Note all attributes that were handled. Used to differ normal attributes
@@ -470,64 +317,26 @@
                 java.util.Vector handledAttributes = new java.util.Vector();
                 
 
+                   
+                while(!reader.isEndElement()) {
+                    if (reader.isStartElement() ){
                 
-                    
-                    reader.next();
-                
-                        java.util.ArrayList list1 = new java.util.ArrayList();
-                    
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/","obtenerEmailsResponse").equals(reader.getName())){
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","emails").equals(reader.getName())){
-                                
-                                    
-                                    
-                                    // Process the array and step past its final element's end.
-                                    list1.add(reader.getElementText());
+                                                object.setObtenerEmailsResponse(org.example.www.serviciosexternos.Salida.Factory.parse(reader));
                                             
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone1 = false;
-                                            while(!loopDone1){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone1 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","emails").equals(reader.getName())){
-                                                         list1.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone1 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                                    object.setEmails((java.lang.String[])
-                                                        list1.toArray(new java.lang.String[list1.size()]));
-                                                
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
+                             else{
+                                        // A start element we are not expecting indicates an invalid parameter was passed
+                                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                             }
+                          
+                             } else {
                                 reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
+                             }  
+                           }  // end of while loop
+                        
 
 
 

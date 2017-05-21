@@ -42,13 +42,8 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
-      <xsd:element name="obtenerEmailsResponse">
-      	<xsd:complexType>
-      		<xsd:sequence>
+      <xsd:element name="obtenerEmailsResponse" type="tns:salida">
 
-      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="emails" type="xsd:string"/>
-      		</xsd:sequence>
-      	</xsd:complexType>
       </xsd:element>
       <xsd:element name="obtenerEmailsSuscritos">
       	<xsd:complexType>
@@ -62,10 +57,19 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="emails" type="xsd:string"/>
+      			<xsd:element name="emails" type="xsd:string"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+    
+    
+    
+    
+      <xsd:complexType name="salida">
+      	<xsd:sequence>
+      		<xsd:element name="emails" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="obtenerEmailsSuscritosResponse">

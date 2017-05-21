@@ -3,8 +3,8 @@
   <types class="tree-map">
     <entry>
       <org.mule.common.metadata.DefaultMetaDataKey>
-        <id>obtenerEmails</id>
-        <displayName>obtenerEmails</displayName>
+        <id>obtenerEmailsSuscritos</id>
+        <displayName>obtenerEmailsSuscritos</displayName>
         <category>DEFAULT</category>
         <metaDataKeyPropertiesManager>
           <properties>
@@ -58,7 +58,7 @@
         </fields>
         <rootElement>
           <namespaceURI>http://www.example.org/ServiciosExternos/</namespaceURI>
-          <localPart>obtenerEmails</localPart>
+          <localPart>obtenerEmailsSuscritos</localPart>
           <prefix>ns0</prefix>
         </rootElement>
         <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
@@ -119,7 +119,7 @@
       	&lt;xsd:complexType&gt;&#xd;
       		&lt;xsd:sequence&gt;&#xd;
 &#xd;
-      			&lt;xsd:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       		&lt;/xsd:sequence&gt;&#xd;
       	&lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
@@ -149,8 +149,8 @@
     </entry>
     <entry>
       <org.mule.common.metadata.DefaultMetaDataKey>
-        <id>obtenerEmailsResponse</id>
-        <displayName>obtenerEmailsResponse</displayName>
+        <id>obtenerEmailsSuscritosResponse</id>
+        <displayName>obtenerEmailsSuscritosResponse</displayName>
         <category>DEFAULT</category>
         <metaDataKeyPropertiesManager>
           <properties>
@@ -163,13 +163,7 @@
         <metaDataModelPropertiesManager>
           <properties>
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
-            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-              <typeQName>
-                <namespaceURI>http://www.example.org/ServiciosExternos/</namespaceURI>
-                <localPart>salida</localPart>
-                <prefix></prefix>
-              </typeQName>
-            </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
             <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
               <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
               <derivedStructure>false</derivedStructure>
@@ -206,7 +200,7 @@
         </fields>
         <rootElement>
           <namespaceURI>http://www.example.org/ServiciosExternos/</namespaceURI>
-          <localPart>obtenerEmailsResponse</localPart>
+          <localPart>obtenerEmailsSuscritosResponse</localPart>
           <prefix>ns0</prefix>
         </rootElement>
         <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
@@ -267,7 +261,7 @@
       	&lt;xsd:complexType&gt;&#xd;
       		&lt;xsd:sequence&gt;&#xd;
 &#xd;
-      			&lt;xsd:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       		&lt;/xsd:sequence&gt;&#xd;
       	&lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
@@ -296,5 +290,5 @@
       </org.mule.common.metadata.DefaultXmlMetaDataModel>
     </entry>
   </types>
-  <connectorName>Web_Service_Consumer</connectorName>
+  <connectorName>Web_Service_Consumer2</connectorName>
 </metadata__catalog__entry>

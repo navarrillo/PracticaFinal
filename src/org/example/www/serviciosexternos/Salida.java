@@ -1,6 +1,6 @@
 
 /**
- * ObtenerEmailsSuscritosResponse.java
+ * Salida.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:18:31 BST)
@@ -11,18 +11,17 @@
             
 
             /**
-            *  ObtenerEmailsSuscritosResponse bean class
+            *  Salida bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ObtenerEmailsSuscritosResponse
+        public  class Salida
         implements org.apache.axis2.databinding.ADBBean{
-        
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://www.example.org/ServiciosExternos/",
-                "obtenerEmailsSuscritosResponse",
-                "ns1");
-
+        /* This type was generated from the piece of schema that had
+                name = salida
+                Namespace URI = http://www.example.org/ServiciosExternos/
+                Namespace Prefix = ns1
+                */
             
 
                         /**
@@ -70,8 +69,8 @@
 
         
                org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-               return factory.createOMElement(dataSource,MY_QNAME);
+                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
+               return factory.createOMElement(dataSource,parentQName);
             
         }
 
@@ -103,11 +102,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.example.org/ServiciosExternos/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerEmailsSuscritosResponse",
+                           namespacePrefix+":salida",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerEmailsSuscritosResponse",
+                           "salida",
                            xmlWriter);
                    }
 
@@ -350,9 +349,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ObtenerEmailsSuscritosResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ObtenerEmailsSuscritosResponse object =
-                new ObtenerEmailsSuscritosResponse();
+        public static Salida parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Salida object =
+                new Salida();
 
             int event;
             java.lang.String nillableValue = null;
@@ -376,10 +375,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"obtenerEmailsSuscritosResponse".equals(type)){
+                            if (!"salida".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerEmailsSuscritosResponse)org.example.www.serviciosexternos.ExtensionMapper.getTypeObject(
+                                return (Salida)org.example.www.serviciosexternos.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         

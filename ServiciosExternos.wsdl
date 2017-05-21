@@ -42,13 +42,8 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
-      <xsd:element name="obtenerEmailsResponse">
-      	<xsd:complexType>
-      		<xsd:sequence>
+      <xsd:element name="obtenerEmailsResponse" type="tns:salida">
 
-      			<xsd:element name="emails" type="xsd:string" minOccurs="0" maxOccurs="unbounded"></xsd:element>
-      		</xsd:sequence>
-      	</xsd:complexType>
       </xsd:element>
       <xsd:element name="obtenerEmailsSuscritos">
       	<xsd:complexType>
@@ -62,10 +57,19 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="emails" type="xsd:string" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      			<xsd:element name="emails" type="xsd:string"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+    
+    
+    
+    
+      <xsd:complexType name="salida">
+      	<xsd:sequence>
+      		<xsd:element name="emails" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="validarCIFRequest">
@@ -155,12 +159,15 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="obtenerEmailsSuscritos">
+
   		<soap:operation
   			soapAction="http://www.example.org/ServiciosExternos/obtenerEmailsSuscritos" />
   		<wsdl:input>
+
   			<soap:body use="literal" />
   		</wsdl:input>
   		<wsdl:output>
+
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>

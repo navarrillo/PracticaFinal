@@ -2,8 +2,7 @@ package orquestacionfinal;
 
 import org.mule.api.MuleEventContext;
 
-public class transformacionOfertas implements org.mule.api.lifecycle.Callable{
-	
+public class transformacionSubscritos implements org.mule.api.lifecycle.Callable{
 	public Object onCall(MuleEventContext eventContext) throws Exception {
 		  String[] aux=eventContext.getMessage().getPayload().toString().split("=");
 		  String result = "";

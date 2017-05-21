@@ -21,6 +21,16 @@
                                                        javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
 
               
+                  if (
+                  "http://www.example.org/ServiciosExternos/".equals(namespaceURI) &&
+                  "salida".equals(typeName)){
+                   
+                            return  org.example.www.serviciosexternos.Salida.Factory.parse(reader);
+                        
+
+                  }
+
+              
              throw new org.apache.axis2.databinding.ADBException("Unsupported type " + namespaceURI + " " + typeName);
           }
 

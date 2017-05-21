@@ -1,6 +1,6 @@
 
 /**
- * ObtenerEmailsSuscritosResponse.java
+ * Email.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:18:31 BST)
@@ -11,49 +11,56 @@
             
 
             /**
-            *  ObtenerEmailsSuscritosResponse bean class
+            *  Email bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ObtenerEmailsSuscritosResponse
+        public  class Email
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/ServiciosExternos/",
-                "obtenerEmailsSuscritosResponse",
+                "email",
                 "ns1");
 
             
 
                         /**
-                        * field for Emails
+                        * field for Email
                         */
 
                         
-                                    protected java.lang.String localEmails ;
+                                    protected java.lang.String localEmail ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEmails(){
-                               return localEmails;
+                           public  java.lang.String getEmail(){
+                               return localEmail;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Emails
+                               * @param param Email
                                */
-                               public void setEmails(java.lang.String param){
+                               public void setEmail(java.lang.String param){
                             
-                                            this.localEmails=param;
-                                       
+                                             this.localEmail=param;
+                                        
 
                                }
                             
+
+                            public java.lang.String toString(){
+                                
+                                        return localEmail.toString();
+                                    
+                            }
+                        
 
      
      
@@ -87,53 +94,39 @@
             throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
             
                 
-
-
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
+                //We can safely assume an element has only one type associated with it
                 
+                            java.lang.String namespace = parentQName.getNamespaceURI();
+                            java.lang.String _localName = parentQName.getLocalPart();
+                        
+                            writeStartElement(null, namespace, _localName, xmlWriter);
 
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
-
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.example.org/ServiciosExternos/");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerEmailsSuscritosResponse",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerEmailsSuscritosResponse",
-                           xmlWriter);
-                   }
-
-               
-                   }
-               
-                                    namespace = "";
-                                    writeStartElement(null, namespace, "emails", xmlWriter);
-                             
-
-                                          if (localEmails==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("emails cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localEmails);
+                            // add the type details if this is used in a simple type
+                               if (serializeType){
+                                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.example.org/ServiciosExternos/");
+                                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
+                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                                           namespacePrefix+":email",
+                                           xmlWriter);
+                                   } else {
+                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                                           "email",
+                                           xmlWriter);
+                                   }
+                               }
+                            
+                                          if (localEmail==null){
                                             
-                                          }
+                                                     throw new org.apache.axis2.databinding.ADBException("email cannot be null !!");
+                                                
+                                         }else{
+                                        
+                                                       xmlWriter.writeCharacters(localEmail);
+                                            
+                                         }
                                     
-                                   xmlWriter.writeEndElement();
-                             
-                    xmlWriter.writeEndElement();
-               
+                            xmlWriter.writeEndElement();
+                    
 
         }
 
@@ -313,23 +306,14 @@
 
 
         
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
-
                 
-                                      elementList.add(new javax.xml.namespace.QName("",
-                                                                      "emails"));
-                                 
-                                        if (localEmails != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEmails));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("emails cannot be null!!");
-                                        }
-                                    
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
+                //We can safely assume an element has only one type associated with it
+                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(MY_QNAME,
+                            new java.lang.Object[]{
+                            org.apache.axis2.databinding.utils.reader.ADBXMLStreamReader.ELEMENT_TEXT,
+                            org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEmail)
+                            },
+                            null);
 
         }
 
@@ -342,6 +326,29 @@
 
         
         
+                public static Email fromString(java.lang.String value,
+                                                    java.lang.String namespaceURI){
+                    Email returnValue = new  Email();
+                    
+                            returnValue.setEmail(
+                                org.apache.axis2.databinding.utils.ConverterUtil.convertToString(value));
+                        
+
+                    return returnValue;
+                }
+
+                public static Email fromString(javax.xml.stream.XMLStreamReader xmlStreamReader,
+                                                                    java.lang.String content) {
+                    if (content.indexOf(":") > -1){
+                        java.lang.String prefix = content.substring(0,content.indexOf(":"));
+                        java.lang.String namespaceUri = xmlStreamReader.getNamespaceContext().getNamespaceURI(prefix);
+                        return Email.Factory.fromString(content,namespaceUri);
+                    } else {
+                       return Email.Factory.fromString(content,"");
+                    }
+                }
+
+            
 
         /**
         * static method to create the object
@@ -350,9 +357,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ObtenerEmailsSuscritosResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ObtenerEmailsSuscritosResponse object =
-                new ObtenerEmailsSuscritosResponse();
+        public static Email parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Email object =
+                new Email();
 
             int event;
             java.lang.String nillableValue = null;
@@ -364,32 +371,6 @@
                     reader.next();
 
                 
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"obtenerEmailsSuscritosResponse".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerEmailsSuscritosResponse)org.example.www.serviciosexternos.ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
 
                 
                 // Note all attributes that were handled. Used to differ normal attributes
@@ -397,42 +378,35 @@
                 java.util.Vector handledAttributes = new java.util.Vector();
                 
 
+                   
+                while(!reader.isEndElement()) {
+                    if (reader.isStartElement()  || reader.hasText()){
                 
-                    
-                    reader.next();
-                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","emails").equals(reader.getName())){
+                                    if (reader.isStartElement()  || reader.hasText()){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"emails" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"email" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEmails(
+                                              object.setEmail(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
+                                            
                               }  // End of if for expected property start element
                                 
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                              
-                            while (!reader.isStartElement() && !reader.isEndElement())
+                             else{
+                                        // A start element we are not expecting indicates an invalid parameter was passed
+                                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                             }
+                          
+                             } else {
                                 reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
+                             }  
+                           }  // end of while loop
+                        
 
 
 

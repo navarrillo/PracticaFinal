@@ -372,16 +372,7 @@
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
             <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
             <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
-              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey">
-                <id>LeerOfertasSiHay</id>
-                <displayName>LeerOfertasSiHay</displayName>
-                <category>DEFAULT</category>
-                <metaDataKeyPropertiesManager>
-                  <properties>
-                    <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
-                  </properties>
-                </metaDataKeyPropertiesManager>
-              </metaDataKey>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
               <derivedStructure>false</derivedStructure>
               <generatedStructure>false</generatedStructure>
             </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
@@ -509,16 +500,7 @@
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
             <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
             <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
-              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey">
-                <id>LeerOfertasSiHayResponse</id>
-                <displayName>LeerOfertasSiHayResponse</displayName>
-                <category>DEFAULT</category>
-                <metaDataKeyPropertiesManager>
-                  <properties>
-                    <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
-                  </properties>
-                </metaDataKeyPropertiesManager>
-              </metaDataKey>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
               <derivedStructure>false</derivedStructure>
               <generatedStructure>false</generatedStructure>
             </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
@@ -704,5 +686,5 @@
       </org.mule.common.metadata.DefaultXmlMetaDataModel>
     </entry>
   </types>
-  <connectorName>gestionProveedores</connectorName>
+  <connectorName>Web_Service_Consumer1</connectorName>
 </metadata__catalog__entry>

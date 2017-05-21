@@ -29,8 +29,7 @@ public class ServiciosExternosSkeleton {
 			org.example.www.serviciosexternos.ObtenerEmailsSuscritos obtenerEmailsSuscritos) {
 		
 		ObtenerEmailsSuscritosResponse respuesta = new ObtenerEmailsSuscritosResponse();
-		String[] mails = new String[50];
-		System.out.println(mails);
+		String mails = "";
 
 		//BÚSQUEDA DEL EMAIL EN LA TABLA USUARIOS 
 		try {
@@ -52,7 +51,7 @@ public class ServiciosExternosSkeleton {
 			rs = cmd.executeQuery(tabla);
 			int i = 0;
 			while (rs.next()) {
-				mails[i] = rs.getString("email");
+				mails += rs.getString("email")+ ", ";
 				i++;
 			}
 			cmd = con.createStatement();
@@ -62,7 +61,6 @@ public class ServiciosExternosSkeleton {
 		} catch (SQLException ex) {
 			System.out.println("ESTÁS EN LA B DEBIDO AL ERROR: SQLException: " + ex.getMessage());
 		}
-
 			respuesta.setEmails(mails);
 			return respuesta;
 	}
@@ -137,8 +135,10 @@ public class ServiciosExternosSkeleton {
 			org.example.www.serviciosexternos.ObtenerEmails obtenerEmails) {
 		
 		ObtenerEmailsResponse respuesta = new ObtenerEmailsResponse();
-		String[] mails = new String[50];
-		System.out.println(mails);
+		
+		Salida salida = new Salida();
+		String mails = "";
+		
 
 		//BÚSQUEDA DEL EMAIL EN LA TABLA USUARIOS 
 		try {
@@ -160,7 +160,7 @@ public class ServiciosExternosSkeleton {
 			rs = cmd.executeQuery(tabla);
 			int i = 0;
 			while (rs.next()) {
-				mails[i] = rs.getString("email");
+				mails += rs.getString("email")+", ";
 				i++;
 			}
 			cmd = con.createStatement();
@@ -170,8 +170,8 @@ public class ServiciosExternosSkeleton {
 		} catch (SQLException ex) {
 			System.out.println("ESTÁS EN LA B DEBIDO AL ERROR: SQLException: " + ex.getMessage());
 		}
-
-			respuesta.setEmails(mails);
+			salida.setEmails(mails);
+			respuesta.setObtenerEmailsResponse(salida);
 			return respuesta;
 	}
 
