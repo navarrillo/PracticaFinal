@@ -337,5 +337,5 @@
       </org.mule.common.metadata.DefaultXmlMetaDataModel>
     </entry>
   </types>
-  <connectorName>Web_Service_Consumer</connectorName>
+  <connectorName>gestionProveedores</connectorName>
 </metadata__catalog__entry>

@@ -13,12 +13,17 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
     <smtp:gmail-connector name="Gmail" validateConnections="true" doc:name="Gmail"/>
-    <ws:consumer-config name="Web_Service_Consumer" service="GestionProveedores" port="GestionProveedoresSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/GestionProveedores/" wsdlLocation="http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="gestionProveedores" service="GestionProveedores" port="GestionProveedoresSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/GestionProveedores/" wsdlLocation="http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="GestionReserva" service="GestionReserva" port="GestionReservaSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/GestionReserva/" wsdlLocation="http://localhost:9080/PracticaFinal/services/GestionReserva?wsdl" doc:name="Web Service Consumer"/>
+    <file:connector name="nuevaReserva.pdf" outputPattern="pdf" autoDelete="true" streaming="true" validateConnections="true" doc:name="File"/>
     <flow name="orquestacionfinalFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/*" doc:name="HTTP"/>
         <choice doc:name="Choice">
             <when expression="#[message.inboundProperties.'http.request.path'=='/enviarpublicidad']">
                 <flow-ref name="EnviarPublicidad" doc:name="EnviarPublicidad"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.path'=='/gestionreserva']">
+                <flow-ref name="gestionReserva" doc:name="gestionReserva"/>
             </when>
             <otherwise>
                 <set-payload value="#[&quot;No se ha encontrado la ruta especificada&quot;]" doc:name="Set Payload"/>
@@ -38,7 +43,7 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
 	}
 }]]></dw:set-payload>
         </dw:transform-message>
-        <ws:consumer config-ref="Web_Service_Consumer" operation="LeerOfertas" doc:name="Web Service Consumer"/>
+        <ws:consumer config-ref="gestionProveedores" operation="LeerOfertas" doc:name="Web Service Consumer"/>
         <dw:transform-message doc:name="Transform Message" metadata:id="85664f86-34cb-481a-9fe5-499382f1849d">
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/java
@@ -55,5 +60,40 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
         <set-payload value="#[&quot;Hola estimado cliente, estas son las ofertas semanales disponibles: \n&quot;+ message.payloadAs(java.lang.String)]
 " doc:name="Set Payload"/>
         <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="sdsservidor@gmail.com" password="sds12345" connector-ref="Gmail" to="sdsservidor@gmail.com" from="sdsservidor@gmail.com" subject="Ofertas" responseTimeout="10000" doc:name="SMTP"/>
+    </sub-flow>
+    <sub-flow name="gestionReserva">
+        <dw:transform-message metadata:id="7eab9bb1-8755-4473-9003-aa92555b3d61" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://www.example.org/GestionReserva/
+---
+{
+	ns0#EditarReserva: {
+		id: payload.id,
+		fechaEntrada: payload.fechaEntrada as :date,
+		fechaSalida: payload.fechaSalida as :date,
+		nombreCliente: payload.nombreCliente,
+		emailCliente: payload.emailCliente,
+		precio: payload.precio,
+		ski: payload.ski as :boolean,
+		material: payload.material as :boolean,
+		profesor: payload.profesor as :boolean,
+		alojamiento: payload.alojamiento as :boolean
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <set-variable variableName="reserva" value="#[payload]" doc:name="Variable"/>
+        <ws:consumer config-ref="GestionReserva" operation="EditarReserva" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="922f8d54-74bc-4f38-a28d-19ed50ae59cf" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://www.example.org/GestionReserva/
+---
+payload.ns0#EditarReservaResponse.salida]]></dw:set-payload>
+        </dw:transform-message>
+        <set-variable variableName="emial" value="#[payload]" doc:name="Variable"/>
+        <set-payload value="#[&quot;Tu reserva ha sido actualizada \n&quot;]+#[flowVars.reserva.id]" doc:name="Set Payload"/>
+        <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="sdsservidor@gmail.com" password="sds12345" to="#[flowVars.emial]" from="sdsservidor@gmail.com" subject="Actualizada la Reserva" responseTimeout="10000" doc:name="SMTP"/>
     </sub-flow>
 </mule>

@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "jsonreserva"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "c9404142-51c7-42b9-a1de-5001abf99595",
+    "version": "5.2.0.0"
+}

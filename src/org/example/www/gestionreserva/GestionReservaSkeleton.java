@@ -281,7 +281,7 @@ public class GestionReservaSkeleton {
 
 			Integer x = s.executeUpdate(consulta);
 			respuesta.setResultado(true);
-			respuesta.setSalida("Se ha actualizado la reserva con éxito");
+			respuesta.setSalida(emailCliente);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
