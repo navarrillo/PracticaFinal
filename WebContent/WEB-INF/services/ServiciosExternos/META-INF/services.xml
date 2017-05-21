@@ -6,6 +6,10 @@
         <parameter name="ServiceClass">org.example.www.serviciosexternos.ServiciosExternosSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="obtenerEmailsSuscritos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/ServiciosExternos/">
+            <actionMapping>http://www.example.org/ServiciosExternos/obtenerEmailsSuscritos</actionMapping>
+            <outputActionMapping>http://www.example.org/ServiciosExternos/ServiciosExternos/obtenerEmailsSuscritosResponse</outputActionMapping>
+        </operation>
         <operation name="obtenerEmail" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/ServiciosExternos/">
             <actionMapping>http://www.example.org/ServiciosExternos/obtenerEmail</actionMapping>
             <outputActionMapping>http://www.example.org/ServiciosExternos/ServiciosExternos/obtenerEmailResponse</outputActionMapping>

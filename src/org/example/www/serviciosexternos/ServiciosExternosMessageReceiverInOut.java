@@ -37,60 +37,79 @@
 
         
 
+            if("obtenerEmailsSuscritos".equals(methodName)){
+                
+                org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse obtenerEmailsSuscritosResponse17 = null;
+	                        org.example.www.serviciosexternos.ObtenerEmailsSuscritos wrappedParam =
+                                                             (org.example.www.serviciosexternos.ObtenerEmailsSuscritos)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.serviciosexternos.ObtenerEmailsSuscritos.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               obtenerEmailsSuscritosResponse17 =
+                                                   
+                                                   
+                                                         skel.obtenerEmailsSuscritos(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerEmailsSuscritosResponse17, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
+                                                    "obtenerEmailsSuscritos"));
+                                    } else 
+
             if("obtenerEmail".equals(methodName)){
                 
-                org.example.www.serviciosexternos.ObtenerEmailResponse obtenerEmailResponse13 = null;
+                org.example.www.serviciosexternos.ObtenerEmailResponse obtenerEmailResponse19 = null;
 	                        org.example.www.serviciosexternos.ObtenerEmail wrappedParam =
                                                              (org.example.www.serviciosexternos.ObtenerEmail)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.serviciosexternos.ObtenerEmail.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               obtenerEmailResponse13 =
+                                               obtenerEmailResponse19 =
                                                    
                                                    
                                                          skel.obtenerEmail(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerEmailResponse13, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerEmailResponse19, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
                                                     "obtenerEmail"));
                                     } else 
 
             if("obtenerEmails".equals(methodName)){
                 
-                org.example.www.serviciosexternos.ObtenerEmailsResponse obtenerEmailsResponse15 = null;
+                org.example.www.serviciosexternos.ObtenerEmailsResponse obtenerEmailsResponse21 = null;
 	                        org.example.www.serviciosexternos.ObtenerEmails wrappedParam =
                                                              (org.example.www.serviciosexternos.ObtenerEmails)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.serviciosexternos.ObtenerEmails.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               obtenerEmailsResponse15 =
+                                               obtenerEmailsResponse21 =
                                                    
                                                    
                                                          skel.obtenerEmails(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerEmailsResponse15, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerEmailsResponse21, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
                                                     "obtenerEmails"));
                                     } else 
 
             if("validarCIF".equals(methodName)){
                 
-                org.example.www.serviciosexternos.ValidarCIFResponse validarCIFResponse17 = null;
+                org.example.www.serviciosexternos.ValidarCIFResponse validarCIFResponse23 = null;
 	                        org.example.www.serviciosexternos.ValidarCIF wrappedParam =
                                                              (org.example.www.serviciosexternos.ValidarCIF)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.serviciosexternos.ValidarCIF.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               validarCIFResponse17 =
+                                               validarCIFResponse23 =
                                                    
                                                    
                                                          skel.validarCIF(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), validarCIFResponse17, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), validarCIFResponse23, false, new javax.xml.namespace.QName("http://www.example.org/ServiciosExternos/",
                                                     "validarCIF"));
                                     
             } else {
@@ -107,6 +126,34 @@
         }
         
         //
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.serviciosexternos.ObtenerEmailsSuscritos param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.serviciosexternos.ObtenerEmailsSuscritos.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
             private  org.apache.axiom.om.OMElement  toOM(org.example.www.serviciosexternos.ObtenerEmail param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -191,6 +238,25 @@
 
             }
         
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse wrapobtenerEmailsSuscritos(){
+                                org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse wrappedElement = new org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse();
+                                return wrappedElement;
+                         }
+                    
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.serviciosexternos.ObtenerEmailResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -289,6 +355,20 @@
                 if (org.example.www.serviciosexternos.ObtenerEmailsResponse.class.equals(type)){
                 
                         return org.example.www.serviciosexternos.ObtenerEmailsResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.serviciosexternos.ObtenerEmailsSuscritos.class.equals(type)){
+                
+                        return org.example.www.serviciosexternos.ObtenerEmailsSuscritos.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse.class.equals(type)){
+                
+                        return org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

@@ -50,8 +50,28 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+      <xsd:element name="obtenerEmailsSuscritos">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerEmailsSuscritosResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="emails" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="obtenerEmailsSuscritosResponse">
+    <wsdl:part name="parameters" element="tns:obtenerEmailsSuscritosResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="validarCIFRequest">
     <wsdl:part name="parameters" element="tns:validarCIF">
     </wsdl:part>
@@ -76,6 +96,10 @@
     <wsdl:part name="parameters" element="tns:obtenerEmailResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="obtenerEmailsSuscritosRequest">
+    <wsdl:part name="parameters" element="tns:obtenerEmailsSuscritos">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="ServiciosExternos">
     <wsdl:operation name="validarCIF">
       <wsdl:input message="tns:validarCIFRequest">
@@ -93,6 +117,12 @@
       <wsdl:input message="tns:obtenerEmailsRequest">
     </wsdl:input>
       <wsdl:output message="tns:obtenerEmailsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEmailsSuscritos">
+      <wsdl:input message="tns:obtenerEmailsSuscritosRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerEmailsSuscritosResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -118,6 +148,15 @@
     </wsdl:operation>
     <wsdl:operation name="obtenerEmails">
       <soap:operation soapAction="http://www.example.org/ServiciosExternos/obtenerEmails"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEmailsSuscritos">
+      <soap:operation soapAction="http://www.example.org/ServiciosExternos/obtenerEmailsSuscritos"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
