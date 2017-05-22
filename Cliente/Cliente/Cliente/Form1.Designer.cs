@@ -47,21 +47,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.reserva = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Forfait = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alojamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reservas = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_idEditReserva = new System.Windows.Forms.TextBox();
+            this.btn_editarReserva = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.reserva.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -246,7 +241,8 @@
             // 
             // reserva
             // 
-            this.reserva.Controls.Add(this.dataGridView1);
+            this.reserva.Controls.Add(this.groupBox2);
+            this.reserva.Controls.Add(this.Reservas);
             this.reserva.Location = new System.Drawing.Point(4, 22);
             this.reserva.Name = "reserva";
             this.reserva.Padding = new System.Windows.Forms.Padding(3);
@@ -256,69 +252,53 @@
             this.reserva.UseVisualStyleBackColor = true;
             this.reserva.Click += new System.EventHandler(this.reserva_Click);
             // 
-            // dataGridView1
+            // Reservas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.email,
-            this.Entrada,
-            this.Salida,
-            this.Forfait,
-            this.Profesor,
-            this.Material,
-            this.Alojamiento,
-            this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(944, 258);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.Reservas.FormattingEnabled = true;
+            this.Reservas.Location = new System.Drawing.Point(18, 24);
+            this.Reservas.Name = "Reservas";
+            this.Reservas.Size = new System.Drawing.Size(111, 199);
+            this.Reservas.TabIndex = 0;
+            this.Reservas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // Column1
+            // groupBox2
             // 
-            this.Column1.HeaderText = "Titular";
-            this.Column1.Name = "Column1";
+            this.groupBox2.Controls.Add(this.btn_editarReserva);
+            this.groupBox2.Controls.Add(this.tb_idEditReserva);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Location = new System.Drawing.Point(286, 24);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(342, 199);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Editar Reserva";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // email
+            // label6
             // 
-            this.email.HeaderText = "Column2";
-            this.email.Name = "email";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "ID:";
             // 
-            // Entrada
+            // tb_idEditReserva
             // 
-            this.Entrada.HeaderText = "Entrada";
-            this.Entrada.Name = "Entrada";
+            this.tb_idEditReserva.Location = new System.Drawing.Point(59, 22);
+            this.tb_idEditReserva.Name = "tb_idEditReserva";
+            this.tb_idEditReserva.Size = new System.Drawing.Size(100, 20);
+            this.tb_idEditReserva.TabIndex = 1;
             // 
-            // Salida
+            // btn_editarReserva
             // 
-            this.Salida.HeaderText = "Salida";
-            this.Salida.Name = "Salida";
-            // 
-            // Forfait
-            // 
-            this.Forfait.HeaderText = "Forfait";
-            this.Forfait.Name = "Forfait";
-            // 
-            // Profesor
-            // 
-            this.Profesor.HeaderText = "Profesor";
-            this.Profesor.Name = "Profesor";
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            // 
-            // Alojamiento
-            // 
-            this.Alojamiento.HeaderText = "Alojamiento";
-            this.Alojamiento.Name = "Alojamiento";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
+            this.btn_editarReserva.Location = new System.Drawing.Point(59, 84);
+            this.btn_editarReserva.Name = "btn_editarReserva";
+            this.btn_editarReserva.Size = new System.Drawing.Size(75, 23);
+            this.btn_editarReserva.TabIndex = 2;
+            this.btn_editarReserva.Text = "Editar";
+            this.btn_editarReserva.UseVisualStyleBackColor = true;
+            this.btn_editarReserva.Click += new System.EventHandler(this.btn_editarReserva_Click);
             // 
             // Form1
             // 
@@ -335,7 +315,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.reserva.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -361,16 +342,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage reserva;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Entrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Salida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Forfait;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Profesor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alojamiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.ListBox Reservas;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_editarReserva;
+        private System.Windows.Forms.TextBox tb_idEditReserva;
     }
 }
 
