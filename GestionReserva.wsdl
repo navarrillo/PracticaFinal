@@ -106,7 +106,7 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="out" type="tns:Reserva" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      			<xsd:element name="out" type="tns:ReservaEdicion" minOccurs="0" maxOccurs="unbounded"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>

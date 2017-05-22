@@ -324,7 +324,8 @@ public class GestionReservaSkeleton {
 			rs = cmd.executeQuery(sql2);
 
 			while (rs.next()) {
-				Reserva r = new Reserva();
+				ReservaEdicion r = new ReservaEdicion();
+				r.localId = rs.getInt("id");
 				r.localAlojamiento = rs.getBoolean("alojamiento");
 				r.localEmailCliente = rs.getString("emailCliente");
 				r.localFechaEntrada = rs.getDate("fechaEntrada");
@@ -350,4 +351,3 @@ public class GestionReservaSkeleton {
 	}
      
 }
-    

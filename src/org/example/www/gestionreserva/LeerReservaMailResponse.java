@@ -31,7 +31,7 @@
                         */
 
                         
-                                    protected org.example.www.gestionreserva.Reserva[] localOut ;
+                                    protected org.example.www.gestionreserva.ReservaEdicion[] localOut ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
@@ -47,9 +47,9 @@
 
                            /**
                            * Auto generated getter method
-                           * @return org.example.www.gestionreserva.Reserva[]
+                           * @return org.example.www.gestionreserva.ReservaEdicion[]
                            */
-                           public  org.example.www.gestionreserva.Reserva[] getOut(){
+                           public  org.example.www.gestionreserva.ReservaEdicion[] getOut(){
                                return localOut;
                            }
 
@@ -61,7 +61,7 @@
                               /**
                                * validate the array for Out
                                */
-                              protected void validateOut(org.example.www.gestionreserva.Reserva[] param){
+                              protected void validateOut(org.example.www.gestionreserva.ReservaEdicion[] param){
                              
                               }
 
@@ -70,7 +70,7 @@
                               * Auto generated setter method
                               * @param param Out
                               */
-                              public void setOut(org.example.www.gestionreserva.Reserva[] param){
+                              public void setOut(org.example.www.gestionreserva.ReservaEdicion[] param){
                               
                                    validateOut(param);
 
@@ -83,11 +83,11 @@
                              
                              /**
                              * Auto generated add method for the array for convenience
-                             * @param param org.example.www.gestionreserva.Reserva
+                             * @param param org.example.www.gestionreserva.ReservaEdicion
                              */
-                             public void addOut(org.example.www.gestionreserva.Reserva param){
+                             public void addOut(org.example.www.gestionreserva.ReservaEdicion param){
                                    if (localOut == null){
-                                   localOut = new org.example.www.gestionreserva.Reserva[]{};
+                                   localOut = new org.example.www.gestionreserva.ReservaEdicion[]{};
                                    }
 
                             
@@ -99,8 +99,8 @@
                             org.apache.axis2.databinding.utils.ConverterUtil.toList(localOut);
                                list.add(param);
                                this.localOut =
-                             (org.example.www.gestionreserva.Reserva[])list.toArray(
-                            new org.example.www.gestionreserva.Reserva[list.size()]);
+                             (org.example.www.gestionreserva.ReservaEdicion[])list.toArray(
+                            new org.example.www.gestionreserva.ReservaEdicion[list.size()]);
 
                              }
                              
@@ -473,7 +473,7 @@
                                     
                                     
                                     // Process the array and step past its final element's end.
-                                    list1.add(org.example.www.gestionreserva.Reserva.Factory.parse(reader));
+                                    list1.add(org.example.www.gestionreserva.ReservaEdicion.Factory.parse(reader));
                                                                 
                                                         //loop until we find a start element that is not part of this array
                                                         boolean loopDone1 = false;
@@ -491,7 +491,7 @@
                                                                 loopDone1 = true;
                                                             } else {
                                                                 if (new javax.xml.namespace.QName("","out").equals(reader.getName())){
-                                                                    list1.add(org.example.www.gestionreserva.Reserva.Factory.parse(reader));
+                                                                    list1.add(org.example.www.gestionreserva.ReservaEdicion.Factory.parse(reader));
                                                                         
                                                                 }else{
                                                                     loopDone1 = true;
@@ -500,9 +500,9 @@
                                                         }
                                                         // call the converter utility  to convert and set the array
                                                         
-                                                        object.setOut((org.example.www.gestionreserva.Reserva[])
+                                                        object.setOut((org.example.www.gestionreserva.ReservaEdicion[])
                                                             org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                                org.example.www.gestionreserva.Reserva.class,
+                                                                org.example.www.gestionreserva.ReservaEdicion.class,
                                                                 list1));
                                                             
                               }  // End of if for expected property start element
