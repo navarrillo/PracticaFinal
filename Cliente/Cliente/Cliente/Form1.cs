@@ -17,7 +17,6 @@ namespace Cliente
             InitializeComponent();
 
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -59,7 +58,7 @@ namespace Cliente
             string str = response.precio.ToString();
             string proveedor = response.proveedor;
 
-            gesReserva.Reserva res = new gesReserva.Reserva();
+            gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
             
             res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
             res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
@@ -97,14 +96,11 @@ namespace Cliente
         {
             gesReserva.GestionReserva reserva = new gesReserva.GestionReserva();
 
-            gesReserva.Reserva[] listaReservas = reserva.LeerReservaMail("a@a.a");
+            gesReserva.ReservaEdicion[] listaReservas = reserva.LeerReservaMail("a@a.a");
 
-            foreach (gesReserva.Reserva res in listaReservas){
+            foreach (gesReserva.ReservaEdicion res in listaReservas){
                 MessageBox.Show(res.nombreCliente);
             }
-            
-                       
-
             
         }
 

@@ -260,10 +260,10 @@ namespace Cliente.gesReserva {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.example.org/GestionReserva/LeerReservaMail", RequestNamespace="http://www.example.org/GestionReserva/", ResponseNamespace="http://www.example.org/GestionReserva/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("out", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Reserva[] LeerReservaMail([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string email) {
+        public ReservaEdicion[] LeerReservaMail([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string email) {
             object[] results = this.Invoke("LeerReservaMail", new object[] {
                         email});
-            return ((Reserva[])(results[0]));
+            return ((ReservaEdicion[])(results[0]));
         }
         
         /// <remarks/>
@@ -312,7 +312,9 @@ namespace Cliente.gesReserva {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.example.org/GestionReserva/")]
-    public partial class Reserva {
+    public partial class ReservaEdicion {
+        
+        private int idField;
         
         private System.DateTime fechaEntradaField;
         
@@ -331,6 +333,17 @@ namespace Cliente.gesReserva {
         private bool profesorField;
         
         private bool alojamientoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="date")]
@@ -642,10 +655,10 @@ namespace Cliente.gesReserva {
         }
         
         /// <remarks/>
-        public Reserva[] Result {
+        public ReservaEdicion[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Reserva[])(this.results[0]));
+                return ((ReservaEdicion[])(this.results[0]));
             }
         }
     }
