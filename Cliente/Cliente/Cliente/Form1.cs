@@ -13,13 +13,12 @@ namespace Cliente
     public partial class Form1 : Form
     {
         public gesReserva.ReservaEdicion[] listaReservas;
-        string email;
+        private string emailLogged;
 
         public Form1(string email)
         {
-            this.email = email;
             InitializeComponent();
-
+            this.emailLogged = email;
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -56,7 +55,9 @@ namespace Cliente
             if (checkBox3.Checked) resRequest.profesor = true;
             if (checkBox4.Checked) resRequest.alojamiento = true;
 
-            resRequest.unidades = Int32.Parse(textBox1.Text);
+            //obtenemos los dias que se va a ir
+            int dias = (DateTime.Parse(dateTimePicker2.Text) - (DateTime.Parse(dateTimePicker1.Text))).Days+1;
+            resRequest.unidades = Int32.Parse(textBox1.Text)*dias;
 
             proveedores.ReservaPersResponse response = resBinding.process(resRequest);
             string str = response.precio.ToString();
@@ -98,9 +99,10 @@ namespace Cliente
         // Hacemos la llamade para ver todas las reservas
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
+            Reservas.Items.Clear();
             gesReserva.GestionReserva reserva = new gesReserva.GestionReserva();
 
-           listaReservas = reserva.LeerReservaMail(email);
+            listaReservas = reserva.LeerReservaMail(this.emailLogged);
 
             foreach (gesReserva.ReservaEdicion res in listaReservas)
             {

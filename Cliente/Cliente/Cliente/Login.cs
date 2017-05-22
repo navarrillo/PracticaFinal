@@ -29,8 +29,11 @@ namespace Cliente
 
             if (tb_email_login.Text.Equals("admin") && tb_pass_login.Text.Equals("12345"))
             {
-                Proveedores proFrm = new Proveedores();
-                proFrm.Show();
+                btn_iniciarSesion.Text = "Bienvenido";
+                /*Proveedores proFrm = new Proveedores();
+                proFrm.Show();*/
+                Form1 frm = new Form1(email);
+                frm.Show();
                 this.Hide();
             }
             else {
@@ -49,10 +52,10 @@ namespace Cliente
 
         private void Reserva_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
+            /*Form1 frm = new Form1();
             frm.Show();
 
-            this.Hide();
+            this.Hide();*/
         }
     }
 }

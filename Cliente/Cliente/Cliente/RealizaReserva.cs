@@ -20,8 +20,8 @@ namespace Cliente
         {
             InitializeComponent();
             this.reserva = reserva;
-            textBox1.Text = reserva.nombreCliente;
-            textBox2.Text = reserva.emailCliente;
+            textBox2.Text = reserva.nombreCliente;
+            textBox1.Text = reserva.emailCliente;
             textBox3.Text = reserva.fechaEntrada.ToString();
             textBox4.Text = reserva.fechaSalida.ToString();
             textBox5.Text = reserva.precio.ToString()+" €";
@@ -45,7 +45,6 @@ namespace Cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
             string salida;
             gesReserva.CrearReserva(reserva.fechaEntrada, reserva.fechaSalida, 
