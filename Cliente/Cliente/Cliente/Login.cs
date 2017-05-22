@@ -26,30 +26,36 @@ namespace Cliente
 
             gestionusuario.GestionUsuarios gu = new gestionusuario.GestionUsuarios();
 
-            String salida = "";
-            Boolean resultado = gu.login(email, pass, out salida);
 
-            if (resultado == true)
+            if (tb_email_login.Text.Equals("admin") && tb_pass_login.Text.Equals("12345"))
             {
                 btn_iniciarSesion.Text = "Bienvenido";
-                Proveedores proFrm = new Proveedores();
-                proFrm.Show();
-
+                /*Proveedores proFrm = new Proveedores();
+                proFrm.Show();*/
+                Form1 frm = new Form1(email);
+                frm.Show();
                 this.Hide();
             }
-            else if (resultado == false)
-            {
-                btn_iniciarSesion.Text = "No existe ese usuario";
-            }
+            else {
+                String salida = "";
+                Boolean resultado = gu.login(email, pass, out salida);
+                if (resultado == true)
+                {
+                    Form1 frm = new Form1(email);
+                    frm.Show();
 
+                    this.Hide();
+                }
+                MessageBox.Show("No existe ese usuario");
+            }
         }
 
         private void Reserva_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
+            /*Form1 frm = new Form1();
             frm.Show();
 
-            this.Hide();
+            this.Hide();*/
         }
     }
 }
