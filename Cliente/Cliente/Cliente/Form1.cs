@@ -199,6 +199,11 @@ namespace Cliente
 
         }
 
+        private void tb_idEditReserva_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
