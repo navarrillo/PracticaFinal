@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "SalidareservaPerso"
+        }
+    },
+    "id": "97177521-187e-4421-b3fd-987ee1e1f682",
+    "version": "5.2.0.0"
+}

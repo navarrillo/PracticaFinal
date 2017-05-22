@@ -19,6 +19,8 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
     <ws:consumer-config name="Web_Service_Consumer" service="ServiciosExternos" port="ServiciosExternosSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/ServiciosExternos/" wsdlLocation="http://localhost:9080/PracticaFinal/services/ServiciosExternos?wsdl" doc:name="Web Service Consumer"/>
     <ws:consumer-config name="Web_Service_Consumer1" service="GestionProveedores" port="GestionProveedoresSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/GestionProveedores/" wsdlLocation="http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl" doc:name="Web Service Consumer"/>
     <ws:consumer-config name="Web_Service_Consumer2" service="ServiciosExternos" port="ServiciosExternosSOAP" serviceAddress="http://localhost:9080/PracticaFinal/services/ServiciosExternos/" wsdlLocation="http://localhost:9080/PracticaFinal/services/ServiciosExternos?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="Web_Service_Consumer3" service="ReservaPersService" port="ReservaPersPort" serviceAddress="http://localhost:8080/ode/processes/ReservaPers" wsdlLocation="http://localhost:8080/ode/deployment/bundles/BPELReservaPers/ReservaPersArtifacts.wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="Web_Service_Consumer4" service="ReservaPaService" port="ReservaPaPort" serviceAddress="http://localhost:8080/ode/processes/ReservaPa" wsdlLocation="http://localhost:8080/ode/deployment/bundles/BPELReservaPa/ReservaPaArtifacts.wsdl" doc:name="Web Service Consumer"/>
     <flow name="orquestacionfinalFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/*" doc:name="HTTP"/>
         <choice doc:name="Choice">
@@ -30,6 +32,12 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
             </when>
             <when expression="#[message.inboundProperties.'http.request.path'=='/suscripcion']">
                 <flow-ref name="Suscripcion" doc:name="Suscripcion"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.path'=='/reservaPers']">
+                <flow-ref name="reservaPersonalizada" doc:name="reservaPersonalizada"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.path'=='/reservaPack']">
+                <flow-ref name="reservaPack" doc:name="reservaPack"/>
             </when>
             <otherwise>
                 <set-payload value="#[&quot;No se ha encontrado la ruta especificada&quot;]" doc:name="Set Payload"/>
@@ -176,5 +184,60 @@ payload.ns0#EditarReservaResponse.salida]]></dw:set-payload>
         <set-variable variableName="emial" value="#[payload]" doc:name="Variable"/>
         <set-payload value="#[&quot;Tu reserva ha sido actualizada \n&quot;]+#[flowVars.reserva.id]" doc:name="Set Payload"/>
         <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="sdsservidor@gmail.com" password="sds12345" to="#[flowVars.emial]" from="sdsservidor@gmail.com" subject="Actualizada la Reserva" responseTimeout="10000" doc:name="SMTP"/>
+    </sub-flow>
+    <sub-flow name="reservaPersonalizada">
+        <dw:transform-message doc:name="Transform Message" metadata:id="a55e788d-633c-43c4-b9a6-343ace5cfb3c">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://proyectoFinal
+---
+{
+	ns0#ReservaPersRequest: {
+		ns0#ski: payload.ski,
+		ns0#material: payload.material,
+		ns0#profesor: payload.profesor,
+		ns0#alojamiento: payload.alojamiento,
+		ns0#unidades: payload.unidades
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="Web_Service_Consumer3" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="97177521-187e-4421-b3fd-987ee1e1f682">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+%namespace ns0 http://proyectoFinal
+---
+{
+	precio: payload.ns0#ReservaPersResponse.ns0#precio,
+	proveedor: payload.ns0#ReservaPersResponse.ns0#proveedor
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="reservaPack">
+        <dw:transform-message doc:name="Transform Message" metadata:id="9cedb8fa-a30f-4336-9f3a-72e155f19fea">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://sample.bpel.org/bpel/sample
+---
+{
+	ns0#ReservaPaRequest: {
+		ns0#input: payload.input,
+		ns0#proveedor: payload.proveedor
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="Web_Service_Consumer4" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="37192710-080c-4221-9176-225b1c051665">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+%namespace ns0 http://sample.bpel.org/bpel/sample
+---
+{
+	precio: payload.ns0#ReservaPaResponse.ns0#result,
+	proveedor: payload.ns0#ReservaPaResponse.ns0#Proveedor
+}]]></dw:set-payload>
+        </dw:transform-message>
     </sub-flow>
 </mule>
