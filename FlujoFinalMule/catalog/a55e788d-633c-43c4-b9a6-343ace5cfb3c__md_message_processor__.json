@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "EntradareservaPerso"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "a55e788d-633c-43c4-b9a6-343ace5cfb3c",
+    "version": "5.2.0.0"
+}

@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "EntradareservaPack"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "9cedb8fa-a30f-4336-9f3a-72e155f19fea",
+    "version": "5.2.0.0"
+}
