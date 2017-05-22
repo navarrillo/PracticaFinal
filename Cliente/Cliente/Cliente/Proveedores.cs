@@ -119,5 +119,53 @@ namespace Cliente
                 textboxeditar.Text = "Proveedor editado correctamente";
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            resultadoBox.Text = "";
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/enviarpublicidad");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "{\"in\":\"Compra!!!!\"}";
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadLine();
+                resultadoBox.Text = "Publicidad enviada correctamente";
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            resultadoBox.Text = "";
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/suscripcion");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "{\"in\":\"Compra!!!!\"}";
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadLine();
+                resultadoBox.Text = "Ofertas enviadas a los suscriptores correctamente";
+            }
+        }
     }
 }
