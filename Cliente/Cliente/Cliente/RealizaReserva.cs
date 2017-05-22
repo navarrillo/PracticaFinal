@@ -13,7 +13,10 @@ namespace Cliente
     public partial class RealizaReserva : Form
     {
         gesReserva.ReservaEdicion reserva;
-        public RealizaReserva(gesReserva.ReservaEdicion reserva, string proveedor,string personas )
+
+
+        public RealizaReserva(gesReserva.ReservaEdicion reserva, string proveedor, string personas)
+
         {
             InitializeComponent();
             this.reserva = reserva;

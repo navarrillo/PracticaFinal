@@ -6,5 +6,9 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="ReservaEdicion" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+<<<<<<< HEAD:Cliente/Cliente/Cliente/Web References/gesReserva/ReservaEdicion.datasource
    <TypeInfo>Cliente.gesReserva.ReservaEdicion, Web References.gesReserva.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+=======
+   <TypeInfo>Cliente.gesReserva.ReservaEdicion, Web References.gesReserva.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+>>>>>>> sergio:Cliente/Cliente/Cliente/Web References/gesReserva/ReservaEdicion.datasource
 </GenericObjectDataSource>

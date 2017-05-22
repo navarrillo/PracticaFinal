@@ -12,6 +12,8 @@ namespace Cliente
 {
     public partial class Form1 : Form
     {
+        public gesReserva.ReservaEdicion[] listaReservas;
+
         public Form1()
         {
             InitializeComponent();
@@ -96,17 +98,52 @@ namespace Cliente
         {
             gesReserva.GestionReserva reserva = new gesReserva.GestionReserva();
 
-            gesReserva.ReservaEdicion[] listaReservas = reserva.LeerReservaMail("a@a.a");
+           listaReservas = reserva.LeerReservaMail("a");
 
-            foreach (gesReserva.ReservaEdicion res in listaReservas){
-                MessageBox.Show(res.nombreCliente);
+            foreach (gesReserva.ReservaEdicion res in listaReservas)
+            {
+                //MessageBox.Show(res.nombreCliente);
+                Reservas.Items.Add("ID: "+res.id+ " - precio: "+res.precio);
             }
-            
+   
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_editarReserva_Click(object sender, EventArgs e)
+        {
+             String id = tb_idEditReserva.Text.ToString();
+
+             foreach (gesReserva.ReservaEdicion res in listaReservas)
+             {
+                 //MessageBox.Show(res.nombreCliente);
+                 if (res.id.ToString() == id)
+                 {
+                     //ModificarReserva formModifica = new ModificarReserva();
+                     //formModifica.Show(res);
+                     ModificarReserva formModifica = new ModificarReserva(res);
+                     formModifica.Show();
+
+                    // this.Hide();
+                 }
+                 else
+                 {
+                     MessageBox.Show("No existe esa id");
+                 }
+                 
+             }
+
+        }
+
+
     }
 }
