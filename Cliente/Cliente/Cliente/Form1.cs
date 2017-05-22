@@ -89,14 +89,12 @@ namespace Cliente
                 string str = json.GetValue("precio").ToString();
                 double precio = double.Parse(str, CultureInfo.InvariantCulture);
 
-                MessageBox.Show(precio.ToString());
-
                 gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
 
                 res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
                 res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
-                res.emailCliente = textBox3.Text;
-                res.nombreCliente = textBox4.Text;
+                res.emailCliente = textBox4.Text;
+                res.nombreCliente = textBox3.Text;
                 res.precio = precio;
                 res.material = bool.Parse(material);
                 res.profesor = bool.Parse(profesor);
@@ -169,11 +167,7 @@ namespace Cliente
 
                     // this.Hide();
                  }
-                 else
-                 {
-                     MessageBox.Show("No existe esa id");
-                 }
-                 
+
              }
 
         }
@@ -183,6 +177,24 @@ namespace Cliente
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(tb_idEditReserva.Text);
+            gesReserva.GestionReserva reserva = new gesReserva.GestionReserva();
+            string salida;
+            reserva.EliminarReserva(id, out salida);
 
+            MessageBox.Show(salida);
+
+            Reservas.Items.Clear();
+
+            listaReservas = reserva.LeerReservaMail(this.emailLogged);
+
+            foreach (gesReserva.ReservaEdicion res in listaReservas)
+            {
+                //MessageBox.Show(res.nombreCliente);
+                Reservas.Items.Add("ID: " + res.id + " - precio: " + res.precio);
+            }
+        }
     }
 }

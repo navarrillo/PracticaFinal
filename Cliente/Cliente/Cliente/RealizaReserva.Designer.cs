@@ -56,9 +56,9 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(69, 33);
+            this.textBox1.Location = new System.Drawing.Point(68, 69);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(124, 20);
             this.textBox1.TabIndex = 0;
             // 
             // label1
@@ -83,9 +83,9 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(69, 69);
+            this.textBox2.Location = new System.Drawing.Point(68, 33);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(124, 20);
             this.textBox2.TabIndex = 2;
             // 
             // label3
@@ -102,7 +102,7 @@
             this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(321, 29);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 20);
+            this.textBox3.Size = new System.Drawing.Size(149, 20);
             this.textBox3.TabIndex = 4;
             // 
             // label4
@@ -119,7 +119,7 @@
             this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(322, 72);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(117, 20);
+            this.textBox4.Size = new System.Drawing.Size(148, 20);
             this.textBox4.TabIndex = 6;
             // 
             // label5
@@ -230,7 +230,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
-            this.button1.Text = "Enviar";
+            this.button1.Text = "Confirmar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -247,9 +247,9 @@
             // textBox11
             // 
             this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(153, 112);
+            this.textBox11.Location = new System.Drawing.Point(163, 112);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(66, 20);
+            this.textBox11.Size = new System.Drawing.Size(52, 20);
             this.textBox11.TabIndex = 21;
             // 
             // RealizaReserva

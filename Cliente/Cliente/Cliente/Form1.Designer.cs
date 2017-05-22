@@ -52,6 +52,7 @@
             this.tb_idEditReserva = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Reservas = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -114,20 +115,20 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(113, 92);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(123, 20);
             this.textBox4.TabIndex = 7;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(113, 66);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(123, 20);
             this.textBox3.TabIndex = 5;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(0, 37);
+            this.checkBox1.Location = new System.Drawing.Point(14, 31);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(55, 17);
             this.checkBox1.TabIndex = 18;
@@ -138,7 +139,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(61, 37);
+            this.checkBox2.Location = new System.Drawing.Point(75, 31);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(63, 17);
             this.checkBox2.TabIndex = 19;
@@ -148,7 +149,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(130, 37);
+            this.checkBox3.Location = new System.Drawing.Point(144, 31);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(65, 17);
             this.checkBox3.TabIndex = 20;
@@ -158,7 +159,7 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(201, 37);
+            this.checkBox4.Location = new System.Drawing.Point(215, 31);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(80, 17);
             this.checkBox4.TabIndex = 21;
@@ -169,7 +170,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(122, 202);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(73, 20);
             this.textBox1.TabIndex = 22;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -213,7 +214,7 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(958, 406);
+            this.tabControl1.Size = new System.Drawing.Size(778, 406);
             this.tabControl1.TabIndex = 27;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -233,8 +234,8 @@
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(950, 380);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(770, 380);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Solicitar Presupuesto";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -245,8 +246,8 @@
             this.reserva.Controls.Add(this.Reservas);
             this.reserva.Location = new System.Drawing.Point(4, 22);
             this.reserva.Name = "reserva";
-            this.reserva.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.reserva.Size = new System.Drawing.Size(950, 380);
+            this.reserva.Padding = new System.Windows.Forms.Padding(3);
+            this.reserva.Size = new System.Drawing.Size(770, 380);
             this.reserva.TabIndex = 1;
             this.reserva.Text = "Mis Reservas";
             this.reserva.UseVisualStyleBackColor = true;
@@ -254,6 +255,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.btn_editarReserva);
             this.groupBox2.Controls.Add(this.tb_idEditReserva);
             this.groupBox2.Controls.Add(this.label6);
@@ -301,11 +303,21 @@
             this.Reservas.TabIndex = 0;
             this.Reservas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(193, 84);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 406);
+            this.ClientSize = new System.Drawing.Size(781, 406);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -348,6 +360,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_editarReserva;
         private System.Windows.Forms.TextBox tb_idEditReserva;
+        private System.Windows.Forms.Button button2;
     }
 }
 

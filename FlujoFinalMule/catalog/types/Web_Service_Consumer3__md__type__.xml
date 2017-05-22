@@ -19,7 +19,16 @@
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
             <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
             <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
-              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey">
+                <id>ReservaPersRequest</id>
+                <displayName>ReservaPersRequest</displayName>
+                <category>DEFAULT</category>
+                <metaDataKeyPropertiesManager>
+                  <properties>
+                    <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
+                  </properties>
+                </metaDataKeyPropertiesManager>
+              </metaDataKey>
               <derivedStructure>false</derivedStructure>
               <generatedStructure>false</generatedStructure>
             </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
@@ -304,7 +313,7 @@
           <baseUri>http://localhost:8080/ode/deployment/bundles/BPELReservaPers/ReservaPersArtifacts.wsdl</baseUri>
         </schemas>
         <namespaceManager>
-          <namespacePrefix class="tree-map">
+          <namespacePrefix>
             <entry>
               <string>http://proyectoFinal</string>
               <string>ns0</string>
@@ -331,7 +340,16 @@
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
             <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
             <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
-              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey">
+                <id>ReservaPersResponse</id>
+                <displayName>ReservaPersResponse</displayName>
+                <category>DEFAULT</category>
+                <metaDataKeyPropertiesManager>
+                  <properties>
+                    <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
+                  </properties>
+                </metaDataKeyPropertiesManager>
+              </metaDataKey>
               <derivedStructure>false</derivedStructure>
               <generatedStructure>false</generatedStructure>
             </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
@@ -541,7 +559,7 @@
           <baseUri>http://localhost:8080/ode/deployment/bundles/BPELReservaPers/ReservaPersArtifacts.wsdl</baseUri>
         </schemas>
         <namespaceManager>
-          <namespacePrefix class="tree-map">
+          <namespacePrefix>
             <entry>
               <string>http://proyectoFinal</string>
               <string>ns0</string>

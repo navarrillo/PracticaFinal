@@ -182,7 +182,7 @@ payload.ns0#obtenerEmailsSuscritosResponse.emails]]></dw:set-payload>
 payload.ns0#EditarReservaResponse.salida]]></dw:set-payload>
         </dw:transform-message>
         <set-variable variableName="emial" value="#[payload]" doc:name="Variable"/>
-        <set-payload value="#[&quot;Tu reserva ha sido actualizada \n&quot;]+#[flowVars.reserva.id]" doc:name="Set Payload"/>
+        <set-payload value="#[&quot;Tu reserva ha sido actualizada \n&quot;]" doc:name="Set Payload"/>
         <smtp:outbound-endpoint host="smtp.gmail.com" port="587" user="sdsservidor@gmail.com" password="sds12345" to="#[flowVars.emial]" from="sdsservidor@gmail.com" subject="Actualizada la Reserva" responseTimeout="10000" doc:name="SMTP"/>
     </sub-flow>
     <sub-flow name="reservaPersonalizada">

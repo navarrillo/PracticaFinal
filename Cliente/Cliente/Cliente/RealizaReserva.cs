@@ -53,6 +53,7 @@ namespace Cliente
             gesReserva.CrearReserva(reserva.fechaEntrada, reserva.fechaSalida, 
                 reserva.nombreCliente, reserva.emailCliente, reserva.precio, 
                 reserva.ski,reserva.material, reserva.profesor, reserva.alojamiento, out salida);
+
             MessageBox.Show(salida);
 
             this.Close();
