@@ -395,7 +395,11 @@
               <metaDataModelPropertiesManager>
                 <properties>
                   <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                    <typeQName>
+                      <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+                      <localPart>string</localPart>
+                      <prefix></prefix>
+                    </typeQName>
                   </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
                 </properties>
               </metaDataModelPropertiesManager>
@@ -482,7 +486,7 @@
           <baseUri>http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl</baseUri>
         </schemas>
         <namespaceManager>
-          <namespacePrefix class="tree-map">
+          <namespacePrefix>
             <entry>
               <string>http://www.example.org/GestionProveedores/</string>
               <string>ns0</string>
@@ -532,7 +536,7 @@
               <metaDataModelPropertiesManager>
                 <properties>
                   <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                    <typeQName reference="../../../../../../../../../entry[3]/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
                   </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
                 </properties>
               </metaDataModelPropertiesManager>
@@ -557,7 +561,7 @@
               <metaDataModelPropertiesManager>
                 <properties>
                   <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                    <typeQName reference="../../../../../../../../../entry[3]/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
                   </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
                 </properties>
               </metaDataModelPropertiesManager>
@@ -582,7 +586,7 @@
               <metaDataModelPropertiesManager>
                 <properties>
                   <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                    <typeQName reference="../../../../../../../../../entry[3]/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
                   </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
                 </properties>
               </metaDataModelPropertiesManager>
@@ -607,7 +611,7 @@
               <metaDataModelPropertiesManager>
                 <properties>
                   <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                    <typeQName reference="../../../../../../../../../entry[3]/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
                   </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
                 </properties>
               </metaDataModelPropertiesManager>
@@ -694,7 +698,7 @@
           <baseUri>http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl</baseUri>
         </schemas>
         <namespaceManager>
-          <namespacePrefix class="tree-map">
+          <namespacePrefix>
             <entry>
               <string>http://www.example.org/GestionProveedores/</string>
               <string>ns0</string>
