@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,39 +48,87 @@ namespace Cliente
             proveedores.ReservaPersRequest resRequest = new proveedores.ReservaPersRequest();
             proveedores.ReservaPersBinding resBinding = new proveedores.ReservaPersBinding();
 
-            resRequest.ski = false;
-            resRequest.material = false;
-            resRequest.profesor = false;
-            resRequest.alojamiento = false;
+            int ski = 0;
+            int material = 0;
+            int profesor = 0;
+            int alojamiento = 0;
 
-            if (checkBox1.Checked) resRequest.ski = true;
-            if (checkBox2.Checked) resRequest.material = true;
-            if (checkBox3.Checked) resRequest.profesor = true;
-            if (checkBox4.Checked) resRequest.alojamiento = true;
+            if (checkBox1.Checked) ski = 1;
+            if (checkBox2.Checked) material = 1;
+            if (checkBox3.Checked) profesor = 1;
+            if (checkBox4.Checked) alojamiento = 1;
+
+            int dias = (DateTime.Parse(dateTimePicker2.Text) - (DateTime.Parse(dateTimePicker1.Text))).Days + 1;
+            int unidades = Int32.Parse(textBox1.Text) * dias;
+
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/reservaPers");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "{\"ski\":" + ski + "," +
+                              "\"material\":" +material + "," +
+                              "\"profesor\":" + profesor + "," +
+                              "\"alojamiento\":" + alojamiento + "," +
+                               "\"unidades\":" + unidades + "}";
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                MessageBox.Show(result);
+                JObject json = JObject.Parse(result);
+
+                string str = json.GetValue("precio").ToString();
+                double precio = Double.Parse(str);
+
+                gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
+
+                res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
+                res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
+                res.emailCliente = textBox3.Text;
+                res.nombreCliente = textBox4.Text;
+                res.precio = precio;
+                res.material = resRequest.material;
+                res.profesor = resRequest.profesor;
+                res.ski = resRequest.profesor;
+                res.alojamiento = resRequest.alojamiento;
+
+                // Abrimos nueva pantalla para mostrar los datos de la reserva
+                RealizaReserva resFrm = new RealizaReserva(res, json.GetValue("proveedor").ToString(), textBox1.Text);
+                resFrm.Show();
+            }
+            
+
 
             //obtenemos los dias que se va a ir
-            int dias = (DateTime.Parse(dateTimePicker2.Text) - (DateTime.Parse(dateTimePicker1.Text))).Days+1;
-            resRequest.unidades = Int32.Parse(textBox1.Text)*dias;
+            /* int dias = (DateTime.Parse(dateTimePicker2.Text) - (DateTime.Parse(dateTimePicker1.Text))).Days+1;
+             resRequest.unidades = Int32.Parse(textBox1.Text)*dias;
 
-            proveedores.ReservaPersResponse response = resBinding.process(resRequest);
-            string str = response.precio.ToString();
-            string proveedor = response.proveedor;
+             string str = response.precio.ToString();
+             string proveedor = response.proveedor;
 
-            gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
-            
-            res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
-            res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
-            res.emailCliente = textBox3.Text;
-            res.nombreCliente = textBox4.Text;
-            res.precio = response.precio;
-            res.material = resRequest.material;
-            res.profesor = resRequest.profesor;
-            res.ski = resRequest.profesor;
-            res.alojamiento = resRequest.alojamiento;
-            // Abrimos nueva pantalla para mostrar los datos de la reserva
-            RealizaReserva resFrm = new RealizaReserva(res,proveedor,textBox1.Text);
-            resFrm.Show();
-                
+             gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
+
+             res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
+             res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
+             res.emailCliente = textBox3.Text;
+             res.nombreCliente = textBox4.Text;
+             res.precio = precio;
+             res.material = resRequest.material;
+             res.profesor = resRequest.profesor;
+             res.ski = resRequest.profesor;
+             res.alojamiento = resRequest.alojamiento;
+             // Abrimos nueva pantalla para mostrar los datos de la reserva
+             RealizaReserva resFrm = new RealizaReserva(res,proveedor,textBox1.Text);
+             resFrm.Show();*/
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

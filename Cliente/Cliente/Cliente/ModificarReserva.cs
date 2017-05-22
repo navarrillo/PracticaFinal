@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,20 +35,24 @@ namespace Cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
-            string salida;
+            Reserva res = new Reserva();
+            res.nombreCliente = textBox1.Text;
+            res.precio = 2.1;
+            res.emailCliente = "dani_hawkb@hotmail.com";
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9091/flujo1");
+            string output = JsonConvert.SerializeObject(res);
+
+           /* gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
+            string salida;*/
+
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/gestionreserva");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                string json = "{\"numUnidades\":\"" + textBox1.Text + "\"," +
-                             "\"referenciaProducto\":\"" + textBox2.Text + "\"," +
-                              "\"soapkey\":\"" + textBox3.Text + "\"}";
 
-                streamWriter.Write(json);
+                streamWriter.Write(output);
                 streamWriter.Flush();
                 streamWriter.Close();
             }
@@ -56,12 +61,17 @@ namespace Cliente
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
+                MessageBox.Show(result);
+            }
+            /*using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
                 textBox4.Text = result;
 
                 bool correcto = gesReserva.EditarReserva(reserva.id,reserva.fechaEntrada, reserva.fechaSalida,
                 reserva.nombreCliente, reserva.emailCliente, reserva.precio,
                 reserva.ski, reserva.material, reserva.profesor, reserva.alojamiento, out salida);
-            MessageBox.Show(salida);
+            MessageBox.Show(salida);*/
 
             this.Close();
 

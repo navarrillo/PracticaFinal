@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,13 +48,51 @@ namespace Cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
+            /*gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
             string salida;
             gesReserva.CrearReserva(reserva.fechaEntrada, reserva.fechaSalida, 
                 reserva.nombreCliente, reserva.emailCliente, reserva.precio, 
                 reserva.ski,reserva.material, reserva.profesor, reserva.alojamiento, out salida);
-            MessageBox.Show(salida);
-            
+            MessageBox.Show(salida);*/
+
+            Reserva res = new Reserva();
+
+            res.id = 10; ;
+            res.nombreCliente = reserva.nombreCliente; ;
+            res.precio = reserva.precio;
+            res.emailCliente = "dani_hawkb@hotmail.com";
+            res.fechaEntrada = reserva.fechaEntrada;
+            res.fechaSalida = reserva.fechaSalida;
+            res.ski = reserva.ski;
+            res.material = reserva.material;
+            res.profesor = reserva.profesor;
+            res.alojamiento = reserva.alojamiento;
+
+
+            string output = JsonConvert.SerializeObject(res);
+
+            /* gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
+             string salida;*/
+
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/gestionreserva");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+
+                streamWriter.Write(output);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                MessageBox.Show(result);
+            }
+
         }
     }
 }
