@@ -66,6 +66,17 @@
     <Compile Include="Proveedores.Designer.cs">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="RealizaReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RealizaReserva.Designer.cs">
+      <DependentUpon>RealizaReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\gesReserva\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\gestionusuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,6 +105,9 @@
     <EmbeddedResource Include="Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RealizaReserva.resx">
+      <DependentUpon>RealizaReserva.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -103,6 +117,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\gesReserva\GestionReserva.wsdl" />
+    <None Include="Web References\gesReserva\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\gesReserva\Reserva.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\gestionusuario\GestionUsuarios.wsdl" />
     <None Include="Web References\gestionusuario\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -140,6 +162,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Cliente_proveedores_proveedor2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:9080/PracticaFinal/services/GestionReserva%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\gesReserva\</RelPath>
+      <UpdateFromURL>http://localhost:9080/PracticaFinal/services/GestionReserva%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Cliente_gesReserva_GestionReserva</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:9080/PracticaFinal/services/GestionUsuarios%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>

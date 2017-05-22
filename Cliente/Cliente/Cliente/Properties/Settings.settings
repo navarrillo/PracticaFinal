@@ -17,5 +17,8 @@
     <Setting Name="Cliente_proveedores_ReservaPersService" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:8080/ode/processes/ReservaPers</Value>
     </Setting>
+    <Setting Name="Cliente_gesReserva_GestionReserva" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/PracticaFinal/services/GestionReserva/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

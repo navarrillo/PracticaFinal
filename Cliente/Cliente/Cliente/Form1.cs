@@ -15,6 +15,7 @@ namespace Cliente
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -56,13 +57,58 @@ namespace Cliente
 
             proveedores.ReservaPersResponse response = resBinding.process(resRequest);
             string str = response.precio.ToString();
-            str += " "+response.proveedor;
+            string proveedor = response.proveedor;
 
-            textBox2.Text = str;
+            gesReserva.Reserva res = new gesReserva.Reserva();
+            
+            res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
+            res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
+            res.emailCliente = textBox3.Text;
+            res.nombreCliente = textBox4.Text;
+            res.precio = response.precio;
+            res.material = resRequest.material;
+            res.profesor = resRequest.profesor;
+            res.ski = resRequest.profesor;
+            res.alojamiento = resRequest.alojamiento;
+            // Abrimos nueva pantalla para mostrar los datos de la reserva
+            RealizaReserva resFrm = new RealizaReserva(res,proveedor,textBox1.Text);
+            resFrm.Show();
                 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reserva_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        // Hacemos la llamade para ver todas las reservas
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            gesReserva.GestionReserva reserva = new gesReserva.GestionReserva();
+
+            gesReserva.Reserva[] listaReservas = reserva.LeerReservaMail("a@a.a");
+
+            foreach (gesReserva.Reserva res in listaReservas){
+                MessageBox.Show(res.nombreCliente);
+            }
+            
+                       
+
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

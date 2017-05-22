@@ -39,78 +39,97 @@
 
             if("crearReserva".equals(methodName)){
                 
-                org.example.www.gestionreserva.CrearReservaResponse crearReservaResponse17 = null;
+                org.example.www.gestionreserva.CrearReservaResponse crearReservaResponse21 = null;
 	                        org.example.www.gestionreserva.CrearReserva wrappedParam =
                                                              (org.example.www.gestionreserva.CrearReserva)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionreserva.CrearReserva.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               crearReservaResponse17 =
+                                               crearReservaResponse21 =
                                                    
                                                    
                                                          skel.crearReserva(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), crearReservaResponse17, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), crearReservaResponse21, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
                                                     "crearReserva"));
                                     } else 
 
             if("leerReserva".equals(methodName)){
                 
-                org.example.www.gestionreserva.LeerReservaResponse leerReservaResponse19 = null;
+                org.example.www.gestionreserva.LeerReservaResponse leerReservaResponse23 = null;
 	                        org.example.www.gestionreserva.LeerReserva wrappedParam =
                                                              (org.example.www.gestionreserva.LeerReserva)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionreserva.LeerReserva.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               leerReservaResponse19 =
+                                               leerReservaResponse23 =
                                                    
                                                    
                                                          skel.leerReserva(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), leerReservaResponse19, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), leerReservaResponse23, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
                                                     "leerReserva"));
                                     } else 
 
             if("eliminarReserva".equals(methodName)){
                 
-                org.example.www.gestionreserva.EliminarReservaResponse eliminarReservaResponse21 = null;
+                org.example.www.gestionreserva.EliminarReservaResponse eliminarReservaResponse25 = null;
 	                        org.example.www.gestionreserva.EliminarReserva wrappedParam =
                                                              (org.example.www.gestionreserva.EliminarReserva)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionreserva.EliminarReserva.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               eliminarReservaResponse21 =
+                                               eliminarReservaResponse25 =
                                                    
                                                    
                                                          skel.eliminarReserva(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), eliminarReservaResponse21, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), eliminarReservaResponse25, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
                                                     "eliminarReserva"));
                                     } else 
 
             if("editarReserva".equals(methodName)){
                 
-                org.example.www.gestionreserva.EditarReservaResponse editarReservaResponse23 = null;
+                org.example.www.gestionreserva.EditarReservaResponse editarReservaResponse27 = null;
 	                        org.example.www.gestionreserva.EditarReserva wrappedParam =
                                                              (org.example.www.gestionreserva.EditarReserva)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.gestionreserva.EditarReserva.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               editarReservaResponse23 =
+                                               editarReservaResponse27 =
                                                    
                                                    
                                                          skel.editarReserva(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), editarReservaResponse23, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), editarReservaResponse27, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
                                                     "editarReserva"));
+                                    } else 
+
+            if("leerReservaMail".equals(methodName)){
+                
+                org.example.www.gestionreserva.LeerReservaMailResponse leerReservaMailResponse29 = null;
+	                        org.example.www.gestionreserva.LeerReservaMail wrappedParam =
+                                                             (org.example.www.gestionreserva.LeerReservaMail)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.gestionreserva.LeerReservaMail.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               leerReservaMailResponse29 =
+                                                   
+                                                   
+                                                         skel.leerReservaMail(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), leerReservaMailResponse29, false, new javax.xml.namespace.QName("http://www.example.org/GestionReserva/",
+                                                    "leerReservaMail"));
                                     
             } else {
               throw new java.lang.RuntimeException("method not found");
@@ -238,6 +257,34 @@
 
             }
         
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.gestionreserva.LeerReservaMail param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.gestionreserva.LeerReservaMail.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.gestionreserva.LeerReservaMailResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.gestionreserva.LeerReservaMailResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.gestionreserva.CrearReservaResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -314,6 +361,25 @@
                                 return wrappedElement;
                          }
                     
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.gestionreserva.LeerReservaMailResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.gestionreserva.LeerReservaMailResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.gestionreserva.LeerReservaMailResponse wrapLeerReservaMail(){
+                                org.example.www.gestionreserva.LeerReservaMailResponse wrappedElement = new org.example.www.gestionreserva.LeerReservaMailResponse();
+                                return wrappedElement;
+                         }
+                    
 
 
         /**
@@ -376,6 +442,20 @@
                 if (org.example.www.gestionreserva.LeerReserva.class.equals(type)){
                 
                         return org.example.www.gestionreserva.LeerReserva.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.gestionreserva.LeerReservaMail.class.equals(type)){
+                
+                        return org.example.www.gestionreserva.LeerReservaMail.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.gestionreserva.LeerReservaMailResponse.class.equals(type)){
+                
+                        return org.example.www.gestionreserva.LeerReservaMailResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

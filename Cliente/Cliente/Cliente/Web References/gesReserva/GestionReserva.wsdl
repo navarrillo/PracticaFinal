@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/GestionReserva/" name="GestionReserva" targetNamespace="http://www.example.org/GestionReserva/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/GestionReserva/">
+      <xsd:element name="CrearReserva" type="tns:Reserva" />
+      <xsd:element name="CrearReservaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" />
+            <xsd:element name="salida" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Reserva">
+        <xsd:sequence>
+          <xsd:element name="fechaEntrada" type="xsd:date" />
+          <xsd:element name="fechaSalida" type="xsd:date" />
+          <xsd:element name="nombreCliente" type="xsd:string" />
+          <xsd:element name="emailCliente" type="xsd:string" />
+          <xsd:element name="precio" type="xsd:double" />
+          <xsd:element name="ski" type="xsd:boolean" />
+          <xsd:element name="material" type="xsd:boolean" />
+          <xsd:element name="profesor" type="xsd:boolean" />
+          <xsd:element name="alojamiento" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EditarReserva" type="tns:ReservaEdicion" />
+      <xsd:element name="EditarReservaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" />
+            <xsd:element name="salida" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerReserva">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerReservaResponse" type="tns:Reserva" />
+      <xsd:element name="EliminarReserva">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminarReservaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" />
+            <xsd:element name="salida" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AlmacenarReserva" type="tns:Reserva" />
+      <xsd:element name="AlmacenarReservaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="resultado" type="xsd:boolean" />
+            <xsd:element name="salida" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ReservaEdicion">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="fechaEntrada" type="xsd:date" />
+          <xsd:element name="fechaSalida" type="xsd:date" />
+          <xsd:element name="nombreCliente" type="xsd:string" />
+          <xsd:element name="emailCliente" type="xsd:string" />
+          <xsd:element name="precio" type="xsd:double" />
+          <xsd:element name="ski" type="xsd:boolean" />
+          <xsd:element name="material" type="xsd:boolean" />
+          <xsd:element name="profesor" type="xsd:boolean" />
+          <xsd:element name="alojamiento" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LeerReservaMail">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="email" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerReservaMailResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="out" type="tns:Reserva" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EditarReservaRequest">
+    <wsdl:part name="parameters" element="tns:EditarReserva" />
+  </wsdl:message>
+  <wsdl:message name="EliminarReservaRequest">
+    <wsdl:part name="parameters" element="tns:EliminarReserva" />
+  </wsdl:message>
+  <wsdl:message name="EditarReservaResponse">
+    <wsdl:part name="parameters" element="tns:EditarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearReservaRequest">
+    <wsdl:part name="parameters" element="tns:CrearReserva" />
+  </wsdl:message>
+  <wsdl:message name="CrearReservaResponse">
+    <wsdl:part name="parameters" element="tns:CrearReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarReservaResponse">
+    <wsdl:part name="parameters" element="tns:EliminarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="LeerReservaMailResponse">
+    <wsdl:part name="parameters" element="tns:LeerReservaMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlmacenarReservaRequest">
+    <wsdl:part name="parameters" element="tns:AlmacenarReserva" />
+  </wsdl:message>
+  <wsdl:message name="AlmacenarReservaResponse">
+    <wsdl:part name="parameters" element="tns:AlmacenarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="LeerReservaResponse">
+    <wsdl:part name="parameters" element="tns:LeerReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="LeerReservaMailRequest">
+    <wsdl:part name="parameters" element="tns:LeerReservaMail" />
+  </wsdl:message>
+  <wsdl:message name="LeerReservaRequest">
+    <wsdl:part name="parameters" element="tns:LeerReserva" />
+  </wsdl:message>
+  <wsdl:portType name="GestionReserva">
+    <wsdl:operation name="CrearReserva">
+      <wsdl:input message="tns:CrearReservaRequest" />
+      <wsdl:output message="tns:CrearReservaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarReserva">
+      <wsdl:input message="tns:EditarReservaRequest" />
+      <wsdl:output message="tns:EditarReservaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerReserva">
+      <wsdl:input message="tns:LeerReservaRequest" />
+      <wsdl:output message="tns:LeerReservaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarReserva">
+      <wsdl:input message="tns:EliminarReservaRequest" />
+      <wsdl:output message="tns:EliminarReservaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerReservaMail">
+      <wsdl:input message="tns:LeerReservaMailRequest" />
+      <wsdl:output message="tns:LeerReservaMailResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionReservaSOAP" type="tns:GestionReserva">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearReserva">
+      <soap:operation soapAction="http://www.example.org/GestionReserva/CrearReserva" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarReserva">
+      <soap:operation soapAction="http://www.example.org/GestionReserva/EditarReserva" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerReserva">
+      <soap:operation soapAction="http://www.example.org/GestionReserva/LeerReserva" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarReserva">
+      <soap:operation soapAction="http://www.example.org/GestionReserva/EliminarReserva" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerReservaMail">
+      <soap:operation soapAction="http://www.example.org/GestionReserva/LeerReservaMail" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionReserva">
+    <wsdl:port name="GestionReservaSOAP" binding="tns:GestionReservaSOAP">
+      <soap:address location="http://localhost:9080/PracticaFinal/services/GestionReserva/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

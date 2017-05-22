@@ -69,5 +69,15 @@ namespace Cliente.Properties {
                 return ((string)(this["Cliente_proveedores_ReservaPersService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:9080/PracticaFinal/services/GestionReserva/")]
+        public string Cliente_gesReserva_GestionReserva {
+            get {
+                return ((string)(this["Cliente_gesReserva_GestionReserva"]));
+            }
+        }
     }
 }

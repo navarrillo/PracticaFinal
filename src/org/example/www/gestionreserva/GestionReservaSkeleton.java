@@ -1,4 +1,3 @@
-
 /**
  * GestionReservaSkeleton.java
  *
@@ -23,7 +22,7 @@ public class GestionReservaSkeleton {
 
 	/**
 	 * Auto generated method signature
-	 * 
+	 *
 	 * @param crearReserva
 	 * @return crearReservaResponse
 	 */
@@ -97,7 +96,7 @@ public class GestionReservaSkeleton {
 
 	/**
 	 * Auto generated method signature
-	 * 
+	 *
 	 * @param leerReserva
 	 * @return leerReservaResponse
 	 */
@@ -168,7 +167,7 @@ public class GestionReservaSkeleton {
 
 	/**
 	 * Auto generated method signature
-	 * 
+	 *
 	 * @param eliminarReserva
 	 * @return eliminarReservaResponse
 	 */
@@ -223,7 +222,7 @@ public class GestionReservaSkeleton {
 
 	/**
 	 * Auto generated method signature
-	 * 
+	 *
 	 * @param editarReserva
 	 * @return editarReservaResponse
 	 */
@@ -294,5 +293,61 @@ public class GestionReservaSkeleton {
 
 		return respuesta;
 	}
+	
+	public org.example.www.gestionreserva.LeerReservaMailResponse leerReservaMail (
+			org.example.www.gestionreserva.LeerReservaMail leerReservaMail ) 
+	{
+		LeerReservaMailResponse response = new LeerReservaMailResponse();
+		
 
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			System.out.println("Registro exitoso");
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+		}
+
+		Connection con = null;
+		ResultSet rs = null;
+		Statement cmd = null;
+		try {
+
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3311/proyectoskibd?" + "user=root&password=root");
+
+			// Otros y operaciones sobre la base de datos...
+
+			cmd = con.createStatement();
+
+			String sql2 = "SELECT * FROM reservas r WHERE r.emailCliente=\'" + leerReservaMail.getEmail() +"\'";
+			rs = cmd.executeQuery(sql2);
+
+			while (rs.next()) {
+				Reserva r = new Reserva();
+				r.localAlojamiento = rs.getBoolean("alojamiento");
+				r.localEmailCliente = rs.getString("emailCliente");
+				r.localFechaEntrada = rs.getDate("fechaEntrada");
+				r.localFechaSalida = rs.getDate("fechaSalida");
+				r.localMaterial = rs.getBoolean("material");
+				r.localProfesor = rs.getBoolean("profesor");
+				r.localSki = rs.getBoolean("ski");
+				r.localPrecio = rs.getDouble("precio");
+				r.localNombreCliente = rs.getString("nombreCliente");
+				response.addOut(r);
+			}
+
+			rs.close();
+
+		} catch (SQLException ex) {
+
+			// Mantener el control sobre el tipo de error
+			System.out.println("SQLException: " + ex.getMessage());
+
+		}
+
+		return response;
+	}
+     
 }
+    
