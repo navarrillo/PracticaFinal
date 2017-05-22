@@ -32,8 +32,10 @@ namespace Cliente
             if (resultado == true)
             {
                 btn_iniciarSesion.Text = "Bienvenido";
-                Proveedores proFrm = new Proveedores();
-                proFrm.Show();
+                /*Proveedores proFrm = new Proveedores();
+                proFrm.Show();*/
+                Form1 frm = new Form1(email);
+                frm.Show();
 
                 this.Hide();
             }
@@ -46,10 +48,10 @@ namespace Cliente
 
         private void Reserva_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
+            /*Form1 frm = new Form1();
             frm.Show();
 
-            this.Hide();
+            this.Hide();*/
         }
     }
 }
