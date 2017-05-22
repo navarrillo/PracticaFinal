@@ -22,5 +22,9 @@
             <actionMapping>http://www.example.org/GestionReserva/EditarReserva</actionMapping>
             <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/EditarReservaResponse</outputActionMapping>
         </operation>
+        <operation name="LeerReservaMail" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/LeerReservaMail</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/LeerReservaMailResponse</outputActionMapping>
+        </operation>
     </service>
 </serviceGroup>

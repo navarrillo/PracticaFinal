@@ -95,6 +95,22 @@
       		<xsd:element name="alojamiento" type="xsd:boolean"/>
       	</xsd:sequence>
       </xsd:complexType>
+      <xsd:element name="LeerReservaMail">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="email" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerReservaMailResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="out" type="tns:Reserva"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="EditarReservaRequest">
@@ -121,6 +137,10 @@
     <wsdl:part name="parameters" element="tns:EliminarReservaResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="LeerReservaMailResponse">
+    <wsdl:part name="parameters" element="tns:LeerReservaMailResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="AlmacenarReservaRequest">
     <wsdl:part name="parameters" element="tns:AlmacenarReserva">
     </wsdl:part>
@@ -131,6 +151,10 @@
   </wsdl:message>
   <wsdl:message name="LeerReservaResponse">
     <wsdl:part name="parameters" element="tns:LeerReservaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LeerReservaMailRequest">
+    <wsdl:part name="parameters" element="tns:LeerReservaMail">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="LeerReservaRequest">
@@ -160,6 +184,12 @@
       <wsdl:input message="tns:EliminarReservaRequest">
     </wsdl:input>
       <wsdl:output message="tns:EliminarReservaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerReservaMail">
+      <wsdl:input message="tns:LeerReservaMailRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:LeerReservaMailResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -194,6 +224,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarReserva">
       <soap:operation soapAction="http://www.example.org/GestionReserva/EliminarReserva"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerReservaMail">
+      <soap:operation soapAction="http://www.example.org/GestionReserva/LeerReservaMail"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsdl1="http://www.example.org/proveedor2/" xmlns:wsdl2="http://www.example.org/proveedor3/" xmlns:tns="http://proyectoFinal" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://www.example.org/proveedor1/" name="ReservaPers" targetNamespace="http://proyectoFinal" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <plnk:partnerLinkType name="Proveedor1PLN">
+    <plnk:role name="Proveedor1Role" portType="wsdl:proveedor1" />
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="Proveedor2PLN">
+    <plnk:role name="Proveedor2Role" portType="wsdl1:proveedor2" />
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="Proveedor3PLN">
+    <plnk:role name="Proveedor3Role" portType="wsdl2:proveedor3" />
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="ReservaPers">
+    <plnk:role name="ReservaPersProvider" portType="tns:ReservaPers" />
+  </plnk:partnerLinkType>
+  <import namespace="http://www.example.org/proveedor1/" location="proveedor1.wsdl" />
+  <import namespace="http://www.example.org/proveedor2/" location="proveedor2.wsdl" />
+  <import namespace="http://www.example.org/proveedor3/" location="proveedor3.wsdl" />
+  <types>
+    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://proyectoFinal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="ReservaPersRequest">
+        <complexType>
+          <sequence>
+            <element name="ski" type="boolean" />
+            <element name="material" type="boolean" />
+            <element name="profesor" type="boolean" />
+            <element name="alojamiento" type="boolean" />
+            <element name="unidades" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ReservaPersResponse">
+        <complexType>
+          <sequence>
+            <element name="precio" type="double" />
+            <element name="proveedor" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="ReservaPersRequestMessage">
+    <part name="payload" element="tns:ReservaPersRequest" />
+  </message>
+  <message name="ReservaPersResponseMessage">
+    <part name="payload" element="tns:ReservaPersResponse" />
+  </message>
+  <portType name="ReservaPers">
+    <operation name="process">
+      <input message="tns:ReservaPersRequestMessage" />
+      <output message="tns:ReservaPersResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="ReservaPersBinding" type="tns:ReservaPers">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="process">
+      <soap:operation soapAction="http://proyectoFinal/process" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ReservaPersService">
+    <port name="ReservaPersPort" binding="tns:ReservaPersBinding">
+      <soap:address location="http://localhost:8080/ode/processes/ReservaPers" />
+    </port>
+  </service>
+</definitions>

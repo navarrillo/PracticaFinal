@@ -94,6 +94,22 @@
       		<xsd:element name="alojamiento" type="xsd:boolean"></xsd:element>
       	</xsd:sequence>
       </xsd:complexType>
+      <xsd:element name="LeerReservaMail">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="email" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LeerReservaMailResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="tns:Reserva" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="CrearReservaRequest">
@@ -126,6 +142,12 @@
   <wsdl:message name="AlmacenarReservaResponse">
   	<wsdl:part name="parameters" element="tns:AlmacenarReservaResponse"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="LeerReservaMailRequest">
+  	<wsdl:part name="parameters" element="tns:LeerReservaMail"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LeerReservaMailResponse">
+  	<wsdl:part name="parameters" element="tns:LeerReservaMailResponse"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="GestionReserva">
     <wsdl:operation name="CrearReserva">
       <wsdl:input message="tns:CrearReservaRequest"/>
@@ -142,7 +164,12 @@
     <wsdl:operation name="EliminarReserva">
     	<wsdl:input message="tns:EliminarReservaRequest"></wsdl:input>
     	<wsdl:output message="tns:EliminarReservaResponse"></wsdl:output>
-    </wsdl:operation>
+    </wsdl:operation>
+
+    <wsdl:operation name="LeerReservaMail">
+    	<wsdl:input message="tns:LeerReservaMailRequest"></wsdl:input>
+    	<wsdl:output message="tns:LeerReservaMailResponse"></wsdl:output>
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="GestionReservaSOAP" type="tns:GestionReserva">
 
@@ -201,6 +228,16 @@
   		</wsdl:output>
   	</wsdl:operation>
 
+  	<wsdl:operation name="LeerReservaMail">
+  		<soap:operation
+  			soapAction="http://www.example.org/GestionReserva/LeerReservaMail" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="GestionReserva">
     <wsdl:port binding="tns:GestionReservaSOAP" name="GestionReservaSOAP">

@@ -32,17 +32,24 @@ namespace Cliente
             if (resultado == true)
             {
                 btn_iniciarSesion.Text = "Bienvenido";
-                Form1 frm = new Form1();
-                frm.Show();
+                Proveedores proFrm = new Proveedores();
+                proFrm.Show();
 
-                this.Close();
+                this.Hide();
             }
             else if (resultado == false)
             {
                 btn_iniciarSesion.Text = "No existe ese usuario";
             }
 
+        }
 
+        private void Reserva_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new Form1();
+            frm.Show();
+
+            this.Hide();
         }
     }
 }

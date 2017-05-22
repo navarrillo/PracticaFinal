@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_pass_login = new System.Windows.Forms.TextBox();
             this.btn_iniciarSesion = new System.Windows.Forms.Button();
+            this.Reserva = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -77,11 +78,22 @@
             this.btn_iniciarSesion.UseVisualStyleBackColor = true;
             this.btn_iniciarSesion.Click += new System.EventHandler(this.btn_iniciarSesion_Click);
             // 
+            // Reserva
+            // 
+            this.Reserva.Location = new System.Drawing.Point(377, 90);
+            this.Reserva.Name = "Reserva";
+            this.Reserva.Size = new System.Drawing.Size(139, 111);
+            this.Reserva.TabIndex = 5;
+            this.Reserva.Text = "Realizar Reserva";
+            this.Reserva.UseVisualStyleBackColor = true;
+            this.Reserva.Click += new System.EventHandler(this.Reserva_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 355);
+            this.ClientSize = new System.Drawing.Size(569, 364);
+            this.Controls.Add(this.Reserva);
             this.Controls.Add(this.btn_iniciarSesion);
             this.Controls.Add(this.tb_pass_login);
             this.Controls.Add(this.label2);
@@ -101,5 +113,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_pass_login;
         private System.Windows.Forms.Button btn_iniciarSesion;
+        private System.Windows.Forms.Button Reserva;
     }
 }
