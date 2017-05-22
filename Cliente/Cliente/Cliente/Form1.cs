@@ -13,9 +13,11 @@ namespace Cliente
     public partial class Form1 : Form
     {
         public gesReserva.ReservaEdicion[] listaReservas;
+        string email;
 
-        public Form1()
+        public Form1(string email)
         {
+            this.email = email;
             InitializeComponent();
 
         }
@@ -98,7 +100,7 @@ namespace Cliente
         {
             gesReserva.GestionReserva reserva = new gesReserva.GestionReserva();
 
-           listaReservas = reserva.LeerReservaMail("a");
+           listaReservas = reserva.LeerReservaMail(email);
 
             foreach (gesReserva.ReservaEdicion res in listaReservas)
             {
