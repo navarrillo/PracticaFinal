@@ -12,9 +12,12 @@ namespace Cliente
 {
     public partial class ModificarReserva : Form
     {
-        public ModificarReserva()
+        gesReserva.ReservaEdicion reservaEdit;
+        public ModificarReserva(gesReserva.ReservaEdicion reservaEdit)
         {
+
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
