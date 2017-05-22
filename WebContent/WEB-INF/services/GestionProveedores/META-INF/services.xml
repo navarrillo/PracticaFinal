@@ -14,5 +14,9 @@
             <actionMapping>http://www.example.org/GestionProveedores/LeerOfertas</actionMapping>
             <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/LeerOfertasResponse</outputActionMapping>
         </operation>
+        <operation name="LeerOfertasSiHay" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionProveedores/">
+            <actionMapping>http://www.example.org/GestionProveedores/LeerOfertasSiHay</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionProveedores/GestionProveedores/LeerOfertasSiHayResponse</outputActionMapping>
+        </operation>
     </service>
 </serviceGroup>

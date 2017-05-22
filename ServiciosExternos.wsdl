@@ -42,14 +42,34 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
-      <xsd:element name="obtenerEmailsResponse">
+      <xsd:element name="obtenerEmailsResponse" type="tns:salida">
+
+      </xsd:element>
+      <xsd:element name="obtenerEmailsSuscritos">
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="emails" type="xsd:string" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+      			<xsd:element name="in" type="xsd:string"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+      <xsd:element name="obtenerEmailsSuscritosResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="emails" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    
+    
+    
+    
+      <xsd:complexType name="salida">
+      	<xsd:sequence>
+      		<xsd:element name="emails" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="validarCIFRequest">
@@ -70,6 +90,12 @@
   <wsdl:message name="obtenerEmailsResponse">
   	<wsdl:part name="parameters" element="tns:obtenerEmailsResponse"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="obtenerEmailsSuscritosRequest">
+  	<wsdl:part name="parameters" element="tns:obtenerEmailsSuscritos"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerEmailsSuscritosResponse">
+  	<wsdl:part name="parameters" element="tns:obtenerEmailsSuscritosResponse"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="ServiciosExternos">
     <wsdl:operation name="validarCIF">
       <wsdl:input message="tns:validarCIFRequest"/>
@@ -82,6 +108,10 @@
     <wsdl:operation name="obtenerEmails">
     	<wsdl:input message="tns:obtenerEmailsRequest"></wsdl:input>
     	<wsdl:output message="tns:obtenerEmailsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerEmailsSuscritos">
+    	<wsdl:input message="tns:obtenerEmailsSuscritosRequest"></wsdl:input>
+    	<wsdl:output message="tns:obtenerEmailsSuscritosResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiciosExternosSOAP"
@@ -103,22 +133,41 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="obtenerEmail">
+
   		<soap:operation
   			soapAction="http://www.example.org/ServiciosExternos/obtenerEmail" />
   		<wsdl:input>
+
   			<soap:body use="literal" />
   		</wsdl:input>
   		<wsdl:output>
+
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="obtenerEmails">
+
   		<soap:operation
   			soapAction="http://www.example.org/ServiciosExternos/obtenerEmails" />
   		<wsdl:input>
+
   			<soap:body use="literal" />
   		</wsdl:input>
   		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="obtenerEmailsSuscritos">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/ServiciosExternos/obtenerEmailsSuscritos" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>

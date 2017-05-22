@@ -7,6 +7,7 @@
  */
 package org.example.www.serviciosexternos;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,13 +21,61 @@ public class ServiciosExternosSkeleton {
 	/**
 	 * Auto generated method signature
 	 * 
+	 * @param obtenerEmailsSuscritos
+	 * @return obtenerEmailsSuscritosResponse
+	 */
+
+	public org.example.www.serviciosexternos.ObtenerEmailsSuscritosResponse obtenerEmailsSuscritos(
+			org.example.www.serviciosexternos.ObtenerEmailsSuscritos obtenerEmailsSuscritos) {
+		
+		ObtenerEmailsSuscritosResponse respuesta = new ObtenerEmailsSuscritosResponse();
+		String mails = "";
+
+		//BÚSQUEDA DEL EMAIL EN LA TABLA USUARIOS 
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+		}
+
+		Connection con = null;
+		ResultSet rs = null;
+		Statement cmd = null;
+		try {
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3311/proyectoskibd?" + "user=root&password=root");
+			cmd = con.createStatement();
+			
+			String tabla = "SELECT email FROM usuarios WHERE suscripcion LIKE 'yes';";
+			rs = cmd.executeQuery(tabla);
+			int i = 0;
+			while (rs.next()) {
+				mails += rs.getString("email")+ ", ";
+				i++;
+			}
+			cmd = con.createStatement();
+			
+			rs.close();
+
+		} catch (SQLException ex) {
+			System.out.println("ESTÁS EN LA B DEBIDO AL ERROR: SQLException: " + ex.getMessage());
+		}
+			respuesta.setEmails(mails);
+			return respuesta;
+	}
+
+	/**
+	 * Auto generated method signature
+	 * 
 	 * @param obtenerEmail
 	 * @return obtenerEmailResponse
 	 */
 
 	public org.example.www.serviciosexternos.ObtenerEmailResponse obtenerEmail(
 			org.example.www.serviciosexternos.ObtenerEmail obtenerEmail) {
-ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
+		
+		ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
 		
 		String dni = obtenerEmail.getDni();
 		String mail = "";
@@ -84,9 +133,12 @@ ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
 
 	public org.example.www.serviciosexternos.ObtenerEmailsResponse obtenerEmails(
 			org.example.www.serviciosexternos.ObtenerEmails obtenerEmails) {
+		
 		ObtenerEmailsResponse respuesta = new ObtenerEmailsResponse();
-		String[] mails = new String[50];
-		System.out.println(mails);
+		
+		Salida salida = new Salida();
+		String mails = "";
+		
 
 		//BÚSQUEDA DEL EMAIL EN LA TABLA USUARIOS 
 		try {
@@ -108,7 +160,7 @@ ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
 			rs = cmd.executeQuery(tabla);
 			int i = 0;
 			while (rs.next()) {
-				mails[i] = rs.getString("email");
+				mails += rs.getString("email")+", ";
 				i++;
 			}
 			cmd = con.createStatement();
@@ -118,8 +170,8 @@ ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
 		} catch (SQLException ex) {
 			System.out.println("ESTÁS EN LA B DEBIDO AL ERROR: SQLException: " + ex.getMessage());
 		}
-
-			respuesta.setEmails(mails);
+			salida.setEmails(mails);
+			respuesta.setObtenerEmailsResponse(salida);
 			return respuesta;
 	}
 
@@ -132,6 +184,7 @@ ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
 
 	public org.example.www.serviciosexternos.ValidarCIFResponse validarCIF(
 			org.example.www.serviciosexternos.ValidarCIF validarCIF) {
+		
 		try {
 			ValidarCIFResponse resp = new ValidarCIFResponse();
 			resp.setError("");
@@ -197,4 +250,5 @@ ObtenerEmailResponse respuesta = new ObtenerEmailResponse();
 
 		}
 	}
+
 }

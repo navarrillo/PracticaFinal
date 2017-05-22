@@ -1,0 +1,12 @@
+[{
+ "id": 1,
+ "fechaEntrada": "4/05/2017",
+ "fechaSalida": "4/05/2017",
+ "nombreCliente": "juan",
+ "emailCliente": "j@gmail.com",
+ "precio": 1,
+ "ski": "true",
+ "material": "true",
+ "profesor": "true",
+ "alojamiento": "true"
+}]

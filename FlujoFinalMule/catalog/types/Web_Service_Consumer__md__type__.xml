@@ -3,8 +3,8 @@
   <types class="tree-map">
     <entry>
       <org.mule.common.metadata.DefaultMetaDataKey>
-        <id>LeerOfertas</id>
-        <displayName>LeerOfertas</displayName>
+        <id>obtenerEmails</id>
+        <displayName>obtenerEmails</displayName>
         <category>DEFAULT</category>
         <metaDataKeyPropertiesManager>
           <properties>
@@ -57,57 +57,90 @@
           </org.mule.common.metadata.DefaultMetaDataField>
         </fields>
         <rootElement>
-          <namespaceURI>http://www.example.org/GestionProveedores/</namespaceURI>
-          <localPart>LeerOfertas</localPart>
+          <namespaceURI>http://www.example.org/ServiciosExternos/</namespaceURI>
+          <localPart>obtenerEmails</localPart>
           <prefix>ns0</prefix>
         </rootElement>
         <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
           <schemas>
-            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/GestionProveedores/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/GestionProveedores/&quot;&gt;&#xd;
-      &lt;xsd:element name=&quot;LeerOfertas&quot;&gt;&#xd;
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/ServiciosExternos/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/ServiciosExternos/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;validarCIF&quot;&gt;&#xd;
         &lt;xsd:complexType&gt;&#xd;
           &lt;xsd:sequence&gt;&#xd;
-            &lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+            &lt;xsd:element name=&quot;cif&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
           &lt;/xsd:sequence&gt;&#xd;
         &lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
-      &lt;xsd:element name=&quot;LeerOfertasResponse&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;validarCIFResponse&quot;&gt;&#xd;
         &lt;xsd:complexType&gt;&#xd;
           &lt;xsd:sequence&gt;&#xd;
-          	&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-          	&lt;xsd:element name=&quot;prov1&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-          	&lt;xsd:element name=&quot;prov2&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-          	&lt;xsd:element name=&quot;prov3&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;validacion&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;error&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
           &lt;/xsd:sequence&gt;&#xd;
         &lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
-      &lt;xsd:element name=&quot;GenerarOferta&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmail&quot;&gt;&#xd;
       	&lt;xsd:complexType&gt;&#xd;
       		&lt;xsd:sequence&gt;&#xd;
 &#xd;
-      			&lt;xsd:element name=&quot;cif&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-      			&lt;xsd:element name=&quot;nuevaOfeta&quot; type=&quot;xsd:double&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;dni&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       		&lt;/xsd:sequence&gt;&#xd;
       	&lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
-      &lt;xsd:element name=&quot;GenerarOfertaResponse&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailResponse&quot;&gt;&#xd;
       	&lt;xsd:complexType&gt;&#xd;
       		&lt;xsd:sequence&gt;&#xd;
 &#xd;
-      			&lt;xsd:element name=&quot;confirmacion&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;email&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       			&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       		&lt;/xsd:sequence&gt;&#xd;
       	&lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmails&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailsResponse&quot; type=&quot;tns:salida&quot;&gt;&#xd;
+&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailsSuscritos&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailsSuscritosResponse&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &#xd;
+    &#xd;
+    &#xd;
+    &#xd;
+      &lt;xsd:complexType name=&quot;salida&quot;&gt;&#xd;
+      	&lt;xsd:sequence&gt;&#xd;
+      		&lt;xsd:element name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      	&lt;/xsd:sequence&gt;&#xd;
+      &lt;/xsd:complexType&gt;&#xd;
     &lt;/xsd:schema&gt;</string>
           </schemas>
           <encoding>windows-1252</encoding>
-          <baseUri>http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl</baseUri>
+          <baseUri>http://localhost:9080/PracticaFinal/services/ServiciosExternos?wsdl</baseUri>
         </schemas>
         <namespaceManager>
           <namespacePrefix class="tree-map">
             <entry>
-              <string>http://www.example.org/GestionProveedores/</string>
+              <string>http://www.example.org/ServiciosExternos/</string>
               <string>ns0</string>
             </entry>
           </namespacePrefix>
@@ -116,8 +149,8 @@
     </entry>
     <entry>
       <org.mule.common.metadata.DefaultMetaDataKey>
-        <id>LeerOfertasResponse</id>
-        <displayName>LeerOfertasResponse</displayName>
+        <id>obtenerEmailsResponse</id>
+        <displayName>obtenerEmailsResponse</displayName>
         <category>DEFAULT</category>
         <metaDataKeyPropertiesManager>
           <properties>
@@ -130,7 +163,13 @@
         <metaDataModelPropertiesManager>
           <properties>
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
-            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
+            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+              <typeQName>
+                <namespaceURI>http://www.example.org/ServiciosExternos/</namespaceURI>
+                <localPart>salida</localPart>
+                <prefix></prefix>
+              </typeQName>
+            </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
             <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
               <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
               <derivedStructure>false</derivedStructure>
@@ -140,7 +179,7 @@
         </metaDataModelPropertiesManager>
         <fields>
           <org.mule.common.metadata.DefaultMetaDataField>
-            <name>mensaje</name>
+            <name>emails</name>
             <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
               <dataType>STRING</dataType>
               <metaDataModelPropertiesManager>
@@ -157,82 +196,7 @@
                 <org.mule.common.metadata.property.QNameMetaDataProperty>
                   <name>
                     <namespaceURI></namespaceURI>
-                    <localPart>mensaje</localPart>
-                    <prefix></prefix>
-                  </name>
-                </org.mule.common.metadata.property.QNameMetaDataProperty>
-              </properties>
-            </metaDataFieldPropertyManager>
-          </org.mule.common.metadata.DefaultMetaDataField>
-          <org.mule.common.metadata.DefaultMetaDataField>
-            <name>prov1</name>
-            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-              <dataType>STRING</dataType>
-              <metaDataModelPropertiesManager>
-                <properties>
-                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
-                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                </properties>
-              </metaDataModelPropertiesManager>
-            </model>
-            <accessType>READ_WRITE</accessType>
-            <metaDataFieldPropertyManager>
-              <properties>
-                <org.mule.common.metadata.property.QNameMetaDataProperty>
-                  <name>
-                    <namespaceURI></namespaceURI>
-                    <localPart>prov1</localPart>
-                    <prefix></prefix>
-                  </name>
-                </org.mule.common.metadata.property.QNameMetaDataProperty>
-              </properties>
-            </metaDataFieldPropertyManager>
-          </org.mule.common.metadata.DefaultMetaDataField>
-          <org.mule.common.metadata.DefaultMetaDataField>
-            <name>prov2</name>
-            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-              <dataType>STRING</dataType>
-              <metaDataModelPropertiesManager>
-                <properties>
-                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
-                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                </properties>
-              </metaDataModelPropertiesManager>
-            </model>
-            <accessType>READ_WRITE</accessType>
-            <metaDataFieldPropertyManager>
-              <properties>
-                <org.mule.common.metadata.property.QNameMetaDataProperty>
-                  <name>
-                    <namespaceURI></namespaceURI>
-                    <localPart>prov2</localPart>
-                    <prefix></prefix>
-                  </name>
-                </org.mule.common.metadata.property.QNameMetaDataProperty>
-              </properties>
-            </metaDataFieldPropertyManager>
-          </org.mule.common.metadata.DefaultMetaDataField>
-          <org.mule.common.metadata.DefaultMetaDataField>
-            <name>prov3</name>
-            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-              <dataType>STRING</dataType>
-              <metaDataModelPropertiesManager>
-                <properties>
-                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                    <typeQName reference="../../../../../../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/fields/org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
-                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
-                </properties>
-              </metaDataModelPropertiesManager>
-            </model>
-            <accessType>READ_WRITE</accessType>
-            <metaDataFieldPropertyManager>
-              <properties>
-                <org.mule.common.metadata.property.QNameMetaDataProperty>
-                  <name>
-                    <namespaceURI></namespaceURI>
-                    <localPart>prov3</localPart>
+                    <localPart>emails</localPart>
                     <prefix></prefix>
                   </name>
                 </org.mule.common.metadata.property.QNameMetaDataProperty>
@@ -241,57 +205,90 @@
           </org.mule.common.metadata.DefaultMetaDataField>
         </fields>
         <rootElement>
-          <namespaceURI>http://www.example.org/GestionProveedores/</namespaceURI>
-          <localPart>LeerOfertasResponse</localPart>
+          <namespaceURI>http://www.example.org/ServiciosExternos/</namespaceURI>
+          <localPart>obtenerEmailsResponse</localPart>
           <prefix>ns0</prefix>
         </rootElement>
         <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
           <schemas>
-            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/GestionProveedores/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/GestionProveedores/&quot;&gt;&#xd;
-      &lt;xsd:element name=&quot;LeerOfertas&quot;&gt;&#xd;
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/ServiciosExternos/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/ServiciosExternos/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;validarCIF&quot;&gt;&#xd;
         &lt;xsd:complexType&gt;&#xd;
           &lt;xsd:sequence&gt;&#xd;
-            &lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+            &lt;xsd:element name=&quot;cif&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
           &lt;/xsd:sequence&gt;&#xd;
         &lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
-      &lt;xsd:element name=&quot;LeerOfertasResponse&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;validarCIFResponse&quot;&gt;&#xd;
         &lt;xsd:complexType&gt;&#xd;
           &lt;xsd:sequence&gt;&#xd;
-          	&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-          	&lt;xsd:element name=&quot;prov1&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-          	&lt;xsd:element name=&quot;prov2&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-          	&lt;xsd:element name=&quot;prov3&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;validacion&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;error&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
           &lt;/xsd:sequence&gt;&#xd;
         &lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
-      &lt;xsd:element name=&quot;GenerarOferta&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmail&quot;&gt;&#xd;
       	&lt;xsd:complexType&gt;&#xd;
       		&lt;xsd:sequence&gt;&#xd;
 &#xd;
-      			&lt;xsd:element name=&quot;cif&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
-      			&lt;xsd:element name=&quot;nuevaOfeta&quot; type=&quot;xsd:double&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;dni&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       		&lt;/xsd:sequence&gt;&#xd;
       	&lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
-      &lt;xsd:element name=&quot;GenerarOfertaResponse&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailResponse&quot;&gt;&#xd;
       	&lt;xsd:complexType&gt;&#xd;
       		&lt;xsd:sequence&gt;&#xd;
 &#xd;
-      			&lt;xsd:element name=&quot;confirmacion&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+      			&lt;xsd:element name=&quot;email&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       			&lt;xsd:element name=&quot;mensaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
       		&lt;/xsd:sequence&gt;&#xd;
       	&lt;/xsd:complexType&gt;&#xd;
       &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmails&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailsResponse&quot; type=&quot;tns:salida&quot;&gt;&#xd;
+&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailsSuscritos&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;in&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;obtenerEmailsSuscritosResponse&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &#xd;
+    &#xd;
+    &#xd;
+    &#xd;
+      &lt;xsd:complexType name=&quot;salida&quot;&gt;&#xd;
+      	&lt;xsd:sequence&gt;&#xd;
+      		&lt;xsd:element name=&quot;emails&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      	&lt;/xsd:sequence&gt;&#xd;
+      &lt;/xsd:complexType&gt;&#xd;
     &lt;/xsd:schema&gt;</string>
           </schemas>
           <encoding reference="../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/schemas/encoding"/>
-          <baseUri>http://localhost:9080/PracticaFinal/services/GestionProveedores?wsdl</baseUri>
+          <baseUri>http://localhost:9080/PracticaFinal/services/ServiciosExternos?wsdl</baseUri>
         </schemas>
         <namespaceManager>
           <namespacePrefix class="tree-map">
             <entry>
-              <string>http://www.example.org/GestionProveedores/</string>
+              <string>http://www.example.org/ServiciosExternos/</string>
               <string>ns0</string>
             </entry>
           </namespacePrefix>

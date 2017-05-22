@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
-    <service name="proveedor3">
+    <service name="GestionReserva">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.proveedor3.Proveedor3MessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.gestionreserva.GestionReservaMessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">org.example.www.proveedor3.Proveedor3Skeleton</parameter>
+        <parameter name="ServiceClass">org.example.www.gestionreserva.GestionReservaSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="solicitarPresupuesto" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/proveedor3/">
-            <actionMapping>http://www.example.org/proveedor3/solicitarPresupuesto</actionMapping>
-            <outputActionMapping>http://www.example.org/proveedor3/proveedor3/solicitarPresupuestoResponse</outputActionMapping>
+        <operation name="CrearReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/CrearReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/CrearReservaResponse</outputActionMapping>
         </operation>
-        <operation name="solicitarPersonalizado" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/proveedor3/">
-            <actionMapping>http://www.example.org/proveedor3/solicitarPersonalizado</actionMapping>
-            <outputActionMapping>http://www.example.org/proveedor3/proveedor3/solicitarPersonalizadoResponse</outputActionMapping>
+        <operation name="LeerReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/LeerReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/LeerReservaResponse</outputActionMapping>
+        </operation>
+        <operation name="EliminarReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/EliminarReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/EliminarReservaResponse</outputActionMapping>
+        </operation>
+        <operation name="EditarReserva" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/GestionReserva/">
+            <actionMapping>http://www.example.org/GestionReserva/EditarReserva</actionMapping>
+            <outputActionMapping>http://www.example.org/GestionReserva/GestionReserva/EditarReservaResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>
