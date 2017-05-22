@@ -48,40 +48,30 @@ namespace Cliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
+            gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
             string salida;
             gesReserva.CrearReserva(reserva.fechaEntrada, reserva.fechaSalida, 
                 reserva.nombreCliente, reserva.emailCliente, reserva.precio, 
                 reserva.ski,reserva.material, reserva.profesor, reserva.alojamiento, out salida);
-            MessageBox.Show(salida);*/
+            MessageBox.Show(salida);
 
-            Reserva res = new Reserva();
+            this.Close();
 
-            res.id = 10; ;
-            res.nombreCliente = reserva.nombreCliente; ;
-            res.precio = reserva.precio;
-            res.emailCliente = "dani_hawkb@hotmail.com";
-            res.fechaEntrada = reserva.fechaEntrada;
-            res.fechaSalida = reserva.fechaSalida;
-            res.ski = reserva.ski;
-            res.material = reserva.material;
-            res.profesor = reserva.profesor;
-            res.alojamiento = reserva.alojamiento;
-
-
-            string output = JsonConvert.SerializeObject(res);
-
-            /* gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
+             /*gesReserva.GestionReserva gesReserva = new gesReserva.GestionReserva();
              string salida;*/
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/gestionreserva");
+            /*var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:9090/gestionreserva");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-
-                streamWriter.Write(output);
+                string json = "{\"ski\":" + ski + "," +
+                             "\"material\":" + material + "," +
+                             "\"profesor\":" + profesor + "," +
+                             "\"alojamiento\":" + alojamiento + "," +
+                              "\"unidades\":" + unidades + "}";
+                streamWriter.Write(json);
                 streamWriter.Flush();
                 streamWriter.Close();
             }
@@ -91,7 +81,7 @@ namespace Cliente
             {
                 var result = streamReader.ReadToEnd();
                 MessageBox.Show(result);
-            }
+            }*/
 
         }
     }

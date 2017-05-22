@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -48,15 +49,15 @@ namespace Cliente
             proveedores.ReservaPersRequest resRequest = new proveedores.ReservaPersRequest();
             proveedores.ReservaPersBinding resBinding = new proveedores.ReservaPersBinding();
 
-            int ski = 0;
-            int material = 0;
-            int profesor = 0;
-            int alojamiento = 0;
+            string ski = "false";
+            string material = "false";
+            string profesor = "false";
+            string alojamiento = "false";
 
-            if (checkBox1.Checked) ski = 1;
-            if (checkBox2.Checked) material = 1;
-            if (checkBox3.Checked) profesor = 1;
-            if (checkBox4.Checked) alojamiento = 1;
+            if (checkBox1.Checked) ski = "true";
+            if (checkBox2.Checked) material = "true";
+            if (checkBox3.Checked) profesor = "true";
+            if (checkBox4.Checked) alojamiento = "true";
 
             int dias = (DateTime.Parse(dateTimePicker2.Text) - (DateTime.Parse(dateTimePicker1.Text))).Days + 1;
             int unidades = Int32.Parse(textBox1.Text) * dias;
@@ -82,11 +83,13 @@ namespace Cliente
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                MessageBox.Show(result);
+                
                 JObject json = JObject.Parse(result);
 
                 string str = json.GetValue("precio").ToString();
-                double precio = Double.Parse(str);
+                double precio = double.Parse(str, CultureInfo.InvariantCulture);
+
+                MessageBox.Show(precio.ToString());
 
                 gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
 
@@ -95,39 +98,15 @@ namespace Cliente
                 res.emailCliente = textBox3.Text;
                 res.nombreCliente = textBox4.Text;
                 res.precio = precio;
-                res.material = resRequest.material;
-                res.profesor = resRequest.profesor;
-                res.ski = resRequest.profesor;
-                res.alojamiento = resRequest.alojamiento;
+                res.material = bool.Parse(material);
+                res.profesor = bool.Parse(profesor);
+                res.ski = bool.Parse(ski);
+                res.alojamiento = bool.Parse(alojamiento);
 
                 // Abrimos nueva pantalla para mostrar los datos de la reserva
                 RealizaReserva resFrm = new RealizaReserva(res, json.GetValue("proveedor").ToString(), textBox1.Text);
                 resFrm.Show();
             }
-            
-
-
-            //obtenemos los dias que se va a ir
-            /* int dias = (DateTime.Parse(dateTimePicker2.Text) - (DateTime.Parse(dateTimePicker1.Text))).Days+1;
-             resRequest.unidades = Int32.Parse(textBox1.Text)*dias;
-
-             string str = response.precio.ToString();
-             string proveedor = response.proveedor;
-
-             gesReserva.ReservaEdicion res = new gesReserva.ReservaEdicion();
-
-             res.fechaEntrada = DateTime.Parse(dateTimePicker1.Text);
-             res.fechaSalida = DateTime.Parse(dateTimePicker2.Text);
-             res.emailCliente = textBox3.Text;
-             res.nombreCliente = textBox4.Text;
-             res.precio = precio;
-             res.material = resRequest.material;
-             res.profesor = resRequest.profesor;
-             res.ski = resRequest.profesor;
-             res.alojamiento = resRequest.alojamiento;
-             // Abrimos nueva pantalla para mostrar los datos de la reserva
-             RealizaReserva resFrm = new RealizaReserva(res,proveedor,textBox1.Text);
-             resFrm.Show();*/
 
         }
 

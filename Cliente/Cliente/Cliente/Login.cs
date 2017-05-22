@@ -46,7 +46,6 @@ namespace Cliente
 
                     this.Hide();
                 }
-                MessageBox.Show("No existe ese usuario");
             }
         }
 
