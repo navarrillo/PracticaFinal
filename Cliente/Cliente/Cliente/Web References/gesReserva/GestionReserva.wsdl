@@ -89,7 +89,7 @@
       <xsd:element name="LeerReservaMailResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element minOccurs="0" maxOccurs="unbounded" name="out" type="tns:Reserva" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="out" type="tns:ReservaEdicion" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
