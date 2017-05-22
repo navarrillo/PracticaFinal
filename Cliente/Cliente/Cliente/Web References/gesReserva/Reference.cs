@@ -334,11 +334,11 @@ namespace Cliente.gesReserva {
         
         private bool alojamientoField;
         
-<<<<<<< HEAD
+
         /// <remarks/>
-=======
+
         /// <comentarios/>
->>>>>>> sergio
+
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id {
             get {
@@ -349,11 +349,11 @@ namespace Cliente.gesReserva {
             }
         }
         
-<<<<<<< HEAD
+
         /// <remarks/>
-=======
+
         /// <comentarios/>
->>>>>>> sergio
+
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="date")]
         public System.DateTime fechaEntrada {
             get {

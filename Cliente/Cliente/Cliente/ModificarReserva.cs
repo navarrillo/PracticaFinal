@@ -12,7 +12,7 @@ namespace Cliente
 {
     public partial class ModificarReserva : Form
     {
-        public ModificarReserva()
+        public ModificarReserva(gesReserva.ReservaEdicion reserva)
         {
             InitializeComponent();
         }

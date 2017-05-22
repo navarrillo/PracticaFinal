@@ -130,6 +130,8 @@ namespace Cliente
                  {
                      //ModificarReserva formModifica = new ModificarReserva();
                      //formModifica.Show(res);
+                     ModificarReserva formModifica = new ModificarReserva(res);
+                     formModifica.Show();
 
                     // this.Hide();
                  }
