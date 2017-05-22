@@ -36,5 +36,35 @@ namespace Cliente
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            proveedores.ReservaPersRequest resRequest = new proveedores.ReservaPersRequest();
+            proveedores.ReservaPersBinding resBinding = new proveedores.ReservaPersBinding();
+
+            resRequest.ski = false;
+            resRequest.material = false;
+            resRequest.profesor = false;
+            resRequest.alojamiento = false;
+
+            if (checkBox1.Checked) resRequest.ski = true;
+            if (checkBox2.Checked) resRequest.material = true;
+            if (checkBox3.Checked) resRequest.profesor = true;
+            if (checkBox4.Checked) resRequest.alojamiento = true;
+
+            resRequest.unidades = Int32.Parse(textBox1.Text);
+
+            proveedores.ReservaPersResponse response = resBinding.process(resRequest);
+            string str = response.precio.ToString();
+            str += " "+response.proveedor;
+
+            textBox2.Text = str;
+                
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

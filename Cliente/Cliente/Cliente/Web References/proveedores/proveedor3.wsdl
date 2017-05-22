@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/proveedor3/" name="proveedor3" targetNamespace="http://www.example.org/proveedor3/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/proveedor3/">
+      <xsd:element name="solicitarPresupuesto">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="unidades" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="solicitarPresupuestoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="salida" type="xsd:double" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="solicitarPersonalizado">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ski" type="xsd:boolean" />
+            <xsd:element name="material" type="xsd:boolean" />
+            <xsd:element name="profesor" type="xsd:boolean" />
+            <xsd:element name="alojamiento" type="xsd:boolean" />
+            <xsd:element name="unidades" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="solicitarPersonalizadoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="salida" type="xsd:double" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="solicitarPresupuestoRequest">
+    <wsdl:part name="parameters" element="tns:solicitarPresupuesto" />
+  </wsdl:message>
+  <wsdl:message name="solicitarPresupuestoResponse">
+    <wsdl:part name="parameters" element="tns:solicitarPresupuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="solicitarPersonalizadoRequest">
+    <wsdl:part name="parameters" element="tns:solicitarPersonalizado" />
+  </wsdl:message>
+  <wsdl:message name="solicitarPersonalizadoResponse">
+    <wsdl:part name="parameters" element="tns:solicitarPersonalizadoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="proveedor3">
+    <wsdl:operation name="solicitarPresupuesto">
+      <wsdl:input message="tns:solicitarPresupuestoRequest" />
+      <wsdl:output message="tns:solicitarPresupuestoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="solicitarPersonalizado">
+      <wsdl:input message="tns:solicitarPersonalizadoRequest" />
+      <wsdl:output message="tns:solicitarPersonalizadoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="proveedor3SOAP" type="tns:proveedor3">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="solicitarPresupuesto">
+      <soap:operation soapAction="http://www.example.org/proveedor3/solicitarPresupuesto" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarPersonalizado">
+      <soap:operation soapAction="http://www.example.org/proveedor3/solicitarPersonalizado" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="proveedor3">
+    <wsdl:port name="proveedor3SOAP" binding="tns:proveedor3SOAP">
+      <soap:address location="http://localhost:9080/PracticaFinal/services/proveedor3" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
